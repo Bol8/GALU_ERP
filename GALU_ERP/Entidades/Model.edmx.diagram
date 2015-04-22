@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b4e65b0823834309b85dd27fffc4cb64" Name="Diagram1">
+        <EntityTypeShape EntityType="GaluModel.albaran" Width="1.5" PointX="5.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="GaluModel.articulo" Width="1.5" PointX="3" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="GaluModel.cliente" Width="1.5" PointX="3" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="GaluModel.contacto" Width="1.5" PointX="10.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="GaluModel.empresa" Width="1.5" PointX="9.75" PointY="12.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="GaluModel.estado_ped" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GaluModel.estado" Width="1.5" PointX="0.75" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="GaluModel.factura" Width="1.5" PointX="7.75" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="GaluModel.forma_pago" Width="1.5" PointX="3" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GaluModel.iva" Width="1.5" PointX="7.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="GaluModel.linea_factura" Width="1.5" PointX="10" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="GaluModel.linea_pedido_c" Width="1.5" PointX="5.25" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="GaluModel.linea_pedido_p" Width="1.5" PointX="8.25" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="GaluModel.pedido_c" Width="1.5" PointX="5.25" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GaluModel.pedido_p" Width="1.5" PointX="5.25" PointY="13.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="GaluModel.proveedor" Width="1.5" PointX="3" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="GaluModel.sysdiagram" Width="1.5" PointX="10.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="GaluModel.tarifa" Width="1.5" PointX="11.75" PointY="12.625" IsExpanded="true" />
+        <AssociationConnector Association="GaluModel.articulo_FK_Estado_Art" ManuallyRouted="false" />
+        <AssociationConnector Association="GaluModel.linea_pedido_c_FK_Articulo_C" ManuallyRouted="false" />
+        <AssociationConnector Association="GaluModel.linea_pedido_p_FK_Articulo_P" ManuallyRouted="false" />
+        <AssociationConnector Association="GaluModel.cliente_FK_Estado_Cli" ManuallyRouted="false" />
+        <AssociationConnector Association="GaluModel.pedido_c_FK_Cliente" ManuallyRouted="false" />
+        <AssociationConnector Association="GaluModel.pedido_c_FK_Estado_C" ManuallyRouted="false" />
+        <AssociationConnector Association="GaluModel.pedido_p_FK_Estado_P" ManuallyRouted="false" />
+        <AssociationConnector Association="GaluModel.proveedor_FK_Estado_Prov" ManuallyRouted="false" />
+        <AssociationConnector Association="GaluModel.linea_factura_FKN_factura" ManuallyRouted="false" />
+        <AssociationConnector Association="GaluModel.pedido_c_FK_Pago_C" ManuallyRouted="false" />
+        <AssociationConnector Association="GaluModel.pedido_p_FK_Pago_P" ManuallyRouted="false" />
+        <AssociationConnector Association="GaluModel.linea_pedido_c_FK_Num_ped_C" ManuallyRouted="false" />
+        <AssociationConnector Association="GaluModel.linea_pedido_p_FK_Num_ped_P" ManuallyRouted="false" />
+        <AssociationConnector Association="GaluModel.pedido_p_FK_Prov" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
