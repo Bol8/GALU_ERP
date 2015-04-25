@@ -1,0 +1,25 @@
+﻿
+
+
+
+
+
+<ul class="nav navbar-nav">
+
+    <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+            Gestión <span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu">
+            <li>@Html.ActionLink("Productos", "Presentacion", "articuloes")</li>
+            <li>@Html.ActionLink("Clientes", "Index", "User")</li>
+            <li>@Html.ActionLink("Proveedores", "Index", "Product")</li>
+            <li>@Html.ActionLink("Contactos", "Index", "User")</li>
+            <li class="divider"></li>
+            @*<li role="presentation" class="dropdown-header">Tickets</li>*@
+            <li>@Html.ActionLink("Tarifas", "Index", "TicketArea")</li>
+           
+        </ul>
+    </li>
+
+</ul>
