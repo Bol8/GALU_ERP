@@ -1,6 +1,5 @@
 ﻿
 
-
     <div class="row">
         <div class="col-sm-12">
             <div class="well">
@@ -10,12 +9,30 @@
     </div>
 
 
-
 <ul id="tabs" class="nav nav-tabs na" data-tabs="tabs">
 
     <li>@Html.ActionLink("Productos","Index","articuloes")</li>
-    <li>@Html.ActionLink("Nuevo","Create","articuloes")</li>
-    <li><a href="#" data-toggle="tab">Detalle</a></li>
-    <li><a href="#" data-toggle="tab">Anexos</a></li>
+    <li><a href="#A" data-toggle="tab">Nuevo</a></li>
+    <li><a href="#B" data-toggle="tab">Detalle</a></li>
+    <li><a href="#C" data-toggle="tab">Anexos</a></li>
 
 </ul>
+
+
+
+
+@*<div class="tab-content">
+    <div class="tab-pane fade in active" id="A">@Html.Action("Create", "articuloes")</div>
+    <div class="tab-pane fade" id="B" >@Html.Action("Details", "articuloes")</div>
+    <div class="tab-pane fade" id="C">Content inside tab C</div>
+</div>*@
+
+
+
+@*<div style="padding: 30px 30px 0 30px;">
+
+    <div id="my-tab-content" class="tab-content">
+        <div class="tab-pane fade active in ajaxPartialContents" id="Create" data-url="@Url.Action(>
+        </div>
+    </div>
+</div>*@

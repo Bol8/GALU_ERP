@@ -262,6 +262,13 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Imagenes\Agenda.jpg" />
+    <Content Include="Imagenes\Carpeta.jpg" />
+    <Content Include="Imagenes\Lapiceros.jpg" />
+    <Content Include="Imagenes\NUEV0 MEJILLON.jpg" />
+    <Content Include="Imagenes\NUEVA VIEIRA.jpg" />
+    <Content Include="Imagenes\NUEVO PEZ.png" />
+    <Content Include="Imagenes\plancha.jpg" />
     <Content Include="js\bootstrap.js" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="Web.config" />

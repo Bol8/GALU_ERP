@@ -1,18 +1,43 @@
 ﻿@model GALU_ERP.Entidades.articulo
 
-@{
-    ViewBag.Title = "Create";
-}
 
-<h2>Create</h2>
 
-@using (Html.BeginForm()) 
+<div class="row">
+    <div class="col-sm-12">
+        <div class="well">
+            <div class="Cabecera">
+                @{
+                    ViewBag.Title = "Create";
+                }
+
+                <h2>Nuevo Producto</h2>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@*<div class="container-fluid">
+    <div class="col-sm-12">
+        <div class="Cabecera">
+            @{
+                ViewBag.Title = "Create";
+            }
+
+            <h2>Nuevo Producto</h2>
+
+        </div>
+    </div>
+</div>*@
+
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
-        <h4>articulo</h4>
-        <hr />
+       
         @Html.ValidationSummary(true)
         <div class="form-group">
             @Html.LabelFor(model => model.idArt, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -102,6 +127,14 @@
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+
+
+    <div class="container-fluid">
+        <div>
+            @Html.ActionLink("Back to List", "Index", "", new { @class = "btn btn-primary btn-sm" })
+        </div>
+    </div>
+
+
+
+

@@ -54,6 +54,8 @@
 
         $(document).ready(function () {
 
+
+
             $("#menuGes").click(function () {
                 $("#ul_Ges").slideToggle();
             });
@@ -66,9 +68,9 @@
                 $("#ul_Compras").slideToggle();
             });
 
-            $(".active").on({
+            $(".img").on({
                 mouseover: function () {
-                    $(this).css("color", "red");
+                   // $(this).css("color", "red");
                     $(this).css('cursor', 'pointer');
                 }
 
@@ -76,7 +78,7 @@
                 //    $(this).css("background-color", "lightblue");
                 //},
                 //click: function () {
-                //    $(this).css("background-color", "yellow");
+                //   alert()
                 //}
             });
 

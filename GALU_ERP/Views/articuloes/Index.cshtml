@@ -1,81 +1,233 @@
 ﻿@model IEnumerable<GALU_ERP.Entidades.articulo>
 
-@{
-    ViewBag.Title = "Index";
-}
 
-<h2>Index</h2>
+<script>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+    $("");
+
+
+
+</script>
+
+
+   <div class="row">
+        <div class="col-sm-12">
+            <div class="well">
+                <div class="Cabecera">
+                    @{
+                        ViewBag.Title = "Index";
+                    }
+
+                    <h2>Productos</h2><span>@Html.ActionLink("Create New", "Create", "", new { @class = "btn btn-primary btn-sm" })</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+@*<div class="container-fluid">
+    <div class="col-sm-12">
+        <div class="Cabecera">
+            @{
+                ViewBag.Title = "Index";
+            }
+
+            <h2>Productos</h2>
+
+            <p>
+                @Html.ActionLink("Create New", "Create", "", new { @class = "btn btn-primary btn-sm" })
+
+            </p>
+        </div class="Cabecera">
+    </div>
+</div>*@
+
+
+
 <table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Nombre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Peso)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Tipo)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Precio)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IVA)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Descripcion)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Origen)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Imagen)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.estado1.Nombre)
-        </th>
-        <th></th>
-    </tr>
+    @*<tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nombre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Peso)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Tipo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Precio)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IVA)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Descripcion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Origen)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Imagen)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.estado1.Nombre)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.idArt }) |
-            @Html.ActionLink("Details", "Details", new { id=item.idArt }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.idArt })
-        </td>
-    </tr>
-}
+            <th>
+                @Html.DisplayNameFor(model => model.Nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Peso)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tipo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Precio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IVA)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Origen)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Imagen)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.estado1.Nombre)
+            </th>
+            <th></th>
+        </tr>*@
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <div class="col-sm-12">
+                    <div class="col-sm-6">
+                        <div class="Cont_Foto">
+                            <div class="row" style="min-height:232px">
+                                <div class="col-sm-12">
+                                    @*@Html.ActionLink(" ", "Edit", new { @id = item.idArt }, new { @class="img"})*@
+                                    <img class="img" src="~/Imagenes/NUEVO PEZ.png" />
+                                </div>
+                                <div class="col-sm-12">
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.idArt }) |
+                                    @Html.ActionLink("Details", "Details", new { id = item.idArt }) |
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.idArt })
+                                </div>
+                            </div>   
+                            <div class="row">                            
+                                    <div class="col-sm-6">
+                                        <label>@Html.DisplayNameFor(modelItem => modelItem.Nombre):</label>
+                                        @Html.DisplayFor(modelItem => item.Nombre)
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label>@Html.DisplayNameFor(modelItem => modelItem.Precio):</label>
+                                        @Html.DisplayFor(modelItem => item.Precio)
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label>@Html.DisplayNameFor(modelItem => modelItem.Peso):</label>
+                                        @Html.DisplayFor(modelItem => item.Peso)
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label>@Html.DisplayNameFor(model => model.Tipo):</label>
+                                        @Html.DisplayFor(modelItem => item.Tipo)
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label>@Html.DisplayNameFor(model => model.IVA):</label>
+                                        @Html.DisplayFor(modelItem => item.IVA) %
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label>@Html.DisplayNameFor(model => model.Origen):</label>
+                                        @Html.DisplayFor(modelItem => item.Origen)
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label>@Html.DisplayNameFor(model => model.Origen):</label>
+                                        @Html.DisplayFor(modelItem => item.Origen)
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label>Estado:</label>
+                                        @Html.DisplayFor(modelItem => item.estado1.Nombre)
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <label>@Html.DisplayNameFor(model => model.Descripcion):</label>
+                                        @Html.DisplayFor(modelItem => item.Descripcion)
+                                    </div>
+                            </div class="row">                              
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="Cont_Foto">
+                            <div class="row">
+                                <div class="row" style="min-height:232px">
+                                    <div class="col-sm-12">
+                                        <img class="img" src="~/Imagenes/NUEVO PEZ.png" />                       
+                                   </div>
+                                    <div class="col-sm-12">
+                                        @Html.ActionLink("Edit", "Edit", new { id = item.idArt }) |
+                                        @Html.ActionLink("Details", "Details", new { id = item.idArt }) |
+                                        @Html.ActionLink("Delete", "Delete", new { id = item.idArt })
+                                  </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <label>@Html.DisplayNameFor(modelItem => modelItem.Nombre):</label>
+                                        @Html.DisplayFor(modelItem => item.Nombre)
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label>@Html.DisplayNameFor(modelItem => modelItem.Precio):</label>
+                                        @Html.DisplayFor(modelItem => item.Precio)
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label>@Html.DisplayNameFor(modelItem => modelItem.Peso):</label>
+                                        @Html.DisplayFor(modelItem => item.Peso)
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label>@Html.DisplayNameFor(model => model.Tipo):</label>
+                                        @Html.DisplayFor(modelItem => item.Tipo)
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label>@Html.DisplayNameFor(model => model.IVA):</label>
+                                        @Html.DisplayFor(modelItem => item.IVA) %
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label>@Html.DisplayNameFor(model => model.Origen):</label>
+                                        @Html.DisplayFor(modelItem => item.Origen)
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label>@Html.DisplayNameFor(model => model.Origen):</label>
+                                        @Html.DisplayFor(modelItem => item.Origen)
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label>Estado:</label>
+                                        @Html.DisplayFor(modelItem => item.estado1.Nombre)
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <label>@Html.DisplayNameFor(model => model.Descripcion):</label>
+                                        @Html.DisplayFor(modelItem => item.Descripcion)
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+               
+            </td>
+
+
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.Nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Peso)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tipo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Precio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IVA)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descripcion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Origen)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Imagen)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.estado1.Nombre)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id=item.idArt }) |
+                    @Html.ActionLink("Details", "Details", new { id=item.idArt }) |
+                    @Html.ActionLink("Delete", "Delete", new { id=item.idArt })
+                </td>*@
+        </tr>
+    }
+
 
 </table>
+
