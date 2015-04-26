@@ -29,6 +29,7 @@ namespace GALU_ERP.Controllers.Productos
         // GET: articuloes
         public async Task<ActionResult> Index()
         {
+            Console.WriteLine("Hola");
             var articuloes = db.articuloes.Include(a => a.estado1);
             return View(await articuloes.ToListAsync());
         }

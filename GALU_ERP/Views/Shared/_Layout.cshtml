@@ -42,7 +42,7 @@
         @RenderBody()
         <hr />
         <footer>
-                <p>© GALU_ERP</p>
+            <p>© GALU_ERP</p>
         </footer>
     </div>
 
@@ -55,37 +55,67 @@
         $(document).ready(function () {
 
 
+            //$('#btnSubmit').click(function (e) {  //Validar Cajas de texto
 
-            $("#menuGes").click(function () {
-                $("#ul_Ges").slideToggle();
+            //    var isValid = true;
+
+            //    $('input[type="text"]').each(function () {
+            //        if ($.trim($(this).val()) == '') {
+            //            isValid = false;
+
+            //            $(this).css({
+
+            //                "border": "1px solid red",
+            //                "background": "#FFCECE"
+
+            //            });
+            //        }
+            //        else {
+            //            $(this).css({
+            //                "border": "",
+            //                "background": ""
+            //            });
+            //        }
+            //    });
+
+            //    if (isValid == false)
+            //        e.preventDefault();
+            //    else
+            //        alert('Thank you for submitting');
+
+
+            //});
+
+                $("#menuGes").click(function () {
+                    $("#ul_Ges").slideToggle();
+                });
+
+                $("#menuVentas").click(function () {
+                    $("#ul_Ventas").slideToggle();
+                });
+
+                $("#menuCompras").click(function () {
+                    $("#ul_Compras").slideToggle();
+                });
+
+                $(".img").on({
+                    mouseover: function () {
+                        // $(this).css("color", "red");
+                        $(this).css('cursor', 'pointer');
+                    }
+
+                    //mouseleave: function () {
+                    //    $(this).css("background-color", "lightblue");
+                    //},
+                    //click: function () {
+                    //   alert()
+                    //}
+                });
+
+                $("#l").sidr("toggle", "sidr", "none");
+
+
             });
-
-            $("#menuVentas").click(function () {
-                $("#ul_Ventas").slideToggle();
-            });
-
-            $("#menuCompras").click(function () {
-                $("#ul_Compras").slideToggle();
-            });
-
-            $(".img").on({
-                mouseover: function () {
-                   // $(this).css("color", "red");
-                    $(this).css('cursor', 'pointer');
-                }
-
-                //mouseleave: function () {
-                //    $(this).css("background-color", "lightblue");
-                //},
-                //click: function () {
-                //   alert()
-                //}
-            });
-
-            $("#l").sidr("toggle", "sidr", "none");
-
-
-        });
 
     </script>
 
