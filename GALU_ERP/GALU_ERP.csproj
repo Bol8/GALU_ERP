@@ -173,8 +173,11 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Context\ApplicationDataContext.cs" />
+    <Compile Include="Controllers\Clientes\clientesController.cs" />
+    <Compile Include="Controllers\Contactos\contactosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Productos\articuloesController.cs" />
+    <Compile Include="Controllers\Proveedores\proveedoresController.cs" />
     <Compile Include="Entidades\albaran.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -343,6 +346,51 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\articuloes\Presentacion.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\clientes\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\clientes\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\clientes\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\clientes\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\clientes\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\proveedores\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\proveedores\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\proveedores\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\proveedores\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\proveedores\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\contactos\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\contactos\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\contactos\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\contactos\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\contactos\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
