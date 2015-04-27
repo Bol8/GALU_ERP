@@ -1,10 +1,22 @@
 ﻿@model GALU_ERP.Entidades.proveedor
 
-@{
-    ViewBag.Title = "Edit";
-}
 
-<h2>Edit</h2>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="well">
+            <div class="container-fluid">
+                <div class="Cabecera">
+                    @{
+                        ViewBag.Title = "Edit";
+                    }
+
+                    <h2>Editar</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 @using (Html.BeginForm())
 {
@@ -112,6 +124,6 @@
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
+<div class="container-fluid">
+    @Html.ActionLink("Volver a la lista", "Index", "", new { @class = "btn btn-primary btn-sm" })
 </div>

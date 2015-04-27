@@ -1,10 +1,20 @@
 ﻿@model GALU_ERP.Entidades.proveedor
 
-@{
-    ViewBag.Title = "Create";
-}
+<div class="row">
+    <div class="col-sm-12">
+        <div class="well">
+            <div class="Cabecera">
+                @{
+                    ViewBag.Title = "Create";
+                }
 
-<h2>Create</h2>
+                <h2>Nuevo Proveedor</h2>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 
 @using (Html.BeginForm()) 
 {
@@ -110,6 +120,10 @@
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
+<div class="container-fluid">
+    <div>
+        @Html.ActionLink("Volver a la lista", "Index", "", new { @class = "btn btn-primary btn-sm" })
+    </div>
 </div>
+
+
