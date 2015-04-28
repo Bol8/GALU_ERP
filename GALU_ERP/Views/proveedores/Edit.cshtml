@@ -23,8 +23,6 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>proveedor</h4>
-        <hr />
         @Html.ValidationSummary(true)
         @Html.HiddenFor(model => model.idProv)
 
@@ -111,7 +109,8 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Imagen, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Imagen)
+                <input class="foot_btn" type="file" name="Imagen" accept="image/*" />
+                @*@Html.EditorFor(model => model.Imagen)*@
                 @Html.ValidationMessageFor(model => model.Imagen)
             </div>
         </div>

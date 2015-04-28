@@ -201,7 +201,7 @@ border-bottom:none
 }
 
 .FooterDetails p{
-    margin-left:5%;
+    margin-left:80px;
 
 }
 
@@ -209,6 +209,10 @@ border-bottom:none
 
     background-color:cornflowerblue;
 
+}
+
+.foot_btn{
+   margin-top:5px; 
 }
 
 

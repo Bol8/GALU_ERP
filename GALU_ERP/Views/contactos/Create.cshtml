@@ -20,8 +20,6 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>contacto</h4>
-        <hr />
         @Html.ValidationSummary(true)
         <div class="form-group">
             @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -55,6 +53,8 @@
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
+<div class="container-fluid">
+    <div>
+        @Html.ActionLink("Volver a la lista", "Index", "", new { @class = "btn btn-primary btn-sm" })
+    </div>
 </div>

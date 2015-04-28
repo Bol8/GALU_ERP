@@ -97,7 +97,7 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Imagen, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                <input type="file" name="Imagen" />
+                <input class="foot_btn" type="file" name="Imagen" accept="image/*" />
                 @*@Html.EditorFor(model => model.Imagen)*@
                 @Html.ValidationMessageFor(model => model.Imagen)
             </div>
