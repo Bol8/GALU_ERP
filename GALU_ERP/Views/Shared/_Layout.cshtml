@@ -86,36 +86,47 @@
 
             //});
 
-                $("#menuGes").click(function () {
-                    $("#ul_Ges").slideToggle();
-                });
 
-                $("#menuVentas").click(function () {
-                    $("#ul_Ventas").slideToggle();
-                });
-
-                $("#menuCompras").click(function () {
-                    $("#ul_Compras").slideToggle();
-                });
-
-                $(".img").on({
-                    mouseover: function () {
-                        // $(this).css("color", "red");
-                        $(this).css('cursor', 'pointer');
-                    }
-
-                    //mouseleave: function () {
-                    //    $(this).css("background-color", "lightblue");
-                    //},
-                    //click: function () {
-                    //   alert()
-                    //}
-                });
-
-                $("#l").sidr("toggle", "sidr", "none");
+            //$(function () {
+            //    $(document).tooltip({
+            //        items: ".input-validation-error",
+            //        content: function () {
+            //            return $(this).attr('data-val-required');
+            //        }
+            //    });
+            //});
 
 
+            $("#menuGes").click(function () {
+                $("#ul_Ges").slideToggle();
             });
+
+            $("#menuVentas").click(function () {
+                $("#ul_Ventas").slideToggle();
+            });
+
+            $("#menuCompras").click(function () {
+                $("#ul_Compras").slideToggle();
+            });
+
+            $(".img").on({
+                mouseover: function () {
+                    // $(this).css("color", "red");
+                    $(this).css('cursor', 'pointer');
+                }
+
+                //mouseleave: function () {
+                //    $(this).css("background-color", "lightblue");
+                //},
+                //click: function () {
+                //   alert()
+                //}
+            });
+
+            $("#l").sidr("toggle", "sidr", "none");
+
+
+        });
 
     </script>
 

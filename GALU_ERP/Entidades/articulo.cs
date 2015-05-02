@@ -11,7 +11,9 @@ namespace GALU_ERP.Entidades
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
+
     public partial class articulo
     {
         public articulo()
@@ -19,18 +21,47 @@ namespace GALU_ERP.Entidades
             this.linea_pedido_c = new HashSet<linea_pedido_c>();
             this.linea_pedido_p = new HashSet<linea_pedido_p>();
         }
-    
+
+        [Required(ErrorMessage = "Campo obligatorio")]
+        [Display(Name = "Código")]
+        [StringLength(10,ErrorMessage="Máximo 10 caracteres")]
         public string idArt { get; set; }
+
+        [Required(ErrorMessage = "Campo obligatorio")]
+        [Display(Name = "Nombre")]
         public string Nombre { get; set; }
+
+        [Required(ErrorMessage = "Campo obligatorio")]
+        [Display(Name = "Peso")]
         public Nullable<float> Peso { get; set; }
+
+        [Required(ErrorMessage = "Campo obligatorio")]
+        [Display(Name = "Tipo")]
         public string Tipo { get; set; }
+
+        [Required(ErrorMessage = "Campo obligatorio")]
+        [Display(Name = "Estado")]
         public int Estado { get; set; }
+
+        [Required(ErrorMessage = "Campo obligatorio")]
+        [Display(Name = "Precio")]
         public float Precio { get; set; }
+
+        [Required(ErrorMessage = "Campo obligatorio")]
+        [Display(Name = "IVA")]
         public float IVA { get; set; }
+
+        [Display(Name = "Descripción")]
         public string Descripcion { get; set; }
+
+
+        [Required(ErrorMessage = "Campo obligatorio")]
+        [Display(Name = "Origen")]
         public string Origen { get; set; }
+
+        [Display(Name = "Imagen")]
         public string Imagen { get; set; }
-    
+
         public virtual estado estado1 { get; set; }
         public virtual ICollection<linea_pedido_c> linea_pedido_c { get; set; }
         public virtual ICollection<linea_pedido_p> linea_pedido_p { get; set; }
