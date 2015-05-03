@@ -85,58 +85,67 @@
 
         <tr>
             <td>
-
                 <div class="panel-body">
                     <div class="row">
-                        <div class="col-sm-4">
-                            <div class="col-sm-12">
-                                @*@Html.ActionLink(" ", "Edit", new { @id = item.idArt }, new { @class="img"})*@
-                                <img class="img" src="~/Imagenes/@item.Imagen" />
+                        <div class="col-sm-12">
+                            <div class="col-sm-3">
+                                <div class="col-sm-12">
+                                    @*@Html.ActionLink(" ", "Edit", new { @id = item.idArt }, new { @class="img"})*@
+                                    <img class="img" src="~/Imagenes/@item.Imagen" />
+                                </div>
+                                <div class="col-sm-12">
+                                    @Html.ActionLink("Editar", "Edit", new { id = item.idArt }) |
+                                    @Html.ActionLink("Detalles", "Details", new { id = item.idArt }) |
+                                    @Html.ActionLink("Eliminar", "Delete", new { id = item.idArt })
+                                </div>
                             </div>
-                            <div class="col-sm-12">
-                                @Html.ActionLink("Editar", "Edit", new { id = item.idArt }) |
-                                @Html.ActionLink("Detalles", "Details", new { id = item.idArt }) |
-                                @Html.ActionLink("Eliminar", "Delete", new { id = item.idArt })
+                            <div class="col-sm-3">
+
+                                <div class="col-sm-12">
+                                    <label>@Html.DisplayNameFor(modelItem => modelItem.idArt):</label>
+                                    @Html.DisplayFor(modelItem => item.idArt)
+                                </div>
+                                <div class="col-sm-12">
+                                    <label>@Html.DisplayNameFor(modelItem => modelItem.Nombre):</label>
+                                    @Html.DisplayFor(modelItem => item.Nombre)
+                                </div>
+                                <div class="col-sm-12">
+                                    <label>@Html.DisplayNameFor(modelItem => modelItem.Precio):</label>
+                                    @Html.DisplayFor(modelItem => item.Precio) €
+                                </div>
+                                <div class="col-sm-12">
+                                    <label>@Html.DisplayNameFor(modelItem => modelItem.Peso):</label>
+                                    @Html.DisplayFor(modelItem => item.Peso) gr
+                                </div>
+
                             </div>
-                        </div>
-                        <div class="col-sm-8">
-                            <div class="col-sm-6">
-                                <label>@Html.DisplayNameFor(modelItem => modelItem.Nombre):</label>
-                                @Html.DisplayFor(modelItem => item.Nombre)
+                            <div class="col-sm-2">
+                                <div class="col-sm-12">
+                                    <label>@Html.DisplayNameFor(model => model.Tipo):</label>
+                                    @Html.DisplayFor(modelItem => item.Tipo)
+                                </div>
+                                <div class="col-sm-12">
+                                    <label>@Html.DisplayNameFor(model => model.IVA):</label>
+                                    @Html.DisplayFor(modelItem => item.IVA) %
+                                </div>
+                                <div class="col-sm-12">
+                                    <label>@Html.DisplayNameFor(model => model.Origen):</label>
+                                    @Html.DisplayFor(modelItem => item.Origen)
+                                </div>
+
+                                <div class="col-sm-12">
+                                    <label>Estado:</label>
+                                    @Html.DisplayFor(modelItem => item.estado1.Nombre)
+                                </div>
                             </div>
-                            <div class="col-sm-6">
-                                <label>@Html.DisplayNameFor(modelItem => modelItem.Precio):</label>
-                                @Html.DisplayFor(modelItem => item.Precio)
+
+                            <div class="col-sm-4">
+                                <div class="col-sm-12">
+                                    <label>@Html.DisplayNameFor(model => model.Descripcion):</label>
+                                    @Html.DisplayFor(modelItem => item.Descripcion)
+                                </div>
                             </div>
-                            <div class="col-sm-6">
-                                <label>@Html.DisplayNameFor(modelItem => modelItem.Peso):</label>
-                                @Html.DisplayFor(modelItem => item.Peso)
-                            </div>
-                            <div class="col-sm-6">
-                                <label>@Html.DisplayNameFor(model => model.Tipo):</label>
-                                @Html.DisplayFor(modelItem => item.Tipo)
-                            </div>
-                            <div class="col-sm-6">
-                                <label>@Html.DisplayNameFor(model => model.IVA):</label>
-                                @Html.DisplayFor(modelItem => item.IVA) %
-                            </div>
-                            <div class="col-sm-6">
-                                <label>@Html.DisplayNameFor(model => model.Origen):</label>
-                                @Html.DisplayFor(modelItem => item.Origen)
-                            </div>
-                            <div class="col-sm-6">
-                                <label>@Html.DisplayNameFor(model => model.Origen):</label>
-                                @Html.DisplayFor(modelItem => item.Origen)
-                            </div>
-                            <div class="col-sm-6">
-                                <label>Estado:</label>
-                                @Html.DisplayFor(modelItem => item.estado1.Nombre)
-                            </div>
-                            <div class="col-sm-12">
-                                <label>@Html.DisplayNameFor(model => model.Descripcion):</label>
-                                @Html.DisplayFor(modelItem => item.Descripcion)
-                            </div>
-                        </div>
+                        </div class="col-sm-12">
                     </div>
                 </div>
 
