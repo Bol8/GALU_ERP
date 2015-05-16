@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
@@ -11,7 +11,6 @@
 	<link rel="stylesheet" type="text/css" href="../../../examples/resources/syntax/shCore.css">
 	<link rel="stylesheet" type="text/css" href="../../../examples/resources/demo.css">
 	<style type="text/css" class="init">
-
 	</style>
 	<script type="text/javascript" language="javascript" src="../../../media/js/jquery.js"></script>
 	<script type="text/javascript" language="javascript" src="../../../media/js/jquery.dataTables.js"></script>
@@ -20,19 +19,18 @@
 	<script type="text/javascript" language="javascript" src="../../../examples/resources/demo.js"></script>
 	<script type="text/javascript" language="javascript" class="init">
 
-
 $(document).ready(function() {
     // Setup - add a text input to each footer cell
     $('#example tfoot th').each( function () {
         var title = $('#example thead th').eq( $(this).index() ).text();
         $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
     } );
- 
+
     // DataTable
     var table = $('#example').DataTable( {
 		dom: 'Rlfrtip'
 	} );
-     
+
     // Apply the filter
     $("#example tfoot input").on( 'keyup change', function () {
         table
@@ -41,8 +39,6 @@ $(document).ready(function() {
             .draw();
     } );
 } );
-
-
 	</script>
 </head>
 
@@ -556,12 +552,12 @@ $(document).ready(function() {
         var title = $('#example thead th').eq( $(this).index() ).text();
         $(this).html( '&lt;input type=&quot;text&quot; placeholder=&quot;Search '+title+'&quot; /&gt;' );
     } );
- 
+
     // DataTable
     var table = $('#example').DataTable( {
 		dom: 'Rlfrtip'
 	} );
-     
+
     // Apply the filter
     $(&quot;#example tfoot input&quot;).on( 'keyup change', function () {
         table

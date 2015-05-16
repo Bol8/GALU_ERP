@@ -173,6 +173,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Context\ApplicationDataContext.cs" />
+    <Compile Include="Controllers\CalendarController.cs" />
     <Compile Include="Controllers\Clientes\clientesController.cs" />
     <Compile Include="Controllers\Contactos\contactosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -259,6 +260,12 @@
     <Compile Include="ViewModels\AccountViewModels.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bootstrap\css\bootstrap.css" />
+    <Content Include="bootstrap\css\bootstrap.min.css" />
+    <Content Include="bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="bootstrap\js\bootstrap.js" />
+    <Content Include="bootstrap\js\bootstrap.min.js" />
+    <Content Include="bootstrap\js\npm.js" />
     <Content Include="css\bootstrap-theme.css" />
     <Content Include="css\bootstrap-theme.min.css" />
     <Content Include="css\bootstrap.css" />
@@ -325,7 +332,6 @@
     <Content Include="dist\js\pages\dashboard.js" />
     <Content Include="dist\js\pages\dashboard2.js" />
     <Content Include="favicon.ico" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Imagenes\Agenda.jpg" />
     <Content Include="Imagenes\Carpeta.jpg" />
@@ -336,6 +342,7 @@
     <Content Include="Imagenes\plancha.jpg" />
     <Content Include="js\bootstrap.js" />
     <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\npm.js" />
     <Content Include="plugins\bootstrap-slider\bootstrap-slider.js" />
     <Content Include="plugins\bootstrap-slider\slider.css" />
     <Content Include="plugins\bootstrap-wysihtml5\bootstrap3-wysihtml5.all.min.js" />
@@ -674,6 +681,9 @@
     <Content Include="plugins\datatables\extensions\KeyTable\js\dataTables.keyTable.min.js" />
     <Content Include="plugins\datatables\extensions\KeyTable\Readme.txt" />
     <Content Include="plugins\datatables\extensions\Responsive\css\dataTables.responsive.css" />
+    <Content Include="plugins\datatables\extensions\Responsive\css\dataTables.responsive.min.css">
+      <DependentUpon>dataTables.responsive.css</DependentUpon>
+    </Content>
     <Content Include="plugins\datatables\extensions\Responsive\examples\child-rows\column-control.html" />
     <Content Include="plugins\datatables\extensions\Responsive\examples\child-rows\custom-renderer.html" />
     <Content Include="plugins\datatables\extensions\Responsive\examples\child-rows\disable-child-rows.html" />
@@ -1026,13 +1036,6 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -1160,6 +1163,216 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\_ControlSidebar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Calendar\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bootstrap\css\bootstrap.css.map" />
+    <Content Include="bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="plugins\morris\morris.min.js.map">
+      <DependentUpon>morris.min.js</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="plugins\chartjs\Chart.min.js.map">
+      <DependentUpon>Chart.min.js</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="plugins\colorpicker\bootstrap-colorpicker.min.js.map">
+      <DependentUpon>bootstrap-colorpicker.min.js</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="plugins\datatables\dataTables.bootstrap.min.js.map">
+      <DependentUpon>dataTables.bootstrap.min.js</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="plugins\datatables\extensions\AutoFill\js\dataTables.autoFill.min.js.map">
+      <DependentUpon>dataTables.autoFill.min.js</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="plugins\datatables\extensions\ColReorder\js\dataTables.colReorder.min.js.map">
+      <DependentUpon>dataTables.colReorder.min.js</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="plugins\datatables\extensions\ColVis\js\dataTables.colVis.min.js.map">
+      <DependentUpon>dataTables.colVis.min.js</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="plugins\datatables\extensions\FixedColumns\js\dataTables.fixedColumns.min.js.map">
+      <DependentUpon>dataTables.fixedColumns.min.js</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="plugins\datatables\extensions\FixedHeader\js\dataTables.fixedHeader.min.js.map">
+      <DependentUpon>dataTables.fixedHeader.min.js</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="plugins\datatables\extensions\KeyTable\js\dataTables.keyTable.min.js.map">
+      <DependentUpon>dataTables.keyTable.min.js</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="plugins\datatables\extensions\Responsive\css\dataTables.responsive.css.map">
+      <DependentUpon>dataTables.responsive.css</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="plugins\datatables\extensions\Responsive\js\dataTables.responsive.min.js.map">
+      <DependentUpon>dataTables.responsive.min.js</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="plugins\datatables\extensions\Scroller\js\dataTables.scroller.min.js.map">
+      <DependentUpon>dataTables.scroller.min.js</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="plugins\datatables\extensions\TableTools\js\dataTables.tableTools.min.js.map">
+      <DependentUpon>dataTables.tableTools.min.js</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="plugins\datatables\jquery.dataTables.min.js.map">
+      <DependentUpon>jquery.dataTables.min.js</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="plugins\daterangepicker\moment.min.js.map">
+      <DependentUpon>moment.min.js</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="plugins\fastclick\fastclick.min.js.map">
+      <DependentUpon>fastclick.min.js</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="plugins\flot\excanvas.min.js.map">
+      <DependentUpon>excanvas.min.js</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="plugins\flot\jquery.colorhelpers.min.js.map">
+      <DependentUpon>jquery.colorhelpers.min.js</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="plugins\flot\jquery.flot.canvas.min.js.map">
+      <DependentUpon>jquery.flot.canvas.min.js</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="plugins\flot\jquery.flot.categories.min.js.map">
+      <DependentUpon>jquery.flot.categories.min.js</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="plugins\flot\jquery.flot.crosshair.min.js.map">
+      <DependentUpon>jquery.flot.crosshair.min.js</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="plugins\flot\jquery.flot.errorbars.min.js.map">
+      <DependentUpon>jquery.flot.errorbars.min.js</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="plugins\flot\jquery.flot.fillbetween.min.js.map">
+      <DependentUpon>jquery.flot.fillbetween.min.js</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="plugins\flot\jquery.flot.image.min.js.map">
+      <DependentUpon>jquery.flot.image.min.js</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="plugins\flot\jquery.flot.min.js.map">
+      <DependentUpon>jquery.flot.min.js</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="plugins\flot\jquery.flot.navigate.min.js.map">
+      <DependentUpon>jquery.flot.navigate.min.js</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="plugins\flot\jquery.flot.pie.min.js.map">
+      <DependentUpon>jquery.flot.pie.min.js</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="plugins\flot\jquery.flot.resize.min.js.map">
+      <DependentUpon>jquery.flot.resize.min.js</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="plugins\flot\jquery.flot.selection.min.js.map">
+      <DependentUpon>jquery.flot.selection.min.js</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="plugins\flot\jquery.flot.stack.min.js.map">
+      <DependentUpon>jquery.flot.stack.min.js</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="plugins\flot\jquery.flot.symbol.min.js.map">
+      <DependentUpon>jquery.flot.symbol.min.js</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="plugins\flot\jquery.flot.threshold.min.js.map">
+      <DependentUpon>jquery.flot.threshold.min.js</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="plugins\flot\jquery.flot.time.min.js.map">
+      <DependentUpon>jquery.flot.time.min.js</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="plugins\iCheck\icheck.min.js.map">
+      <DependentUpon>icheck.min.js</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="plugins\jQueryUI\jquery-ui-1.10.3.min.js.map">
+      <DependentUpon>jquery-ui-1.10.3.min.js</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="plugins\slimScroll\jquery.slimscroll.min.js.map">
+      <DependentUpon>jquery.slimscroll.min.js</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="plugins\sparkline\jquery.sparkline.min.js.map">
+      <DependentUpon>jquery.sparkline.min.js</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="plugins\timepicker\bootstrap-timepicker.min.js.map">
+      <DependentUpon>bootstrap-timepicker.min.js</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="plugins\fullcalendar\fullcalendar.min.js.map">
+      <DependentUpon>fullcalendar.min.js</DependentUpon>
+    </Content>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

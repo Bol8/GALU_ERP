@@ -28,10 +28,10 @@
                 <i class="fa fa-dashboard"></i> <span>Gestión</span> <i class="fa fa-angle-left pull-right"></i>
             </a>
             <ul class="treeview-menu">
-                <li class="active"><a href="index.html"><i class="fa fa-circle-o"></i>Productos</a></li>
-                <li><a href="index2.html"><i class="fa fa-circle-o"></i>Clientes</a></li>
-                <li><a href="index2.html"><i class="fa fa-circle-o"></i>Proveedores</a></li>
-                <li><a href="index2.html"><i class="fa fa-circle-o"></i>Contactos</a></li>
+                <li class="active"><a href="@Url.Action("Index", "articuloes")"><i class="fa fa-circle-o"></i>Productos</a></li>
+                <li><a href="@Url.Action("Index", "clientes")"><i class="fa fa-circle-o"></i>Clientes</a></li>
+                <li><a href="@Url.Action("Index", "proveedores")"><i class="fa fa-circle-o"></i>Proveedores</a></li>
+                <li><a href="@Url.Action("Index", "contactos")"><i class="fa fa-circle-o"></i>Contactos</a></li>
             </ul>
         </li>
         <li class="treeview">
@@ -44,17 +44,23 @@
             </ul>
         </li>
         <li>
-            <a href="~/Views/Shared/calendar.html">
-                <i class="fa fa-calendar"></i> <span>Calendar</span>
+            <a href="@Url.Action("Index","Calendar")">
+                <i class="fa fa-calendar"></i> <span>Calendario</span>
                 <small class="label pull-right bg-red">3</small>
             </a>
         </li>
-      
-
-
-
-
-
+        <li class="treeview">
+            <a href="mailbox.html">
+                <i class="fa fa-envelope"></i> <span>Mailbox</span>
+                <i class="fa fa-angle-left pull-right"></i>
+            </a>
+            <ul class="treeview-menu">
+                <li><a href="mailbox.html">Inbox <span class="label label-primary pull-right">13</span></a></li>
+                <li class="active"><a href="compose.html">Compose</a></li>
+                <li><a href="read-mail.html">Read</a></li>
+            </ul>
+        </li>
+     
         @*<li class="active treeview">
             <a href="#">
                 <i class="fa fa-dashboard"></i> <span>Dashboard</span> <i class="fa fa-angle-left pull-right"></i>

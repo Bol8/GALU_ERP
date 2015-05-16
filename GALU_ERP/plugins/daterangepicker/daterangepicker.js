@@ -7,12 +7,10 @@
 */
 
 (function(root, factory) {
-
   if (typeof define === 'function' && define.amd) {
     define(['moment', 'jquery', 'exports'], function(momentjs, $, exports) {
       root.daterangepicker = factory(root, exports, momentjs, $);
     });
-
   } else if (typeof exports !== 'undefined') {
     var momentjs = require('moment');
     var jQuery;
@@ -29,11 +27,8 @@
   } else {
     root.daterangepicker = factory(root, {}, root.moment, (root.jQuery || root.Zepto || root.ender || root.$));
   }
-
 }(this, function(root, daterangepicker, moment, $) {
-
     var DateRangePicker = function (element, options, cb) {
-
         // by default, the daterangepicker element is placed at the bottom of HTML body
         this.parentEl = 'body';
 
@@ -103,15 +98,12 @@
         } else {
             this.element.on('click.daterangepicker', $.proxy(this.toggle, this));
         }
-
     };
 
     DateRangePicker.prototype = {
-
         constructor: DateRangePicker,
 
         setOptions: function(options, callback) {
-
             this.startDate = moment().startOf('day');
             this.endDate = moment().endOf('day');
             this.timeZone = moment().utcOffset();
@@ -197,7 +189,6 @@
                 this.dateLimit = options.dateLimit;
 
             if (typeof options.locale === 'object') {
-
                 if (typeof options.locale.daysOfWeek === 'object') {
                     // Create a copy of daysOfWeek to avoid modification of original
                     // options object for reusability in multiple daterangepicker instances
@@ -330,7 +321,6 @@
 
             if (typeof options.ranges === 'object') {
                 for (range in options.ranges) {
-
                     if (typeof options.ranges[range][0] === 'string')
                         start = moment(options.ranges[range][0], this.format);
                     else
@@ -536,7 +526,7 @@
 
             this.updateCalendars();
         },
-        
+
         keydown: function (e) {
             //hide on tab or enter
         	if ((e.keyCode === 9) || (e.keyCode === 13)) {
@@ -560,7 +550,7 @@
                 };
                 parentRightEdge = this.parentEl[0].clientWidth + this.parentEl.offset().left;
             }
-            
+
             if (this.drops == 'up')
             	containerTop = this.element.offset().top - this.container.outerHeight() - parentOffset.top;
             else
@@ -897,13 +887,11 @@
                 }
             }
 
-
             this[leftOrRight+'Calendar'].month.month(month).year(year);
             this.updateCalendars();
         },
 
         updateTime: function(e) {
-
             var cal = $(e.target).closest('.calendar'),
                 isLeft = cal.hasClass('left');
 
@@ -1027,7 +1015,6 @@
                 if (this.maxDate && calendar[row][col].format('YYYY-MM-DD') == this.maxDate.format('YYYY-MM-DD') && calendar[row][col].isAfter(this.maxDate) && side == 'right') {
                     calendar[row][col] = this.maxDate.clone();
                 }
-
             }
 
             return calendar;
@@ -1066,7 +1053,6 @@
         },
 
         renderCalendar: function (calendar, selected, minDate, maxDate, side) {
-
             var html = '<div class="calendar-date">';
             html += '<table class="table-condensed">';
             html += '<thead>';
@@ -1149,7 +1135,6 @@
 
             var i;
             if (this.timePicker) {
-
                 html += '<div class="calendar-time">';
                 html += '<select class="hourselect">';
 
@@ -1188,7 +1173,6 @@
                 }
 
                 for (i = start; i <= end; i++) {
-
                     if (i == selected_hour) {
                         html += '<option value="' + i + '" selected="selected">' + i + '</option>';
                     } else if (i < min_hour || i > max_hour) {
@@ -1274,21 +1258,16 @@
                 }
 
                 html += '</div>';
-
             }
 
             return html;
-
         },
 
         remove: function() {
-
             this.container.remove();
             this.element.off('.daterangepicker');
             this.element.removeData('daterangepicker');
-
         }
-
     };
 
     $.fn.daterangepicker = function (options, cb) {
@@ -1300,5 +1279,4 @@
         });
         return this;
     };
-
 }));

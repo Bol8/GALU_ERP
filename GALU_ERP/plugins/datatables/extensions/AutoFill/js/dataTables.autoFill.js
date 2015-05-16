@@ -22,11 +22,10 @@
  */
 
 (function( window, document, undefined ) {
-
 var factory = function( $, DataTable ) {
 "use strict";
 
-/** 
+/**
  * AutoFill provides Excel like auto-fill features for a DataTable
  *
  * @class AutoFill
@@ -44,7 +43,6 @@ var AutoFill = function( oDT, oConfig )
 	if ( ! $.fn.dataTableExt.fnVersionCheck('1.7.0') ) {
 		throw( "Warning: AutoFill requires DataTables 1.7 or greater");
 	}
-
 
 	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 	 * Public class variables
@@ -108,7 +106,6 @@ var AutoFill = function( oDT, oConfig )
 		"columns": []
 	};
 
-
 	/**
 	 * @namespace Common and useful DOM elements for the class instance
 	 */
@@ -121,8 +118,6 @@ var AutoFill = function( oDT, oConfig )
 		"borderLeft": null,
 		"currentTarget": null
 	};
-
-
 
 	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 	 * Public class methods
@@ -137,13 +132,10 @@ var AutoFill = function( oDT, oConfig )
 		return this.s;
 	};
 
-
 	/* Constructor logic */
 	this._fnInit( oDT, oConfig );
 	return this;
 };
-
-
 
 AutoFill.prototype = {
 	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -229,7 +221,6 @@ AutoFill.prototype = {
 		} );
 	},
 
-
 	_initColumns: function ( )
 	{
 		var that = this;
@@ -267,7 +258,6 @@ AutoFill.prototype = {
 		}
 	},
 
-
 	"_fnColumnOptions": function ( i, opts )
 	{
 		var column = this.s.columns[ i ];
@@ -288,7 +278,6 @@ AutoFill.prototype = {
 		set( 'increment', ['bIncrement',  'increment'] );
 	},
 
-
 	/**
 	 * Find out the coordinates of a given TD cell in a table
 	 *  @method  _fnTargetCoords
@@ -307,7 +296,6 @@ AutoFill.prototype = {
 			"column": position[2]
 		};
 	},
-
 
 	/**
 	 * Display the border around one or more cells (from start to end)
@@ -330,7 +318,7 @@ AutoFill.prototype = {
 			height = offsetEnd.top + $(nEnd).outerHeight() - offsetStart.top + (2*border),
 			oStyle;
 
-		// Recalculate start and end (when dragging "backwards")  
+		// Recalculate start and end (when dragging "backwards")
 		if( offsetStart.left > offsetEnd.left) {
 			x1 = offsetEnd.left - border;
 			x2 = offsetStart.left + $(nStart).outerWidth();
@@ -379,7 +367,6 @@ AutoFill.prototype = {
 		oStyle.height = height+"px";
 		oStyle.width = this.s.border.width+"px";
 	},
-
 
 	/**
 	 * Mouse down event handler for starting a drag
@@ -466,7 +453,6 @@ AutoFill.prototype = {
 		}, 250 );
 	},
 
-
 	/**
 	 * Mouse move event handler for during a move. See if we want to update the display based on the
 	 * new cursor position
@@ -529,7 +515,6 @@ AutoFill.prototype = {
 			this.s.scroller.bottom = this.s.scroller.top + $(this.s.dt.nTable.parentNode).height();
 		}
 	},
-
 
 	/**
 	 * Mouse release handler - end the drag and take action to update the cells with the needed values
@@ -648,7 +633,6 @@ AutoFill.prototype = {
 		}
 	},
 
-
 	/**
 	 * Display the drag handle on mouse over cell
 	 *  @method  _fnFillerDisplay
@@ -687,7 +671,6 @@ AutoFill.prototype = {
 		}
 	},
 
-
 	/**
 	 * Position the filler icon over a cell
 	 *  @method  _fnFillerPosition
@@ -703,12 +686,9 @@ AutoFill.prototype = {
 	}
 };
 
-
 // Alias for access
 DataTable.AutoFill = AutoFill;
 DataTable.AutoFill = AutoFill;
-
-
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  * Constants
@@ -721,7 +701,6 @@ DataTable.AutoFill = AutoFill;
  *  @default   See code
  */
 AutoFill.version = "1.2.1";
-
 
 /**
  * AutoFill defaults
@@ -836,7 +815,6 @@ AutoFill.defaults = {
 return AutoFill;
 };
 
-
 // Define as an AMD module if possible
 if ( typeof define === 'function' && define.amd ) {
 	define( ['jquery', 'datatables'], factory );
@@ -849,7 +827,4 @@ else if ( jQuery && !jQuery.fn.dataTable.AutoFill ) {
 	// Otherwise simply initialise as normal, stopping multiple evaluation
 	factory( jQuery, jQuery.fn.dataTable );
 }
-
-
 }(window, document));
-

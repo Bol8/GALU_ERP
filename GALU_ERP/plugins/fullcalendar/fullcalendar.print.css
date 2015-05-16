@@ -14,7 +14,6 @@
 	max-width: 100% !important;
 }
 
-
 /* Global Event Restyling
 --------------------------------------------------------------------------------------------------*/
 
@@ -27,7 +26,6 @@
 .fc-event .fc-resizer {
 	display: none;
 }
-
 
 /* Table & Day-Row Restyling
 --------------------------------------------------------------------------------------------------*/
@@ -71,7 +69,6 @@ tbody,
 	height: 1em;
 }
 
-
 /* Undo month-view event limiting. Display all events and hide the "more" links
 --------------------------------------------------------------------------------------------------*/
 
@@ -91,7 +88,6 @@ tbody,
 .fc-popover {
 	display: none; /* never display the "more.." popover in print mode */
 }
-
 
 /* TimeGrid Restyling
 --------------------------------------------------------------------------------------------------*/
@@ -126,7 +122,6 @@ tbody,
 .fc-time-grid .fc-event-container {
 	margin: 0 !important;
 }
-
 
 /* TimeGrid *Event* Restyling
 --------------------------------------------------------------------------------------------------*/
@@ -174,7 +169,6 @@ tbody,
 	content: attr(data-full);
 }
 
-
 /* Vertical Scroller & Containers
 --------------------------------------------------------------------------------------------------*/
 
@@ -191,7 +185,6 @@ tbody,
 	border: 0 !important;
 	margin: 0 !important;
 }
-
 
 /* Button Controls
 --------------------------------------------------------------------------------------------------*/

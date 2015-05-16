@@ -4,7 +4,6 @@
  * (c) 2013 Adam Shaw
  */
 
-
 .fc {
 	direction: ltr;
 	text-align: left;
@@ -17,7 +16,6 @@
 body .fc { /* extra precedence to overcome jqui */
 	font-size: 1em;
 }
-
 
 /* Colors
 --------------------------------------------------------------------------------------------------*/
@@ -66,7 +64,6 @@ body .fc { /* extra precedence to overcome jqui */
 	background: #ccc;
 }
 
-
 /* Icons (inline elements with styled text that mock arrow icons)
 --------------------------------------------------------------------------------------------------*/
 
@@ -100,7 +97,6 @@ body .fc { /* extra precedence to overcome jqui */
 	content: "\000D7";
 }
 
-
 /* Buttons (styled <button> tags, normalized to work cross-browser)
 --------------------------------------------------------------------------------------------------*/
 
@@ -123,7 +119,7 @@ body .fc { /* extra precedence to overcome jqui */
 
 /* Firefox has an annoying inner border */
 .fc button::-moz-focus-inner { margin: 0; padding: 0; }
-	
+
 .fc-state-default { /* non-theme */
 	border: 1px solid;
 }
@@ -145,7 +141,7 @@ body .fc { /* extra precedence to overcome jqui */
 	top: .05em; /* seems to be a good adjustment across browsers */
 	margin: 0 .1em;
 }
-	
+
 /*
   button states
   borrowed from twitter bootstrap (http://twitter.github.com/bootstrap/)
@@ -199,7 +195,6 @@ body .fc { /* extra precedence to overcome jqui */
 	box-shadow: none;
 }
 
-
 /* Buttons Groups
 --------------------------------------------------------------------------------------------------*/
 
@@ -220,7 +215,6 @@ previous button's border...
 .fc .fc-button-group > :first-child { /* same */
 	margin-left: 0;
 }
-
 
 /* Popover
 --------------------------------------------------------------------------------------------------*/
@@ -270,7 +264,6 @@ previous button's border...
 	border-top: 0; /* where they meet, let the header have the border */
 }
 
-
 /* Misc Reusable Components
 --------------------------------------------------------------------------------------------------*/
 
@@ -305,7 +298,6 @@ previous button's border...
 	height: 100%; /* strech bg to bottom edge */
 }
 
-
 /* Tables
 --------------------------------------------------------------------------------------------------*/
 
@@ -333,7 +325,6 @@ previous button's border...
 	border-style: double; /* overcome neighboring borders */
 }
 
-
 /* Fake Table Rows
 --------------------------------------------------------------------------------------------------*/
 
@@ -350,13 +341,12 @@ previous button's border...
 	border-right: 0 hidden transparent;
 
 	/* no bottom borders on rows */
-	border-bottom: 0 hidden transparent; 
+	border-bottom: 0 hidden transparent;
 }
 
 .fc-row:first-child table {
 	border-top: 0 hidden transparent; /* no top border on first row */
 }
-
 
 /* Day Row (used within the header and the DayGrid)
 --------------------------------------------------------------------------------------------------*/
@@ -388,7 +378,6 @@ previous button's border...
 
 .fc-row .fc-bgevent-skeleton {
 	z-index: 2;
-
 }
 
 .fc-row .fc-highlight-skeleton {
@@ -426,7 +415,6 @@ temporary rendered events).
 	border-top: 0;
 }
 
-
 /* Scrolling Container
 --------------------------------------------------------------------------------------------------*/
 
@@ -440,7 +428,6 @@ temporary rendered events).
 	width: 100%; /* hack to force re-sizing this inner element when scrollbars appear/disappear */
 	overflow: hidden; /* don't let negative margins or absolute positioning create further scroll */
 }
-
 
 /* Global Event Styles
 --------------------------------------------------------------------------------------------------*/
@@ -473,7 +460,6 @@ temporary rendered events).
 .fc-not-allowed .fc-event { /* to override an event's custom cursor */
 	cursor: not-allowed;
 }
-
 
 /* DayGrid events
 ----------------------------------------------------------------------------------------------------
@@ -533,7 +519,6 @@ be a descendant of the grid when it is being dragged.
 	left: -3px;
 	cursor: w-resize;
 }
-
 
 /* Event Limiting
 --------------------------------------------------------------------------------------------------*/
@@ -600,7 +585,7 @@ a.fc-more:hover {
 .fc .fc-toolbar > * > :first-child { /* extra precedence to override button border margins */
 	margin-left: 0;
 }
-	
+
 /* title text */
 
 .fc-toolbar h2 {
@@ -617,7 +602,7 @@ a.fc-more:hover {
 .fc-toolbar .ui-state-hover {
 	z-index: 2;
 }
-	
+
 .fc-toolbar .fc-state-down {
 	z-index: 3;
 }
@@ -630,7 +615,6 @@ a.fc-more:hover {
 .fc-toolbar button:focus {
 	z-index: 5;
 }
-
 
 /* View Structure
 --------------------------------------------------------------------------------------------------*/
@@ -736,7 +720,6 @@ a.fc-more:hover {
 	padding-bottom: 1em; /* give space underneath events for clicking/selecting days */
 }
 
-
 /* TimeGrid axis running down the side (for both the all-day area and the slot area)
 --------------------------------------------------------------------------------------------------*/
 
@@ -757,7 +740,6 @@ a.fc-more:hover {
 .ui-widget td.fc-axis {
 	font-weight: normal; /* overcome jqui theme making it bold */
 }
-
 
 /* TimeGrid Structure
 --------------------------------------------------------------------------------------------------*/
@@ -810,7 +792,6 @@ a.fc-more:hover {
 	z-index: 6;
 }
 
-
 /* TimeGrid Slats (lines that run horizontally)
 --------------------------------------------------------------------------------------------------*/
 
@@ -827,7 +808,6 @@ a.fc-more:hover {
 	background: none; /* see through to fc-bg */
 }
 
-
 /* TimeGrid Highlighting Slots
 --------------------------------------------------------------------------------------------------*/
 
@@ -841,7 +821,6 @@ a.fc-more:hover {
 	right: 0;
 	/* top and bottom will be in by JS */
 }
-
 
 /* TimeGrid Event Containment
 --------------------------------------------------------------------------------------------------*/
@@ -870,7 +849,6 @@ a.fc-more:hover {
 	left: 0;
 	right: 0;
 }
-
 
 /* TimeGrid Event Styling
 ----------------------------------------------------------------------------------------------------

@@ -30,8 +30,6 @@
 var FixedHeader;
 
 (function(window, document, undefined) {
-
-
 var factory = function( $, DataTable ) {
 "use strict";
 
@@ -131,7 +129,6 @@ FixedHeader = function ( mTable, oInit ) {
 		this._fnUpdatePositions();
 	};
 
-
 	var dt = $.fn.dataTable.Api ?
 		new $.fn.dataTable.Api( mTable ).settings()[0] :
 		mTable.fnSettings();
@@ -140,9 +137,7 @@ FixedHeader = function ( mTable, oInit ) {
 
 	/* Let's do it */
 	this.fnInit( dt, oInit );
-
 };
-
 
 /*
  * Variable: FixedHeader
@@ -234,7 +229,6 @@ FixedHeader.prototype = {
 
 		s.bInitComplete = true;
 	},
-
 
 	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 	 * Support functions
@@ -473,7 +467,6 @@ FixedHeader.prototype = {
 		}
 	},
 
-
 	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 	 * Scrolling functions
 	 */
@@ -657,8 +650,6 @@ FixedHeader.prototype = {
 		}
 	},
 
-
-
 	/**
 	 * Copy the classes of all child nodes from one element to another. This implies
 	 * that the two have identical structure - no error checking is performed to that
@@ -680,7 +671,6 @@ FixedHeader.prototype = {
 			that._fnClassUpdate( $(source).children()[i], $(dest).children()[i] );
 		} );
 	},
-
 
 	/* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 	 * Cloning functions
@@ -880,7 +870,6 @@ FixedHeader.prototype = {
 		oCache.nWrapper.style.width = iWidth+"px";
 	},
 
-
 	/**
 	 * Equalise the heights of the rows in a given table node in a cross browser way. Note that this
 	 * is more or less lifted as is from FixedColumns
@@ -917,7 +906,6 @@ FixedHeader.prototype = {
 		} );
 	}
 };
-
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  * Static properties and methods
@@ -981,9 +969,7 @@ FixedHeader.fnMeasure = function ()
 	oWin.iScrollBottom = oDoc.iHeight - oWin.iScrollTop - oWin.iHeight;
 };
 
-
 FixedHeader.version = "2.1.2";
-
 
 /* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
  * Global processing
@@ -1001,14 +987,11 @@ $(window).scroll( function () {
 	}
 } );
 
-
 $.fn.dataTable.FixedHeader = FixedHeader;
 $.fn.DataTable.FixedHeader = FixedHeader;
 
-
 return FixedHeader;
 }; // /factory
-
 
 // Define as an AMD module if possible
 if ( typeof define === 'function' && define.amd ) {
@@ -1022,7 +1005,4 @@ else if ( jQuery && !jQuery.fn.dataTable.FixedHeader ) {
 	// Otherwise simply initialise as normal, stopping multiple evaluation
 	factory( jQuery, jQuery.fn.dataTable );
 }
-
-
 })(window, document);
-

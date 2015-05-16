@@ -6,10 +6,8 @@
  *
  */
 (function ($) {
-
   $.fn.extend({
     slimScroll: function (options) {
-
       var defaults = {
         // width in pixels of the visible scroll area
         width: 'auto',
@@ -61,7 +59,6 @@
 
       // do it for every element that matches selector
       this.each(function () {
-
         var isOverPanel, isOverBar, isDragg, queueHide, touchDif,
                 barHeight, percentScroll, lastScroll,
                 divS = '<div></div>',
@@ -245,7 +242,7 @@
           hideBar();
         });
 
-        if (window.navigator.msPointerEnabled) {          
+        if (window.navigator.msPointerEnabled) {
           // support for mobile
           me.bind('MSPointerDown', function (e, b) {
             if (e.originalEvent.targetTouches.length)
@@ -265,7 +262,6 @@
               // scroll content
               scrollContent(diff, true);
               touchDif = e.originalEvent.targetTouches[0].pageY;
-              
             }
           });
         } else {
@@ -475,7 +471,6 @@
             }, 1000);
           }
         }
-
       });
 
       // maintain chainability
@@ -486,5 +481,4 @@
   $.fn.extend({
     slimscroll: $.fn.slimScroll
   });
-
 })(jQuery);
