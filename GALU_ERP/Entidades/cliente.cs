@@ -12,6 +12,7 @@ namespace GALU_ERP.Entidades
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using Validations;
 
 
     public partial class cliente
@@ -29,10 +30,13 @@ namespace GALU_ERP.Entidades
         [Display(Name = "Razón Social")]
         public string Razon_Social { get; set; }
 
+        [NIF(ErrorMessage = "El NIF es incorrecto")]
         [Required(ErrorMessage = "Campo obligatorio")]
         [Display(Name = "NIF")]
         public string NIF { get; set; }
 
+
+        [NIF(ErrorMessage = "El NIF es incorrecto")]
         [Display(Name = "NIF_R")]
         public string NIF_R { get; set; }
 
@@ -40,9 +44,9 @@ namespace GALU_ERP.Entidades
         [Display(Name = "Domicilio")]
         public string Domicilio { get; set; }
 
+        [CP(ErrorMessage="El código postal")]
         [Display(Name = "CP")]
         [StringLength(5)]
-       // [DataType(DataType.PostalCode)]
         public string CP { get; set; }
 
 
@@ -70,14 +74,14 @@ namespace GALU_ERP.Entidades
 
         [Required(ErrorMessage = "Campo obligatorio")]
         [Display(Name = "Teléfono")]
-       // [DataType(DataType.PhoneNumber)]
-        [Phone(ErrorMessage="Número incorrecto")]
+        // [DataType(DataType.PhoneNumber)]
+        [Phone(ErrorMessage = "Número incorrecto")]
         public string Telefono { get; set; }
 
 
         [Display(Name = "Mail")]
-       // [DataType(DataType.EmailAddress)]
-        [EmailAddress(ErrorMessage="Mail incorrecto")]
+        // [DataType(DataType.EmailAddress)]
+        [EmailAddress(ErrorMessage = "Mail incorrecto")]
         public string Mail { get; set; }
 
         [Display(Name = "Web")]

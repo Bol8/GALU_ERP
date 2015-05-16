@@ -62,64 +62,65 @@
             @Html.DisplayNameFor(model => model.Imagen)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.estado1.Nombre)
+            Estado
         </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Razon_Social)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NIF)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.NIF_R)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Domicilio)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CP)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Poblacion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Provincia)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Pais)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Fecha_A)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Tipo)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Telefono)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Mail)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Web)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Imagen)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.estado1.Nombre)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.idCli }) |
-            @Html.ActionLink("Details", "Details", new { id=item.idCli }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.idCli })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Razon_Social)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NIF)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NIF_R)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Domicilio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Poblacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Provincia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pais)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fecha_A)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tipo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Telefono)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Web)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Imagen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.estado1.Nombre)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "Edit", new { id = item.idCli }) |
+                @Html.ActionLink("Detalles", "Details", new { id = item.idCli }) |
+                @Html.ActionLink("Eliminar", "Delete", new { id = item.idCli })
+            </td>
+        </tr>
+    }
 
 </table>
