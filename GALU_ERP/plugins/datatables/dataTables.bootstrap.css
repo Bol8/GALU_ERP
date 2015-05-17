@@ -34,6 +34,7 @@ div.dataTables_paginate {
 	margin: 0;
 	white-space: nowrap;
 	text-align: right;
+    background-color:ActiveCaption
 }
 
 div.dataTables_paginate ul.pagination {
