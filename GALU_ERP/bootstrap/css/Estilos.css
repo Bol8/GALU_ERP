@@ -14,6 +14,13 @@
     display: block;
 }
 
+.boton {
+    border-radius: 3px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border: 1px solid transparent;
+}
+
 .Cabecera h2 {
     text-align: center;
 }
@@ -53,14 +60,12 @@
     background-color: white;
 }
 
-.minTextBox{
+.minTextBox {
     border: solid thin;
     border-radius: 4px;
     width: 80px;
     height: 25px;
     background-color: white;
-
-
 }
 
 
