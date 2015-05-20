@@ -22,7 +22,8 @@
                     <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
                         <div class="row">
                             <div class="col-sm-6">
-                                <a href="#" class="btn btn-primary" role="button">Nuevo</a>
+                                @*<a href="#" class="btn btn-primary" role="button">Nuevo</a>*@
+                                @Html.ActionLink("Nuevo", "Create", "", new { @class = "btn btn-primary" })
                                 @*<div class="dataTables_length" id="example1_length">
                                         <label>
                                             Muestra
@@ -36,12 +37,12 @@
                                     </div>*@
                             </div>
                             <div class="col-sm-6">
-
                                 <div id="example1_filter" class="dataTables_filter">
-                                    <label>Buscar:<input type="search" class="form-control input-sm" placeholder="" aria-controls="example1"></label>
+                                    <label style="float:right">Buscar:<input type="search" class="form-control input-sm" placeholder="" aria-controls="example1"></label>
                                 </div>
                             </div>
                         </div>
+                        <br />
                         @*<div class="col-sm-2">
                                 <a href="#" class="btn btn-primary" role="button" style="float:right">Nuevo</a>
                             </div>*@
@@ -87,7 +88,7 @@
                                                     @Html.DisplayFor(modelItem => item.Nombre)
                                                 </td>
                                                 <td>
-                                                    @Html.DisplayFor(modelItem => item.Peso)
+                                                    @Html.DisplayFor(modelItem => item.Peso) gr.
                                                 </td>
                                                 <td>
                                                     @Html.DisplayFor(modelItem => item.Tipo)

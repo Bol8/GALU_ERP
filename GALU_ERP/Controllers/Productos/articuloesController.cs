@@ -66,7 +66,17 @@ namespace GALU_ERP.Controllers.Productos
             if (ModelState.IsValid)
             {
                 db.articuloes.Add(articulo);
-                await db.SaveChangesAsync();
+                try
+                {
+                    await db.SaveChangesAsync();
+                }
+                catch (Exception)
+                {
+                    ViewBag.FailId = "Ese Código ya existe, introduzca otro";
+                    ViewBag.Estado = new SelectList(db.estados, "idESTADOS", "Nombre", articulo.Estado);
+                    return View(articulo);
+                }
+               
                 return RedirectToAction("Index");
             }
 
