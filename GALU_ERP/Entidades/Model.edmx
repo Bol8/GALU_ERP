@@ -55,6 +55,8 @@
           <Property Name="Nombre" Type="nvarchar" MaxLength="45" Nullable="false" />
           <Property Name="Origen" Type="nvarchar" MaxLength="45" Nullable="false" />
           <Property Name="Producto" Type="nvarchar" MaxLength="45" />
+          <Property Name="Telefono" Type="nchar" MaxLength="9" Nullable="false" />
+          <Property Name="Mail" Type="nchar" MaxLength="45" />
         </EntityType>
         <EntityType Name="empresa">
           <Key>
@@ -523,6 +525,8 @@
           <Property Name="Nombre" Type="String" MaxLength="45" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Origen" Type="String" MaxLength="45" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Producto" Type="String" MaxLength="45" FixedLength="false" Unicode="true" />
+          <Property Name="Telefono" Type="String" Nullable="false" MaxLength="9" FixedLength="true" Unicode="true" />
+          <Property Name="Mail" Type="String" MaxLength="45" FixedLength="true" Unicode="true" />
         </EntityType>
         <EntityType Name="empresa">
           <Key>
@@ -1009,6 +1013,8 @@
           <EntitySetMapping Name="contactoes">
             <EntityTypeMapping TypeName="GaluModel.contacto">
               <MappingFragment StoreEntitySet="contacto">
+                <ScalarProperty Name="Mail" ColumnName="Mail" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
                 <ScalarProperty Name="idCONTACTO" ColumnName="idCONTACTO" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="Origen" ColumnName="Origen" />

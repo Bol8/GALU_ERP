@@ -22,7 +22,7 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 @*<a href="#" class="btn btn-primary" role="button">Nuevo</a>*@
-                                @Html.ActionLink("Nuevo", "Create", "", new { @class = "btn btn-sm btn-primary" })
+                                @Html.ActionLink("Nuevo", "Create", "", new { @class = "btn btn-sm btn-warning" })
                                 @*<div class="dataTables_length" id="example1_length">
                                         <label>
                                             Muestra
@@ -59,6 +59,12 @@
                                             <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 100px;">
                                                 Producto
                                             </th>
+                                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 100px;">
+                                                Telefono
+                                            </th>
+                                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 100px;">
+                                                Mail
+                                            </th>
                                             <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 120px;">
                                                 Gestión
                                             </th>
@@ -81,6 +87,12 @@
                                                     @Html.DisplayFor(modelItem => item.Producto)
                                                 </td>
                                                 <td>
+                                                    @Html.DisplayFor(modelItem => item.Telefono)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Mail)
+                                                </td>
+                                                <td>
                                                     <div class="btn-group-sm">
                                                         @Html.ActionLink(" ", "Edit", new { id = item.idCONTACTO }, new { @Class = "btn btn-default btn-sm glyphicon glyphicon-pencil", title = "Editar" })
                                                         @Html.ActionLink(" ", "Details", new { id = item.idCONTACTO }, new { @Class = "btn btn-default btn-sm glyphicon glyphicon-eye-open", title = "Detalle" })
@@ -95,6 +107,9 @@
                                             <th rowspan="1" colspan="1">Nombre</th>
                                             <th rowspan="1" colspan="1">Origen</th>
                                             <th rowspan="1" colspan="1">Producto</th>
+                                            <th rowspan="1" colspan="1">Telefono</th>
+                                            <th rowspan="1" colspan="1">Mail</th>
+
                                         </tr>
                                     </tfoot>
                                 </table>

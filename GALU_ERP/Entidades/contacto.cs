@@ -18,5 +18,7 @@ namespace GALU_ERP.Entidades
         public string Nombre { get; set; }
         public string Origen { get; set; }
         public string Producto { get; set; }
+        public string Telefono { get; set; }
+        public string Mail { get; set; }
     }
 }

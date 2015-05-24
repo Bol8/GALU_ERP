@@ -1,64 +1,82 @@
 ﻿@model GALU_ERP.Entidades.contacto
 
-<div class="row">
-    <div class="col-sm-12">
-        <div class="well">
-            <div class="Cabecera">
-                @{
-                    ViewBag.Title = "Delete";
-                }
+<section class="content-header">
+    <h1>
+        Eliminar
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Gestión</a></li>
+        <li><a href="#">Contactos</a></li>
+        <li><a href="#">Eliminar</a></li>
+    </ol>
+</section>
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box box-danger">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Estás seguro de que quieres eliminar?</h3>
+                </div>
+                <div class="box-body">
 
-                <h2>Borrar</h2>
+                    <div>
+                        <dl class="dl-horizontal">
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Nombre)
+                            </dt>
 
-                <h3>Estás seguro de que quieres eliminar?</h3>
+                            <dd>
+                                @Html.DisplayFor(model => model.Nombre)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Origen)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Origen)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Producto)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Producto)
+                            </dd>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Telefono)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Telefono)
+                            </dd>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Mail)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Mail)
+                            </dd>
+
+                        </dl>
+                    </div>
+
+                    <br />
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="FooterDetails">
+                            <p>
+                                <input type="submit" value="Eliminar" class="btn btn-sm btn-danger" /> |
+                                @Html.ActionLink("Volver", "Index", "", new { @class = "btn btn-sm bg-navy" })
+                            </p>
+                        </div>
+                    }
+                </div>
             </div>
         </div>
     </div>
-</div>
-<div>
-    <h4>contacto</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Nombre)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Nombre)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Origen)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Origen)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Producto)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Producto)
-        </dd>
-
-    </dl>
-
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
-
-    <div class="container">
-        <div class="FooterDetails">
-            <p>
-                <div class="form-actions no-color">
-                    <input type="submit" value="Eliminar" class="btn btn-default" style="background-color:red" /> |
-                    @Html.ActionLink("Volver a la lista", "Index", "", new { @class = "btn btn-default" })
-                </div>
-
-            </p>
-        </div>
-    </div>
-
-    }
-</div>
+</section>

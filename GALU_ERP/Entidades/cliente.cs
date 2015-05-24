@@ -11,86 +11,31 @@ namespace GALU_ERP.Entidades
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using Validations;
-
-
+    
     public partial class cliente
     {
         public cliente()
         {
             this.pedido_c = new HashSet<pedido_c>();
         }
-
-        [Required(ErrorMessage = "Campo obligatorio")]
-        [Display(Name = "Código")]
+    
         public int idCli { get; set; }
-
-        [Required(ErrorMessage = "Campo obligatorio")]
-        [Display(Name = "Razón Social")]
         public string Razon_Social { get; set; }
-
-        [NIF(ErrorMessage = "El NIF es incorrecto")]
-        [Required(ErrorMessage = "Campo obligatorio")]
-        [Display(Name = "NIF")]
         public string NIF { get; set; }
-
-
-        [NIF(ErrorMessage = "El NIF es incorrecto")]
-        [Display(Name = "NIF_R")]
         public string NIF_R { get; set; }
-
-        [Required(ErrorMessage = "Campo obligatorio")]
-        [Display(Name = "Domicilio")]
         public string Domicilio { get; set; }
-
-        [CP(ErrorMessage = "El código postal")]
-        [Display(Name = "CP")]
-        [StringLength(5)]
         public string CP { get; set; }
-
-
-        [Required(ErrorMessage = "Campo obligatorio")]
-        [Display(Name = "Población")]
         public string Poblacion { get; set; }
-
-        [Display(Name = "Provincia")]
         public string Provincia { get; set; }
-
-        [Display(Name = "País")]
         public string Pais { get; set; }
-
-        [Required(ErrorMessage = "Campo obligatorio")]
-        [Display(Name = "Fecha Alta")]
         public System.DateTime Fecha_A { get; set; }
-
-        [Required(ErrorMessage = "Campo obligatorio")]
-        [Display(Name = "Tipo")]
         public string Tipo { get; set; }
-
-        [Required(ErrorMessage = "Campo obligatorio")]
-        [Display(Name = "Estado")]
         public int Estado { get; set; }
-
-        [Required(ErrorMessage = "Campo obligatorio")]
-        [Display(Name = "Teléfono")]
-        // [DataType(DataType.PhoneNumber)]
-        [Phone(ErrorMessage = "Número incorrecto")]
         public string Telefono { get; set; }
-
-
-        [Display(Name = "Mail")]
-        // [DataType(DataType.EmailAddress)]
-        [EmailAddress(ErrorMessage = "Mail incorrecto")]
         public string Mail { get; set; }
-
-        [Display(Name = "Web")]
         public string Web { get; set; }
-
-        [Display(Name = "Imagen")]
         public string Imagen { get; set; }
-
-
+    
         public virtual estado estado1 { get; set; }
         public virtual ICollection<pedido_c> pedido_c { get; set; }
     }
