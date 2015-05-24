@@ -198,6 +198,8 @@
           <Property Name="Pais" Type="nvarchar" MaxLength="45" />
           <Property Name="Fecha_A" Type="date" Nullable="false" />
           <Property Name="Estado" Type="int" Nullable="false" />
+          <Property Name="Telefono" Type="nchar" MaxLength="9" Nullable="false" />
+          <Property Name="Mail" Type="nchar" MaxLength="45" />
           <Property Name="Imagen" Type="nvarchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="sysdiagrams">
@@ -688,6 +690,8 @@
           <Property Name="Imagen" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="estado1" Relationship="Self.proveedor_FK_Estado_Prov" FromRole="proveedor" ToRole="estados" />
           <NavigationProperty Name="pedido_p" Relationship="Self.pedido_p_FK_Prov" FromRole="proveedor" ToRole="pedido_p" />
+          <Property Name="Telefono" Type="String" Nullable="false" MaxLength="9" FixedLength="true" Unicode="true" />
+          <Property Name="Mail" Type="String" MaxLength="45" FixedLength="true" Unicode="true" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
@@ -1150,6 +1154,8 @@
           <EntitySetMapping Name="proveedors">
             <EntityTypeMapping TypeName="GaluModel.proveedor">
               <MappingFragment StoreEntitySet="proveedor">
+                <ScalarProperty Name="Mail" ColumnName="Mail" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
                 <ScalarProperty Name="idProv" ColumnName="idProv" />
                 <ScalarProperty Name="RazonSocial" ColumnName="RazonSocial" />
                 <ScalarProperty Name="NIF" ColumnName="NIF" />

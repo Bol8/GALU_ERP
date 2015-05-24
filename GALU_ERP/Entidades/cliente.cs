@@ -44,7 +44,7 @@ namespace GALU_ERP.Entidades
         [Display(Name = "Domicilio")]
         public string Domicilio { get; set; }
 
-        [CP(ErrorMessage="El código postal")]
+        [CP(ErrorMessage = "El código postal")]
         [Display(Name = "CP")]
         [StringLength(5)]
         public string CP { get; set; }

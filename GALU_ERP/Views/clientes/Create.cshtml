@@ -1,196 +1,207 @@
 ﻿@model GALU_ERP.Entidades.cliente
-<div class="row">
-    <div class="col-sm-12">
-        <div class="well">
-            <div class="Cabecera">
-                @{
-                    ViewBag.Title = "Create";
-                }
+<section class="content-header">
+    <h1>
+        Nuevo Cliente
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Gestión</a></li>
+    </ol>
+</section>
 
-                <h2>Nuevo Cliente</h2>
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box box-info">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Alta Cliente</h3>
+                    <div class="box-tools pull-right">
+                        <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+                        <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                    </div>
+                </div>
+                <div class="box-body">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
 
+
+                        <div class="panel-body">
+                            <div class="form-horizontal">
+
+                                @Html.ValidationSummary(true)
+
+                                <div class="col-md-3">
+
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            @Html.LabelFor(model => model.Razon_Social, htmlAttributes: new { @class = "control-label" })
+                                            <br />
+                                            @Html.TextBoxFor(model => model.Razon_Social, new { @class = "form-control", })
+                                            @Html.ValidationMessageFor(model => model.Razon_Social, null, new { @class = "required" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            @Html.LabelFor(model => model.NIF, htmlAttributes: new { @class = "control-label" })
+                                            <br />
+                                            @*@Html.EditorFor(model => model.Nombre)*@
+                                            @Html.TextBoxFor(model => model.NIF, new { @class = "form-control", })
+                                            @Html.ValidationMessageFor(model => model.NIF, null, new { @class = "required" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            @Html.LabelFor(model => model.NIF_R, htmlAttributes: new { @class = "control-label" })
+                                            <br />
+                                            @Html.TextBoxFor(model => model.NIF_R, null, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.NIF_R, null, new { @class = "required" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-md-6">
+                                            @Html.LabelFor(model => model.CP, htmlAttributes: new { @class = "control-label" })
+                                            <br />
+                                            @*  @Html.EditorFor(model => model.Peso)*@
+                                            @Html.TextBoxFor(model => model.CP, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.CP, null, new { @class = "required" })
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-md-3">
+
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            @Html.LabelFor(model => model.Domicilio, htmlAttributes: new { @class = "control-label" })
+                                            <br />
+                                            @Html.TextBoxFor(model => model.Domicilio, null, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.Domicilio, null, new { @class = "required" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            @Html.LabelFor(model => model.Poblacion,htmlAttributes: new { @class = "control-label" })
+                                            <br />
+                                            @Html.TextBoxFor(model => model.Poblacion, null, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.Poblacion, null, new { @class = "required" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            @Html.LabelFor(model => model.Provincia, htmlAttributes: new { @class = "control-label" })
+                                            <br />
+                                            @Html.TextBoxFor(model => model.Provincia, null, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.Provincia, null, new { @class = "required" })
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <div class="col-md-8">
+                                            @Html.LabelFor(model => model.Tipo, htmlAttributes: new { @class = "control-label" })
+                                            <br />
+                                            @*  @Html.EditorFor(model => model.Peso)*@
+                                            @Html.TextBoxFor(model => model.Tipo, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.Tipo, null, new { @class = "required" })
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-3">
+
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            @Html.LabelFor(model => model.Pais, htmlAttributes: new { @class = "control-label" })
+                                            <br />
+                                            @Html.TextBoxFor(model => model.Pais, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.Pais, null, new { @class = "required" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            @Html.LabelFor(model => model.Fecha_A, htmlAttributes: new { @class = "control-label" })
+                                            <br />
+                                            @Html.TextBoxFor(model => model.Fecha_A, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.Fecha_A, null, new { @class = "required" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-md-8">
+                                            @Html.LabelFor(model => model.Telefono, htmlAttributes: new { @class = "control-label" })
+                                            <br />
+                                            @Html.TextBoxFor(model => model.Telefono, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.Telefono, null, new { @class = "required" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-md-8">
+                                            @Html.LabelFor(model => model.Estado, "Estado", htmlAttributes: new { @class = "control-label" })
+                                            <br />
+                                            @Html.DropDownListFor(model => model.Estado, null, "", new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.Estado, null, new { @class = "required" })
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-md-3">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                @Html.LabelFor(model => model.Mail, htmlAttributes: new { @class = "control-label" })
+                                                <br />
+                                                @Html.TextBoxFor(model => model.Mail, new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(model => model.Mail, null, new { @class = "required" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <div class="col-md-12">
+                                                @Html.LabelFor(model => model.Web, htmlAttributes: new { @class = "control-label" })
+                                                <br />
+                                                @Html.TextBoxFor(model => model.Web, new { @class = "form-control" })
+                                                @Html.ValidationMessageFor(model => model.Web, null, new { @class = "required" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    @*<div class="form-group">
+                                        <div class="col-md-12">
+                                            <label style="color:red">@ViewBag.FailId</label>
+                                        </div>
+                                    </div>*@
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-md-12">
+                                        <input id="btnSubmit" type="submit" value="Nuevo" style="float:right" class="btn bg-olive margin" />
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    }
+
+                    <div class="container-fluid">
+                        <div class="col-md-4">
+                            @Html.ActionLink("Volver", "Index", "", new { @class = "btn btn-sm bg-navy" })
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-
-    <div class="panel-body">
-        <div class="form-horizontal">
-            @Html.ValidationSummary(true)
-
-            <div class="col-sm-4">
-                <div class="form-group">                 
-                    <div class="col-md-12">
-                        @Html.LabelFor(model => model.Razon_Social)
-                        <br />
-                        @Html.TextBoxFor(model => model.Razon_Social, new { @class = "textBox" })
-                        @* @Html.EditorFor(model => model.Razon_Social)*@
-                        @Html.ValidationMessageFor(model => model.Razon_Social, null, new { @class = "required" })
-                    </div>
-                </div>
-
-                <div class="form-group">                  
-                    <div class="col-md-12">
-                        @Html.LabelFor(model => model.NIF)
-                        <br />
-                        @Html.TextBoxFor(model => model.NIF, new { @class = "textBox" })
-                        @* @Html.EditorFor(model => model.NIF)*@
-                        @Html.ValidationMessageFor(model => model.NIF, null, new { @class = "required" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-md-12">
-                        @Html.LabelFor(model => model.NIF_R)
-                        <br />
-                        @Html.TextBoxFor(model => model.NIF_R, new { @class = "textBox" })
-                        @*@Html.EditorFor(model => model.NIF_R)*@
-                        @Html.ValidationMessageFor(model => model.NIF_R, null, new { @class = "required" })
-                    </div>
-                </div>
-
-                <div class="form-group">                 
-                    <div class="col-md-12">
-                        @Html.LabelFor(model => model.Domicilio)
-                        <br />
-                        @Html.TextBoxFor(model => model.Domicilio, new { @class = "textBox" })
-                        @*@Html.EditorFor(model => model.Domicilio)*@
-                        @Html.ValidationMessageFor(model => model.Domicilio, null, new { @class = "required" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-md-12">
-                        @Html.LabelFor(model => model.CP)
-                        <br />
-                        @Html.TextBoxFor(model => model.CP, new { @class = "textBox" })
-                        @*@Html.EditorFor(model => model.CP)*@
-                        @Html.ValidationMessageFor(model => model.CP, null, new { @class = "required" })
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="form-group">
-                    <div class="col-md-12">
-                        @Html.LabelFor(model => model.Poblacion)
-                        <br />
-                        @Html.TextBoxFor(model => model.Poblacion, new { @class = "textBox" })
-                        @*@Html.EditorFor(model => model.Poblacion)*@
-                        @Html.ValidationMessageFor(model => model.Poblacion, null, new { @class = "required" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-md-12">
-                        @Html.LabelFor(model => model.Provincia)
-                        <br />
-                        @Html.TextBoxFor(model => model.Provincia, new { @class = "textBox" })
-                        @*@Html.EditorFor(model => model.Provincia)*@
-                        @Html.ValidationMessageFor(model => model.Provincia, null, new { @class = "required" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-md-12">
-                        @Html.LabelFor(model => model.Pais)
-                        <br />
-                        @Html.TextBoxFor(model => model.Pais, new { @class = "textBox" })
-                        @*@Html.EditorFor(model => model.Pais)*@
-                        @Html.ValidationMessageFor(model => model.Pais, null, new { @class = "required" })
-                    </div>
-                </div>
-
-                <div class="form-group">                   
-                    <div class="col-md-12">
-                        @Html.LabelFor(model => model.Fecha_A)
-                        <br />
-                        @Html.TextBoxFor(model => model.Fecha_A, new { @class = "textBox" })
-                        @*@Html.EditorFor(model => model.Fecha_A)*@
-                        @Html.ValidationMessageFor(model => model.Fecha_A, null, new { @class = "required" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-md-12">
-                        @Html.LabelFor(model => model.Tipo)
-                        <br />
-                        @Html.TextBoxFor(model => model.Tipo, new { @class = "textBox" })
-                        @*@Html.EditorFor(model => model.Tipo)*@
-                        @Html.ValidationMessageFor(model => model.Tipo, null, new { @class = "required" })
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="form-group">                  
-                    <div class="col-md-12">
-                        @Html.LabelFor(model => model.Estado, "Estado")
-                        <br />
-                        @Html.DropDownList("Estado", null, "", new { @class = "cajasTexto" })
-                        @Html.ValidationMessageFor(model => model.Estado, null, new { @class = "required" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-md-12">
-                        @Html.LabelFor(model => model.Telefono)
-                        <br />
-                        @Html.TextBoxFor(model => model.Telefono, new { @class = "textBox" })
-                        @*@Html.EditorFor(model => model.Telefono)*@
-                        @Html.ValidationMessageFor(model => model.Telefono, null, new { @class = "required" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-md-12">
-                        @Html.LabelFor(model => model.Mail)
-                        <br />
-                        @Html.TextBoxFor(model => model.Mail, new { @class = "textBox" })
-                        @*@Html.EditorFor(model => model.Mail)*@
-                        @Html.ValidationMessageFor(model => model.Mail, null, new { @class = "required" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-md-12">
-                        @Html.LabelFor(model => model.Web)
-                        <br />
-                        @Html.TextBoxFor(model => model.Web, new { @class = "textBox" })
-                        @*@Html.EditorFor(model => model.Web)*@
-                        @Html.ValidationMessageFor(model => model.Web, null, new { @class = "required" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class="col-md-12">
-                        <input class="foot_btn" type="file" name="Imagen" accept="image/*" />
-                        @*@Html.EditorFor(model => model.Imagen)*@
-                        @Html.ValidationMessageFor(model => model.Imagen, null, new { @class = "required" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    <div class=" col-md-12">
-                        <input type="submit" value="Guardar" class="btn btn-default" />
-                    </div>
-                </div>
-            </div>
-
-            
-
-            
-
-           
-        </div>
-    </div>
-
-}
-
-<div class="container-fluid">
-    <div>
-        @Html.ActionLink("Volver", "Index", "", new { @class = "btn btn-primary btn-sm" })
-    </div>
-</div>
+</section>
 

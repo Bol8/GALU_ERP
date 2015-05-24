@@ -23,7 +23,7 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 @*<a href="#" class="btn btn-primary" role="button">Nuevo</a>*@
-                                @Html.ActionLink("Nuevo", "Create", "", new { @class = "btn btn-primary" })
+                                @Html.ActionLink("Nuevo", "Create", "", new { @class = "btn btn-sm btn-warning" })
                                 @*<div class="dataTables_length" id="example1_length">
                                         <label>
                                             Muestra
@@ -51,26 +51,29 @@
                                 <table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
                                     <thead>
                                         <tr role="row">
-                                            <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 84.0909091234207px;">
+                                            <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 40px;">
                                                 Código
                                             </th>
-                                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 150.181818246841px;">
+                                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 90px;">
                                                 Nombre
                                             </th>
-                                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 84.0909091234207px;">
+                                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 50px;">
                                                 Peso
                                             </th>
                                             <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 84.0909091234207px;">
                                                 Tipo
                                             </th>
-                                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 84.0909091234207px;">
+                                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 60px;">
                                                 Estado
                                             </th>
-                                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 84.0909091234207px;">
+                                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 50px;">
                                                 Precio
                                             </th>
                                             <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 84.0909091234207px;">
                                                 Origen
+                                            </th>
+                                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 84.0909091234207px;">
+                                                Gestión
                                             </th>
                                         </tr>
                                     </thead>
@@ -102,11 +105,16 @@
                                                 <td>
                                                     @Html.DisplayFor(modelItem => item.Origen)
                                                 </td>
+                                                <td>
+                                                    <div class="btn-group-sm">
+                                                        @Html.ActionLink(" ", "Edit", new { id = item.idArt }, new { @Class = "btn btn-default btn-sm glyphicon glyphicon-pencil", title = "Editar" })
+                                                        @Html.ActionLink(" ", "Details", new { id = item.idArt }, new { @Class = "btn btn-default btn-sm glyphicon glyphicon-eye-open", title = "Detalle" })
+                                                        @Html.ActionLink(" ", "Delete", new { id = item.idArt }, new { @Class = "btn btn-default btn-sm glyphicon glyphicon-trash", title = "Eliminar" })
+                                                    </div>
+                                                </td>
                                             </tr>
                                         }
                                     </tbody>
-
-
 
                                     <tfoot>
                                         <tr>
@@ -117,6 +125,8 @@
                                             <th rowspan="1" colspan="1">Estado</th>
                                             <th rowspan="1" colspan="1">Precio</th>
                                             <th rowspan="1" colspan="1">Origen</th>
+                                            <th rowspan="1" colspan="1">Gestión</th>
+
                                         </tr>
                                     </tfoot>
                                 </table>

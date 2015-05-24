@@ -1,146 +1,162 @@
 ﻿@model GALU_ERP.Entidades.articulo
 
 
-<div class="row">
-    <div class="col-sm-12">
-        <div class="well">
-            <div class="container-fluid">
-                <div class="Cabecera">
-                    @{
-                        ViewBag.Title = "Edit";
+<section class="content-header">
+    <h1>
+        Editar
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Gestión</a></li>
+        <li><a href="#">Productos</a></li>
+        <li><a href="#">Editar</a></li>
+    </ol>
+</section>
+
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box box-success">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Detalle Producto</h3>
+                </div>
+                <div class="box-body">
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+
+                        <div class="panel-body">
+                            <div class="form-horizontal">
+
+                                @Html.ValidationSummary(true)
+
+                                <div class="col-md-3">
+
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            @Html.LabelFor(model => model.idArt, htmlAttributes: new { @class = "control-label" })
+                                            <br />
+                                            @Html.TextBoxFor(model => model.idArt, new { @class = "form-control", })
+                                            @Html.ValidationMessageFor(model => model.idArt, null, new { @class = "required" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "control-label" })
+                                            <br />
+                                            @*@Html.EditorFor(model => model.Nombre)*@
+                                            @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control", })
+                                            @Html.ValidationMessageFor(model => model.Nombre, null, new { @class = "required" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-md-8">
+                                            @Html.LabelFor(model => model.Estado, "Estado", htmlAttributes: new { @class = "control-label" })
+                                            <br />
+                                            @Html.DropDownListFor(model => model.Estado, null, "", new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.Estado, null, new { @class = "required" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-md-6">
+                                            @Html.LabelFor(model => model.Peso, htmlAttributes: new { @class = "control-label" })
+                                            <br />
+                                            @*  @Html.EditorFor(model => model.Peso)*@
+                                            @Html.TextBoxFor(model => model.Peso, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.Peso, null, new { @class = "required" })
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                                <div class="col-md-3">
+
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            @Html.LabelFor(model => model.Tipo, htmlAttributes: new { @class = "control-label" })
+                                            <br />
+                                            @Html.TextBoxFor(model => model.Tipo, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.Tipo, null, new { @class = "required" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            @Html.LabelFor(model => model.Origen, htmlAttributes: new { @class = "control-label" })
+                                            <br />
+                                            @Html.TextBoxFor(model => model.Origen, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.Origen, null, new { @class = "required" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-md-6">
+                                            @Html.LabelFor(model => model.Precio, htmlAttributes: new { @class = "control-label" })
+                                            <br />
+                                            @Html.TextBoxFor(model => model.Precio, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.Precio, null, new { @class = "required" })
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <div class="col-md-6">
+                                            @Html.LabelFor(model => model.IVA, htmlAttributes: new { @class = "control-label" })
+                                            <br />
+                                            @Html.TextBoxFor(model => model.IVA, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.IVA, null, new { @class = "required" })
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            @Html.LabelFor(model => model.Descripcion, htmlAttributes: new { @class = "control-label" })
+                                            <br />
+                                            @Html.TextAreaFor(model => model.Descripcion, 9, 0, new { @class = "form-control", style = "width: 100%;" })
+                                            @Html.ValidationMessageFor(model => model.Descripcion)
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <label style="color:red">@ViewBag.FailId</label>
+                                            @*<input class="foot_btn" type="file" name="Imagen" accept="image/*" />
+                                                @Html.ValidationMessageFor(model => model.Imagen)*@
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col-md-12">
+                                        <input id="btnSubmit" type="submit" value="Guardar" style="float:right" class="btn btn-sm bg-olive margin" />
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
                     }
 
-                    <h2>Editar</h2>
+                    <div class="container-fluid">
+                        <div class="col-md-4">
+                            @Html.ActionLink("Volver", "Index", "", new { @class = "btn btn-sm bg-navy" })
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+
+</section>
 
 
-
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-
-
-    <div class="panel-body">
-        <div class="form-horizontal">
-
-            @Html.ValidationSummary(true)
-            @Html.HiddenFor(model => model.idArt)
-           
-            <div class="col-sm-4">
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "control-label col-md-3" })
-                    <div class="col-md-9">
-                        @*@Html.EditorFor(model => model.Nombre)*@
-                        @Html.TextBoxFor(model => model.Nombre, new { @class = "textBox" })
-                        <br />
-                        @Html.ValidationMessageFor(model => model.Nombre, null, new { @class = "required" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Peso, htmlAttributes: new { @class = "control-label col-md-3" })
-                    <div class="col-md-9">
-                        @*  @Html.EditorFor(model => model.Peso)*@
-                        @Html.TextBoxFor(model => model.Peso, new { @class = "textBox" })
-                        <br />
-                        @Html.ValidationMessageFor(model => model.Peso, null, new { @class = "required" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Estado, "Estado", htmlAttributes: new { @class = "control-label col-md-3" })
-                    <div class="col-md-9">
-                        @Html.DropDownListFor(model => model.Estado, null, "", new { @class = "cajasTexto" })
-                        <br />
-                        @Html.ValidationMessageFor(model => model.Estado, null, new { @class = "required" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.IVA, htmlAttributes: new { @class = "control-label col-md-3" })
-                    <div class="col-md-9">
-                        @*@Html.EditorFor(model => model.IVA)*@
-                        @Html.TextBoxFor(model => model.IVA, new { @class = "minTextBox", style = "max-width:60px;" })
-                        <br />
-                        @Html.ValidationMessageFor(model => model.IVA, null, new { @class = "required" })
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="col-sm-4">
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Tipo, htmlAttributes: new { @class = "control-label col-md-3" })
-                    <div class="col-md-9">
-                        @*@Html.EditorFor(model => model.Tipo)*@
-                        @Html.TextBoxFor(model => model.Tipo, new { @class = "textBox" })
-                        <br />
-                        @Html.ValidationMessageFor(model => model.Tipo, null, new { @class = "required" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Precio, htmlAttributes: new { @class = "control-label col-md-3" })
-                    <div class="col-md-9">
-                        @*@Html.EditorFor(model => model.Precio)*@
-                        @Html.TextBoxFor(model => model.Precio, new { @class = "textBox" })
-                        <br />
-                        @Html.ValidationMessageFor(model => model.Precio, null, new { @class = "required" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Origen, htmlAttributes: new { @class = "control-label col-md-3" })
-                    <div class="col-md-9">
-                        @*@Html.EditorFor(model => model.Origen)*@
-                        @Html.TextBoxFor(model => model.Origen, new { @class = "textBox" })
-                        <br />
-                        @Html.ValidationMessageFor(model => model.Origen, null, new { @class = "required" })
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="col-sm-4">
-                <div class="form-group">
-                    <div class="col-md-10">
-                        @*@Html.LabelFor(model => model.Descripcion, htmlAttributes: new { @class = "control-label" })*@
-                        @Html.TextAreaFor(model => model.Descripcion, 7, 0, new { @class = "form-control cajasTexto", style = "max-width: 100%; border-radius:4px", placeholder = "Descripción" })
-                        @Html.ValidationMessageFor(model => model.Descripcion)
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-10">
-                        @*@Html.EditorFor(model => model.Imagen)*@
-                        @Html.TextBoxFor(model => model.Imagen, new {@class="textBox" })
-                        <input class="foot_btn" type="file" name="Imagen" accept="image/*" />
-                        @Html.ValidationMessageFor(model => model.Imagen)
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-10">
-                        <input id="btnSubmit" type="submit" value="Guardar" class="btn btn-default" />
-                    </div>
-                </div>
-
-            </div>
-
-
-        </div>
-    </div>
-
-}
-
-
-<div class="container-fluid">
-    @Html.ActionLink("Volver", "Index", "", new { @class = "btn btn-primary btn-sm" })
-</div>
 
 
 

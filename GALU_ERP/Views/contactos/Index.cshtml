@@ -1,53 +1,129 @@
 ﻿@model IEnumerable<GALU_ERP.Entidades.contacto>
 
-<div class="row">
-    <div class="col-sm-12">
-        <div class="well">
-            <div class="container-fluid">
-                <div class="Cabecera">
-                    @{
-                        ViewBag.Title = "Index";
-                    }
+<section class="content-header">
+    <h1>
+        Contactos
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Gestión</a></li>
+        <li><a href="#">Contactos</a></li>
+    </ol>
+</section>
 
-                    <h2>Contactos</h2><span>@Html.ActionLink("Nuevo", "Create", "", new { @class = "btn btn-primary btn-sm" })</span>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box">
+                <div class="box-header">
+                    <h3 class="box-title">Tabla Contactos</h3>
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                    <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                @*<a href="#" class="btn btn-primary" role="button">Nuevo</a>*@
+                                @Html.ActionLink("Nuevo", "Create", "", new { @class = "btn btn-sm btn-primary" })
+                                @*<div class="dataTables_length" id="example1_length">
+                                        <label>
+                                            Muestra
+                                            <select name="example1_length" aria-controls="example1" class="form-control input-sm">
+                                                <option value="10">10</option>
+                                                <option value="25">25</option>
+                                                <option value="50">50</option>
+                                                <option value="100">100</option>
+                                            </select> primeros
+                                        </label>
+                                    </div>*@
+                            </div>
+                            <div class="col-sm-6">
+                                <div id="example1_filter" class="dataTables_filter">
+                                    <label style="float:right">Buscar:<input type="search" class="form-control input-sm" placeholder="" aria-controls="example1"></label>
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                        @*<div class="col-sm-2">
+                                <a href="#" class="btn btn-primary" role="button" style="float:right">Nuevo</a>
+                            </div>*@
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
+                                    <thead>
+                                        <tr role="row">
+                                            <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 150px;">
+                                                Nombre
+                                            </th>
+                                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 150px;">
+                                                Origen
+                                            </th>
+                                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 100px;">
+                                                Producto
+                                            </th>
+                                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 120px;">
+                                                Gestión
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @for (var i = 0; i < Model.Count(); i++)
+                                        {
 
+                                            var item = Model.ElementAt(i);
 
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Nombre)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Origen)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Producto)
-        </th>
-        <th></th>
-    </tr>
+                                            <tr role="row" class="odd">
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Nombre)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Origen)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Producto)
+                                                </td>
+                                                <td>
+                                                    <div class="btn-group-sm">
+                                                        @Html.ActionLink(" ", "Edit", new { id = item.idCONTACTO }, new { @Class = "btn btn-default btn-sm glyphicon glyphicon-pencil", title = "Editar" })
+                                                        @Html.ActionLink(" ", "Details", new { id = item.idCONTACTO }, new { @Class = "btn btn-default btn-sm glyphicon glyphicon-eye-open", title = "Detalle" })
+                                                        @Html.ActionLink(" ", "Delete", new { id = item.idCONTACTO }, new { @Class = "btn btn-default btn-sm glyphicon glyphicon-trash", title = "Eliminar" })
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        }
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <th rowspan="1" colspan="1">Nombre</th>
+                                            <th rowspan="1" colspan="1">Origen</th>
+                                            <th rowspan="1" colspan="1">Producto</th>
+                                        </tr>
+                                    </tfoot>
+                                </table>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Nombre)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Origen)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Producto)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.idCONTACTO }) |
-            @Html.ActionLink("Details", "Details", new { id=item.idCONTACTO }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.idCONTACTO })
-        </td>
-    </tr>
-}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <div class="dataTables_info" id="example1_info" role="status" aria-live="polite">Showing 1 to 10 of 57 entries</div>
+                            </div>
+                            @*<div class="col-sm-7">
+                                    <div class="dataTables_paginate " id="example1_paginate">
+                                        <ul class="pagination">
+                                            <li class="paginate_button previous disabled" id="example1_previous"><a href="#" aria-controls="example1" data-dt-idx="0" tabindex="0">Previous</a></li>
+                                            <li class="paginate_button active"><a href="#" aria-controls="example1" data-dt-idx="1" tabindex="0">1</a></li>
+                                            <li class="paginate_button "><a href="#" aria-controls="example1" data-dt-idx="2" tabindex="0">2</a></li>
+                                            <li class="paginate_button "><a href="#" aria-controls="example1" data-dt-idx="3" tabindex="0">3</a></li>
+                                            <li class="paginate_button "><a href="#" aria-controls="example1" data-dt-idx="4" tabindex="0">4</a></li>
+                                            <li class="paginate_button "><a href="#" aria-controls="example1" data-dt-idx="5" tabindex="0">5</a></li>
+                                            <li class="paginate_button "><a href="#" aria-controls="example1" data-dt-idx="6" tabindex="0">6</a></li>
+                                            <li class="paginate_button next" id="example1_next"><a href="#" aria-controls="example1" data-dt-idx="7" tabindex="0">Next</a></li>
+                                        </ul>
+                                    </div>
+                                </div>*@
+                        </div>
+                    </div>
+                </div><!-- /.box-body -->
+            </div><!-- /.box -->
+        </div><!-- /.col -->
+    </div><!-- /.row -->
+</section>
 
-</table>

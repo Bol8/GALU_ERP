@@ -11,6 +11,8 @@ namespace GALU_ERP.Entidades
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using Validations;
     
     public partial class proveedor
     {
@@ -28,6 +30,8 @@ namespace GALU_ERP.Entidades
         public string Poblacion { get; set; }
         public string Provincia { get; set; }
         public string Pais { get; set; }
+        public string Telefono { get; set; }
+        public string Mail { get; set; }
         public System.DateTime Fecha_A { get; set; }
         public int Estado { get; set; }
         public string Imagen { get; set; }

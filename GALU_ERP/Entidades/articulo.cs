@@ -24,7 +24,7 @@ namespace GALU_ERP.Entidades
 
         [Required(ErrorMessage = "Campo obligatorio")]
         [Display(Name = "Código")]
-        [StringLength(10,ErrorMessage="Máximo 10 caracteres")]
+        [StringLength(10, ErrorMessage = "Máximo 10 caracteres")]
         public string idArt { get; set; }
 
         [Required(ErrorMessage = "Campo obligatorio")]
