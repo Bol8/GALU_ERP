@@ -5,12 +5,11 @@
         Productos
     </h1>
     <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Gestión</a></li>
+        <li><a href="Home/Index.cshtml"><i class="fa fa-dashboard"></i> Dashboard</a></li>
         <li><a href="#">Productos</a></li>
         <li class="active">tabla</li>
     </ol>
 </section>
-
 <section class="content">
     <div class="row">
         <div class="col-xs-12">
@@ -48,8 +47,8 @@
                     </div>*@
                         <div class="row">
                             <div class="col-sm-12">
-                                <table id="example1" class="table table-bordered table-striped dataTable" role="grid" aria-describedby="example1_info">
-                                    <thead>
+                                <table id="example1" class="table  table-striped dataTable" role="grid" aria-describedby="example1_info">
+                                    <thead style="background-color:#54CC96">
                                         <tr role="row">
                                             <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 40px;">
                                                 Código
@@ -116,7 +115,7 @@
                                         }
                                     </tbody>
 
-                                    <tfoot>
+                                    @*<tfoot style="background-color:#54CC96">
                                         <tr>
                                             <th rowspan="1" colspan="1">Código</th>
                                             <th rowspan="1" colspan="1">Nombre</th>
@@ -128,7 +127,7 @@
                                             <th rowspan="1" colspan="1">Gestión</th>
 
                                         </tr>
-                                    </tfoot>
+                                    </tfoot>*@
                                 </table>
 
                             </div>
