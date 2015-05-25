@@ -173,7 +173,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Collections\cClientes1.cs" />
+    <Compile Include="Collections\cPedidosClientes.cs" />
     <Compile Include="Collections\cProducto.cs" />
+    <Compile Include="Collections\cProveedores.cs" />
     <Compile Include="Context\ApplicationDataContext.cs" />
     <Compile Include="Controllers\CalendarController.cs" />
     <Compile Include="Controllers\Clientes\clientesController.cs" />

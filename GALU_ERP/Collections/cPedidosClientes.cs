@@ -4,35 +4,33 @@ using System.Linq;
 using System.Web;
 using GALU_ERP.Entidades;
 
+
 namespace GALU_ERP.Collections
 {
-    public class cProducto
+    public class cPedidosClientes
     {
+
         private static GaluEntities db = new GaluEntities();
 
 
-
-        public static  int getCountProducts()
+        public static int getCountOrders()
         {
+
             try
             {
-                var query = from p in db.articuloes
+                var query = from p in db.pedido_c
                             select p;
 
 
-                return query.Count(); 
+                return query.Count();
 
-            }catch(Exception ){
-
-
+            }
+            catch (Exception )
+            {
                 return 0;
             }
 
-
-           
         }
-
-
 
 
     }
