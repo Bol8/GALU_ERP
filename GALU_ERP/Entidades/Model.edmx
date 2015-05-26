@@ -165,13 +165,13 @@
             <PropertyRef Name="Num_ped" />
           </Key>
           <Property Name="Num_ped" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Fecha_A" Type="date" Nullable="false" />
-          <Property Name="Total" Type="real" />
+          <Property Name="idCliente" Type="int" Nullable="false" />
           <Property Name="Destino" Type="nvarchar" MaxLength="45" Nullable="false" />
           <Property Name="Tipo" Type="nvarchar" MaxLength="45" Nullable="false" />
           <Property Name="Estado" Type="int" Nullable="false" />
           <Property Name="Forma_pago" Type="int" Nullable="false" />
-          <Property Name="idCliente" Type="int" Nullable="false" />
+          <Property Name="Fecha_A" Type="date" Nullable="false" />
+          <Property Name="Total" Type="real" />
         </EntityType>
         <EntityType Name="pedido_p">
           <Key>

@@ -1,0 +1,74 @@
+﻿@model GALU_ERP.Entidades.pedido_c
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>pedido_c</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Fecha_A)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fecha_A)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Total)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Total)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Destino)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Destino)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Tipo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Tipo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cliente.Razon_Social)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cliente.Razon_Social)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.estado_ped.NombreE)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.estado_ped.NombreE)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.forma_pago1.Tipo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.forma_pago1.Tipo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Num_ped }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

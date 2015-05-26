@@ -182,6 +182,8 @@
     <Compile Include="Controllers\Clientes\clientesController.cs" />
     <Compile Include="Controllers\Contactos\contactosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\PedidosC\pedido_cController.cs" />
+    <Compile Include="Controllers\PedidosP\pedido_pController.cs" />
     <Compile Include="Controllers\Productos\articuloesController.cs" />
     <Compile Include="Controllers\Proveedores\proveedoresController.cs" />
     <Compile Include="Entidades\albaran.cs">
@@ -1392,6 +1394,36 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ClassDiagram1.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\pedido_c\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\pedido_c\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\pedido_c\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\pedido_c\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\pedido_c\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\pedido_p\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\pedido_p\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\pedido_p\Details.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\pedido_p\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\pedido_p\Index.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
