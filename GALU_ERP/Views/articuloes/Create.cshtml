@@ -39,7 +39,7 @@
                                         <div class="col-md-12">
                                             @Html.LabelFor(model => model.idArt, htmlAttributes: new { @class ="control-label" })
                                             <br />
-                                            @Html.TextBoxFor(model => model.idArt, new { @class = "form-control", })
+                                            @Html.TextBoxFor(model => model.idArt, new { @class = "form-control input-sm", })
                                             @Html.ValidationMessageFor(model => model.idArt, null, new { @class = "required" })
                                         </div>
                                     </div>
@@ -49,7 +49,7 @@
                                             @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "control-label" })
                                             <br />
                                             @*@Html.EditorFor(model => model.Nombre)*@
-                                            @Html.TextBoxFor(model => model.Nombre, new { @class ="form-control", })
+                                            @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control input-sm", })
                                             @Html.ValidationMessageFor(model => model.Nombre, null, new { @class = "required" })
                                         </div>
                                     </div>
@@ -58,7 +58,7 @@
                                         <div class="col-md-8">
                                             @Html.LabelFor(model => model.Estado, "Estado", htmlAttributes: new { @class = "control-label" })
                                             <br />
-                                            @Html.DropDownListFor(model => model.Estado, null, "", new { @class = "form-control" })
+                                            @Html.DropDownListFor(model => model.Estado, null, "", new { @class = "form-control input-sm" })
                                             @Html.ValidationMessageFor(model => model.Estado, null, new { @class = "required" })
                                         </div>
                                     </div>
@@ -68,7 +68,7 @@
                                             @Html.LabelFor(model => model.Peso, htmlAttributes: new {@class = "control-label" })
                                             <br />
                                             @*  @Html.EditorFor(model => model.Peso)*@
-                                            @Html.TextBoxFor(model => model.Peso, new { @class = "form-control" })
+                                            @Html.TextBoxFor(model => model.Peso, new { @class = "form-control input-sm" })
                                             @Html.ValidationMessageFor(model => model.Peso, null, new { @class = "required" })
                                         </div>
                                     </div>
@@ -81,7 +81,7 @@
                                         <div class="col-md-12">
                                             @Html.LabelFor(model => model.Tipo, htmlAttributes: new { @class = "control-label" })
                                             <br />
-                                            @Html.TextBoxFor(model => model.Tipo, new { @class = "form-control" })
+                                            @Html.TextBoxFor(model => model.Tipo, new { @class = "form-control input-sm" })
                                             @Html.ValidationMessageFor(model => model.Tipo, null, new { @class = "required" })
                                         </div>
                                     </div>
@@ -90,7 +90,7 @@
                                         <div class="col-md-12">
                                             @Html.LabelFor(model => model.Origen, htmlAttributes: new { @class = "control-label" })
                                             <br />
-                                            @Html.TextBoxFor(model => model.Origen, new { @class = "form-control" })
+                                            @Html.TextBoxFor(model => model.Origen, new { @class = "form-control input-sm" })
                                             @Html.ValidationMessageFor(model => model.Origen, null, new { @class = "required" })
                                         </div>
                                     </div>
@@ -99,7 +99,7 @@
                                         <div class="col-md-6">
                                             @Html.LabelFor(model => model.Precio, htmlAttributes: new { @class = "control-label" })
                                             <br />
-                                            @Html.TextBoxFor(model => model.Precio, new { @class = "form-control" })
+                                            @Html.TextBoxFor(model => model.Precio, new { @class = "form-control input-sm" })
                                             @Html.ValidationMessageFor(model => model.Precio, null, new { @class = "required" })
                                         </div>
                                     </div>
@@ -109,7 +109,7 @@
                                         <div class="col-md-6">
                                             @Html.LabelFor(model => model.IVA, htmlAttributes: new { @class = "control-label" })
                                             <br />
-                                            @Html.TextBoxFor(model => model.IVA, new { @class = "form-control" })
+                                            @Html.TextBoxFor(model => model.IVA, new { @class = "form-control input-sm" })
                                             @Html.ValidationMessageFor(model => model.IVA, null, new { @class = "required" })
                                         </div>
                                     </div>
@@ -120,7 +120,7 @@
                                         <div class="col-md-12">
                                             @Html.LabelFor(model => model.Descripcion, htmlAttributes: new { @class = "control-label" })
                                             <br />
-                                            @Html.TextAreaFor(model => model.Descripcion, 9, 0, new {@class="form-control" , style = "width: 100%;"})
+                                            @Html.TextAreaFor(model => model.Descripcion, 9, 0, new { @class = "form-control input-sm", style = "width: 100%;" })
                                             @Html.ValidationMessageFor(model => model.Descripcion)
                                         </div>
                                     </div>

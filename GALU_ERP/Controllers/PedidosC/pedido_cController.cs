@@ -18,6 +18,9 @@ namespace GALU_ERP.Controllers.PedidosC
         // GET: pedido_c
         public async Task<ActionResult> Index()
         {
+            ViewBag.idCliente = new SelectList(db.clientes, "idCli", "Razon_Social");
+            ViewBag.Estado = new SelectList(db.estado_ped, "idEstados", "NombreE");
+            ViewBag.Forma_pago = new SelectList(db.forma_pago, "idPAGO", "Tipo");
             var pedido_c = db.pedido_c.Include(p => p.cliente).Include(p => p.estado_ped).Include(p => p.forma_pago1);
             return View(await pedido_c.ToListAsync());
         }
@@ -63,6 +66,7 @@ namespace GALU_ERP.Controllers.PedidosC
             ViewBag.idCliente = new SelectList(db.clientes, "idCli", "Razon_Social", pedido_c.idCliente);
             ViewBag.Estado = new SelectList(db.estado_ped, "idEstados", "NombreE", pedido_c.Estado);
             ViewBag.Forma_pago = new SelectList(db.forma_pago, "idPAGO", "Tipo", pedido_c.Forma_pago);
+
             return View(pedido_c);
         }
 
