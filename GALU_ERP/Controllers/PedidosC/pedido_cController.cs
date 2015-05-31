@@ -133,6 +133,27 @@ namespace GALU_ERP.Controllers.PedidosC
             return RedirectToAction("Index");
         }
 
+
+        public async Task<ActionResult> lineaPedido(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            pedido_c pedido_c = await db.pedido_c.FindAsync(id);
+            if (pedido_c == null)
+            {
+                return HttpNotFound();
+            }
+
+            ViewBag.lineas =  db.linea_pedido_c.Include(l => l.articulo).Include(l => l.pedido_c);
+            ViewBag.idArticulo = new SelectList(db.articuloes, "idArt", "Nombre");
+            ViewBag.Num_ped = new SelectList(db.pedido_c, "Num_ped", "Destino");
+
+            return View(pedido_c);
+
+        }
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)

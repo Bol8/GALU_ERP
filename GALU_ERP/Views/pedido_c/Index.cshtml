@@ -61,7 +61,7 @@
                                     <div class="row">
                                         <div class="col-md-4">
                                             <small>Fecha Alta:</small><br>
-                                            @Html.TextBox("Fecha_A", DateTime.Now.ToShortDateString(), new { @Class = "form-control input-sm Tform" })
+                                            @Html.TextBox("Fecha_A", DateTime.Now.ToShortDateString(), new { @Class = "form-control input-sm" })
                                         </div>
 
 
@@ -100,13 +100,13 @@
                 <thead style="background-color:#54CC96">
                     <tr role="row">
                         <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 40px;">
-                            Cliente
+                            Linea
                         </th>
                         <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 90px;">
-                            Destino
+                            Producto
                         </th>
                         <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 50px;">
-                            Estado
+                            Cantidad
                         </th>
                         <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 84.0909091234207px;">
                             Fecha_A
@@ -152,7 +152,7 @@
                             </td>
                             <td>
                                 <div class="btn-group-sm">
-                                    @Html.ActionLink(" ", "Edit", new { id = item.Num_ped }, new { @Class = "btn btn-default btn-sm glyphicon glyphicon-plus", title = "Añadir Lineas" })
+                                    @Html.ActionLink(" ", "lineaPedido", new { id = item.Num_ped }, new { @Class = "btn btn-default btn-sm glyphicon glyphicon-plus", title = "Añadir Lineas" })
                                     @Html.ActionLink(" ", "Details", new { id = item.Num_ped }, new { @Class = "btn btn-default btn-sm glyphicon glyphicon-eye-open", title = "Detalle" })
                                     @Html.ActionLink(" ", "Edit", new { id = item.Num_ped }, new { @Class = "btn btn-default btn-sm glyphicon glyphicon-pencil", title = "Editar" })
                                     @Html.ActionLink(" ", "Delete", new { id = item.Num_ped }, new { @Class = "btn btn-default btn-sm glyphicon glyphicon-trash", title = "Eliminar" })
@@ -185,71 +185,3 @@
 
     </div>
 </section>
-
-@*@{
-        ViewBag.Title = "Index";
-    }
-
-    <h2>Index</h2>
-
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Fecha_A)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Total)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Destino)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Tipo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.cliente.Razon_Social)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.estado_ped.NombreE)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.forma_pago1.Tipo)
-            </th>
-            <th></th>
-        </tr>
-
-    @foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Fecha_A)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Total)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Destino)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Tipo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.cliente.Razon_Social)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.estado_ped.NombreE)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.forma_pago1.Tipo)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.Num_ped }) |
-                @Html.ActionLink("Details", "Details", new { id=item.Num_ped }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.Num_ped })
-            </td>
-        </tr>
-    }
-
-    </table>*@
