@@ -1,0 +1,89 @@
+﻿@model IEnumerable<GALU_ERP.Entidades.linea_pedido_c> 
+
+<section>
+    <div class="col-sm-12">
+        <table id="example1" class="table  table-striped dataTable" role="grid" aria-describedby="example1_info" style="width:100%">
+            <thead style="background-color:#54CC96">
+                <tr role="row">
+                    <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 40px;">
+                        Linea
+                    </th>
+                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 90px;">
+                        Producto
+                    </th>
+                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 90px;">
+                        Precio
+                    </th>
+                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 50px;">
+                        Cantidad
+                    </th>
+                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 84.0909091234207px;">
+                        Total
+                    </th>
+                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 84.0909091234207px;">
+                        Gestión
+                    </th>
+                </tr>
+            </thead>
+
+
+            <tbody>
+                @for (var i = 0; i < Model.Count(); i++)
+                {
+
+                    var item = Model.ElementAt(i);
+                    //var date = item.Fecha_A.ToShortDateString();
+
+                    <tr role="row" class="odd">
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Linea)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.articulo.Nombre)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.articulo.Precio)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Cantidad)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Total)
+                        </td>
+                        <td>
+                            <div class="btn-group-sm">
+                                @Html.ActionLink(" ", "Edit", new { id = item.Num_ped }, new { @Class = "btn btn-default btn-sm glyphicon glyphicon-plus", title = "Añadir Lineas" })
+                                @Html.ActionLink(" ", "Details", new { id = item.Num_ped }, new { @Class = "btn btn-default btn-sm glyphicon glyphicon-eye-open", title = "Detalle" })
+                                @Html.ActionLink(" ", "Edit", new { id = item.Num_ped }, new { @Class = "btn btn-default btn-sm glyphicon glyphicon-pencil", title = "Editar" })
+                                @Html.ActionLink(" ", "Delete", new { id = item.Num_ped }, new { @Class = "btn btn-default btn-sm glyphicon glyphicon-trash", title = "Eliminar" })
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+
+            @*<tfoot style="background-color:#54CC96">
+                    <tr>
+                        <th rowspan="1" colspan="1">Código</th>
+                        <th rowspan="1" colspan="1">Nombre</th>
+                        <th rowspan="1" colspan="1">Peso</th>
+                        <th rowspan="1" colspan="1">Tipo</th>
+                        <th rowspan="1" colspan="1">Estado</th>
+                        <th rowspan="1" colspan="1">Precio</th>
+                        <th rowspan="1" colspan="1">Origen</th>
+                        <th rowspan="1" colspan="1">Gestión</th>
+
+                    </tr>
+                </tfoot>*@
+        </table>
+
+    </div>
+</section>
+
+
+
+
+
+
+
+

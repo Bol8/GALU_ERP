@@ -152,7 +152,7 @@
                             </td>
                             <td>
                                 <div class="btn-group-sm">
-                                    @Html.ActionLink(" ", "lineaPedido", new { id = item.Num_ped }, new { @Class = "btn btn-default btn-sm glyphicon glyphicon-plus", title = "Añadir Lineas" })
+                                    @Html.ActionLink(" ", "Index","linea_pedido_c", new { id = item.Num_ped }, new { @Class = "btn btn-default btn-sm glyphicon glyphicon-plus", title = "Añadir Lineas" })
                                     @Html.ActionLink(" ", "Details", new { id = item.Num_ped }, new { @Class = "btn btn-default btn-sm glyphicon glyphicon-eye-open", title = "Detalle" })
                                     @Html.ActionLink(" ", "Edit", new { id = item.Num_ped }, new { @Class = "btn btn-default btn-sm glyphicon glyphicon-pencil", title = "Editar" })
                                     @Html.ActionLink(" ", "Delete", new { id = item.Num_ped }, new { @Class = "btn btn-default btn-sm glyphicon glyphicon-trash", title = "Eliminar" })

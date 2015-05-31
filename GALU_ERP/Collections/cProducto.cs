@@ -33,7 +33,5 @@ namespace GALU_ERP.Collections
         }
 
 
-
-
     }
 }
