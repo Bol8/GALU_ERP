@@ -1,0 +1,148 @@
+﻿@model GALU_ERP.Entidades.cliente
+
+<section class="content-header">
+    <h1>
+        Eliminar
+    </h1>
+    <ol class="breadcrumb">
+        <li><i class="fa fa-dashboard">&nbsp;</i>@Html.ActionLink("Dashboard", "Index", "Home", null, null)</li>
+        <li>@Html.ActionLink("Clientes", "Index", "clientes", null, null)</li>
+        <li><a href="#">Eliminar</a></li>
+    </ol>
+</section>
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box box-danger">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Estás seguro de que quieres eliminar?</h3>
+                </div>
+                <div class="box-body">
+
+                    <div>
+                        <dl class="dl-horizontal">
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Razon_Social)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Razon_Social)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.NIF)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.NIF)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.NIF_R)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.NIF_R)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Domicilio)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Domicilio)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.CP)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.CP)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Poblacion)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Poblacion)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Provincia)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Provincia)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Pais)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Pais)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Fecha_A)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Fecha_A)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Tipo)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Tipo)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Telefono)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Telefono)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Mail)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Mail)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Web)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Web)
+                            </dd>
+                        </dl>
+                    </div>
+
+                    <br />
+
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="FooterDetails">
+                            <p>
+                                <input type="submit" value="Eliminar" class="btn btn-sm btn-danger" /> |
+                                @Html.ActionLink("Volver", "Index", "", new { @class = "btn btn-sm bg-navy" })
+                            </p>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

@@ -1,0 +1,79 @@
+﻿@model GALU_ERP.Entidades.contacto
+
+<section class="content-header">
+    <h1>
+        Detalles
+    </h1>
+    <ol class="breadcrumb">
+        <li><i class="fa fa-dashboard">&nbsp;</i>@Html.ActionLink("Dashboard", "Index", "Home", null, null)</li>
+        <li>@Html.ActionLink("Contactos", "Index", "contactos", null, null)</li>
+        <li><a href="#">Detalles</a></li>
+    </ol>
+</section>
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box box-success">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Detalle Producto</h3>
+                </div>
+                <div class="box-body">
+
+                    <div>
+                        <dl class="dl-horizontal">
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Nombre)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Nombre)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Origen)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Origen)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Producto)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Producto)
+                            </dd>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Telefono)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Telefono)
+                            </dd>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Mail)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Mail)
+                            </dd>
+
+                        </dl>
+                    </div>
+
+                    <br />
+
+                    <div class="container-fluid">
+                        <div class="FooterDetails">
+                            <p>
+                                @Html.ActionLink("Editar", "Edit", new { id = Model.idCONTACTO }, new { @class = "btn btn-warning btn-sm" }) |
+                                @Html.ActionLink("Volver", "Index", "", new { @class = "btn btn-sm bg-navy" })
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
