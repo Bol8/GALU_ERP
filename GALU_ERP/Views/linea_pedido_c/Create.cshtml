@@ -12,10 +12,10 @@
     <title>Create</title>
 </head>
 <body>
-    @using (Html.BeginForm()) 
+    @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
-        
+
         <div class="form-horizontal">
             <h4>linea_pedido_c</h4>
             <hr />
@@ -27,7 +27,7 @@
                     @Html.ValidationMessageFor(model => model.Linea)
                 </div>
             </div>
-    
+
             <div class="form-group">
                 @Html.LabelFor(model => model.Num_ped, "Num_ped", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -35,7 +35,7 @@
                     @Html.ValidationMessageFor(model => model.Num_ped)
                 </div>
             </div>
-    
+
             <div class="form-group">
                 @Html.LabelFor(model => model.Cantidad, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -43,7 +43,7 @@
                     @Html.ValidationMessageFor(model => model.Cantidad)
                 </div>
             </div>
-    
+
             <div class="form-group">
                 @Html.LabelFor(model => model.Total, htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -51,7 +51,7 @@
                     @Html.ValidationMessageFor(model => model.Total)
                 </div>
             </div>
-    
+
             <div class="form-group">
                 @Html.LabelFor(model => model.idArticulo, "idArticulo", htmlAttributes: new { @class = "control-label col-md-2" })
                 <div class="col-md-10">
@@ -59,17 +59,21 @@
                     @Html.ValidationMessageFor(model => model.idArticulo)
                 </div>
             </div>
-    
+
             <div class="form-group">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Create" class="btn btn-default" />
+                <div class="col-md-12">
+                    <div class="Button btn-group" style="float:right">
+                        <input id="btnSubmit" type="submit" value="Guardar" class="btn btn-sm bg-olive" />
+                        @Html.ActionLink("Volver", "Index", "", new { @class = "btn btn-sm bg-navy" })
+                    </div>
+
                 </div>
             </div>
         </div>
     }
-    
-    <div>
-        @Html.ActionLink("Back to List", "Index")
-    </div>
+
+    @*<div>
+            @Html.ActionLink("Back to List", "Index")
+        </div>*@
 </body>
 </html>

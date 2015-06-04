@@ -112,17 +112,21 @@
         </div>
 
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+            <div class="col-md-12">
+                <div class="Button btn-group" style="float:right">
+                    <input id="btnSubmit" type="submit" value="Guardar" class="btn btn-sm bg-olive" />
+                    @Html.ActionLink("Volver", "Index", "", new { @class = "btn btn-sm bg-navy" })
+                </div>
+
             </div>
         </div>
     </div>
 }
 
-<div class="container-fluid">
+@*<div class="container-fluid">
     <div>
         @Html.ActionLink("Volver a la lista", "Index", "", new { @class = "btn btn-primary btn-sm" })
     </div>
-</div>
+</div>*@
 
 

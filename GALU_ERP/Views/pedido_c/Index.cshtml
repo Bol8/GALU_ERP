@@ -27,7 +27,7 @@
                                 @using (Html.BeginForm("Create", "pedido_c"))
                                 {
                                     @Html.AntiForgeryToken()
-                                    
+
                                     <p style="padding: 1px 2px 1px 2px;"> </p>
 
                                     <div class="row">
@@ -67,22 +67,25 @@
 
                                         <div class="col-md-4">
                                             <small>Forma Pago:</small><br />
-                                            @Html.DropDownList("Forma_pago",new SelectList(ViewBag.Forma_pago,"Value","Text"), new { @Class = "form-control input-sm" })
+                                            @Html.DropDownList("Forma_pago", new SelectList(ViewBag.Forma_pago, "Value", "Text"), new { @Class = "form-control input-sm" })
                                         </div>
 
                                         <div class="col-md-4">
                                             <small>Tipo:</small><br>
                                             @Html.TextBox("Tipo", "Cliente", new { @Class = "form-control input-sm" })
                                         </div>
+                                       
+                                            <div class="col-md-12" style="text-align:right">
+                                                <div class="Button btn-group">
+                                                    <br />
+                                                    <input id="btnSubmit" type="submit" value="Guardar" class="btn btn-sm bg-olive" />
+                                                    @Html.ActionLink("Volver", "Index", "Home", null,new { @class = "btn btn-sm bg-navy" })
+                                                </div>
+                                            </div>
                                     </div>
 
-                                    <div class="row" style="text-align:right">
-                                        <div class="col-md-12">
-                                            <br />
-                                            <input id="btnSubmit" type="submit" value="Guardar" style="float:right" class="btn btn-sm btn-warning" />
-                                        </div>
-
-                                    </div>
+                                    
+                                      
                                 }
                             </div>
 
@@ -152,7 +155,7 @@
                             </td>
                             <td>
                                 <div class="btn-group-sm">
-                                    @Html.ActionLink(" ", "Index","linea_pedido_c", new { id = item.Num_ped }, new { @Class = "btn btn-default btn-sm glyphicon glyphicon-plus", title = "Añadir Lineas" })
+                                    @Html.ActionLink(" ", "Index", "linea_pedido_c", new { id = item.Num_ped }, new { @Class = "btn btn-default btn-sm glyphicon glyphicon-plus", title = "Añadir Lineas" })
                                     @Html.ActionLink(" ", "Details", new { id = item.Num_ped }, new { @Class = "btn btn-default btn-sm glyphicon glyphicon-eye-open", title = "Detalle" })
                                     @Html.ActionLink(" ", "Edit", new { id = item.Num_ped }, new { @Class = "btn btn-default btn-sm glyphicon glyphicon-pencil", title = "Editar" })
                                     @Html.ActionLink(" ", "Delete", new { id = item.Num_ped }, new { @Class = "btn btn-default btn-sm glyphicon glyphicon-trash", title = "Eliminar" })

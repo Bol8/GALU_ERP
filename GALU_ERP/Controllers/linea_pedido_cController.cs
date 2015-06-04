@@ -32,10 +32,12 @@ namespace GALU_ERP.Controllers
         // GET: linea_pedido_c
         public async Task<ActionResult> Index(int id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
+            //if (id == null)
+            //{
+            //    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            //}
+
+
             pedido_c pedido_c = await db.pedido_c.FindAsync(id);
             if (pedido_c == null)
             {
@@ -48,7 +50,16 @@ namespace GALU_ERP.Controllers
             vm.pedido = pedido_c;
             vm.lineasPedido = db.linea_pedido_c.Include(l => l.articulo).Include(l => l.pedido_c).Where(l => l.Num_ped == pedido_c.Num_ped);
 
-            ViewBag.idArticulo = new SelectList(db.articuloes, "idArt", "Nombre");
+            var st = db.articuloes.ToList().Select(
+                s => new
+                {
+                    idArt= s.idArt,
+                    Nombre = s.Nombre + "   "+s.Peso+"gr."
+                   
+                });
+
+
+            ViewBag.idArticulo = new SelectList(st, "idArt","Nombre");
             ViewBag.Num_ped = new SelectList(db.pedido_c, "Num_ped", "Destino");
 
            // var linea_pedido_c = db.linea_pedido_c.Include(l => l.articulo).Include(l => l.pedido_c);
@@ -57,13 +68,11 @@ namespace GALU_ERP.Controllers
         }
 
         // GET: linea_pedido_c/Details/5
-        public async Task<ActionResult> Details(int? id)
+        public async Task<ActionResult> Details(int? linea,int num_ped)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            linea_pedido_c linea_pedido_c = await db.linea_pedido_c.FindAsync(id);
+           
+            linea_pedido_c linea_pedido_c = await db.linea_pedido_c.FindAsync(linea,num_ped);
+
             if (linea_pedido_c == null)
             {
                 return HttpNotFound();
@@ -123,13 +132,11 @@ namespace GALU_ERP.Controllers
         }
 
         // GET: linea_pedido_c/Edit/5
-        public async Task<ActionResult> Edit(int? id)
+        public async Task<ActionResult> Edit(int? linea, int num_ped)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            linea_pedido_c linea_pedido_c = await db.linea_pedido_c.FindAsync(id);
+           
+            linea_pedido_c linea_pedido_c = await db.linea_pedido_c.FindAsync(linea,num_ped);
+
             if (linea_pedido_c == null)
             {
                 return HttpNotFound();
@@ -158,26 +165,32 @@ namespace GALU_ERP.Controllers
         }
 
         // GET: linea_pedido_c/Delete/5
-        public async Task<ActionResult> Delete(int? id)
+        public async Task<ActionResult> Delete(int? linea, int num_ped)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            linea_pedido_c linea_pedido_c = await db.linea_pedido_c.FindAsync(id);
+            
+            linea_pedido_c linea_pedido_c = await db.linea_pedido_c.FindAsync(linea,num_ped);
+
             if (linea_pedido_c == null)
             {
                 return HttpNotFound();
+            
             }
-            return View(linea_pedido_c);
+
+            db.linea_pedido_c.Remove(linea_pedido_c);
+            await db.SaveChangesAsync();
+
+            var i = linea_pedido_c.Num_ped;
+
+            return RedirectToAction("Index", new { id = i });
         }
 
         // POST: linea_pedido_c/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> DeleteConfirmed(int id)
+        public async Task<ActionResult> DeleteConfirmed(int? linea, int num_ped)
         {
-            linea_pedido_c linea_pedido_c = await db.linea_pedido_c.FindAsync(id);
+            linea_pedido_c linea_pedido_c = await db.linea_pedido_c.FindAsync(linea,num_ped);
+
             db.linea_pedido_c.Remove(linea_pedido_c);
             await db.SaveChangesAsync();
             return RedirectToAction("Index");

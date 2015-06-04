@@ -12,6 +12,9 @@
                         Producto
                     </th>
                     <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 90px;">
+                        Peso
+                    </th>
+                    <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 90px;">
                         Precio
                     </th>
                     <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 50px;">
@@ -42,6 +45,9 @@
                             @Html.DisplayFor(modelItem => item.articulo.Nombre)
                         </td>
                         <td>
+                            @Html.DisplayFor(modelItem => item.articulo.Peso) gr.
+                        </td>
+                        <td>
                             @Html.DisplayFor(modelItem => item.articulo.Precio)
                         </td>
                         <td>
@@ -52,29 +58,26 @@
                         </td>
                         <td>
                             <div class="btn-group-sm">
-                                @Html.ActionLink(" ", "Edit", new { id = item.Num_ped }, new { @Class = "btn btn-default btn-sm glyphicon glyphicon-plus", title = "Añadir Lineas" })
-                                @Html.ActionLink(" ", "Details", new { id = item.Num_ped }, new { @Class = "btn btn-default btn-sm glyphicon glyphicon-eye-open", title = "Detalle" })
-                                @Html.ActionLink(" ", "Edit", new { id = item.Num_ped }, new { @Class = "btn btn-default btn-sm glyphicon glyphicon-pencil", title = "Editar" })
-                                @Html.ActionLink(" ", "Delete", new { id = item.Num_ped }, new { @Class = "btn btn-default btn-sm glyphicon glyphicon-trash", title = "Eliminar" })
+                                @Html.ActionLink(" ", "Edit", new { linea = item.Linea, num_ped = item.Num_ped }, new { @Class = "btn btn-default btn-sm glyphicon glyphicon-pencil", title = "Editar" })
+                                @Html.ActionLink(" ", "Delete", new { linea = item.Linea, num_ped = item.Num_ped }, new { @Class = "btn btn-default btn-sm glyphicon glyphicon-trash", title = "Eliminar" })
                             </div>
                         </td>
                     </tr>
                 }
             </tbody>
 
-            @*<tfoot style="background-color:#54CC96">
+            <tfoot style="background-color:#333549; color:white" >
                     <tr>
-                        <th rowspan="1" colspan="1">Código</th>
-                        <th rowspan="1" colspan="1">Nombre</th>
-                        <th rowspan="1" colspan="1">Peso</th>
-                        <th rowspan="1" colspan="1">Tipo</th>
-                        <th rowspan="1" colspan="1">Estado</th>
-                        <th rowspan="1" colspan="1">Precio</th>
-                        <th rowspan="1" colspan="1">Origen</th>
-                        <th rowspan="1" colspan="1">Gestión</th>
+                        <th rowspan="1" colspan="1"></th>
+                        <th rowspan="1" colspan="1"></th>
+                        <th rowspan="1" colspan="1"></th>
+                        <th rowspan="1" colspan="1"></th>
+                        <th rowspan="1" colspan="1"></th>
+                        <th rowspan="1" colspan="2">250</th>
+                       
 
                     </tr>
-                </tfoot>*@
+                </tfoot>
         </table>
 
     </div>

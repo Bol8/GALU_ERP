@@ -33,34 +33,37 @@
                                     <div class="col-md-6">
                                         <dl class="dl-horizontal">
                                             <dt>
-                                                @Html.DisplayNameFor(model => pedido.cliente.Razon_Social)
+                                                @Html.DisplayNameFor(model => pedido.cliente.Razon_Social):
                                             </dt>
                                             <dd>
                                                 @Html.DisplayFor(model => pedido.cliente.Razon_Social)
                                             </dd>
                                             <dt>
-                                                @Html.DisplayNameFor(model => pedido.Destino)
+                                                @Html.DisplayNameFor(model => pedido.Destino):
                                             </dt>
 
                                             <dd>
                                                 @Html.DisplayFor(model => pedido.Destino)
                                             </dd>
                                             <dt>
-                                                @Html.DisplayNameFor(model => pedido.estado_ped.NombreE)
+                                                Estado:
                                             </dt>
 
                                             <dd>
-                                                @Html.DisplayFor(model => pedido.Estado)
+                                                @Html.DisplayFor(model => pedido.estado_ped.NombreE)
                                             </dd>
                                             <dt>
-                                                @Html.DisplayNameFor(model => pedido.Fecha_A)
+                                                @Html.DisplayNameFor(model => pedido.Fecha_A):
                                             </dt>
 
                                             <dd>
-                                                @Html.DisplayFor(model => pedido.Fecha_A)
+                                                @{
+                                                    var date = pedido.Fecha_A.ToShortDateString();
+                                                }
+                                                @Html.DisplayFor(model => date)
                                             </dd>
                                             <dt>
-                                                Estado@Html.DisplayNameFor(model => pedido.forma_pago1.Tipo)
+                                                Pago:  @* @Html.DisplayNameFor(model => pedido.forma_pago1.Tipo)*@
                                             </dt>
 
                                             <dd>
@@ -71,25 +74,29 @@
 
                                     </div>
 
-                                    @using (Html.BeginForm("Create", "linea_pedido_c", new { Num_ped = pedido.Num_ped}))
+                                    @using (Html.BeginForm("Create", "linea_pedido_c", new { Num_ped = pedido.Num_ped }))
                                     {
                                         @Html.AntiForgeryToken()
 
                                         <div class="col-md-6">
-                                            <div class="col-md-6">
+                                            <div class="col-md-8">
                                                 <small>Producto:</small><br>
                                                 @Html.DropDownList("idArticulo", new SelectList(ViewBag.idArticulo, "Value", "Text"), new { @Class = "form-control input-sm" })
                                                 <br />
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-4">
                                                 <small>Cantidad:</small><br />
                                                 @Html.TextBox("Cantidad", String.Empty, new { @Class = "form-control input-sm" })
-                                                <br />
                                             </div>
-                                            <div class="col-md-12" style="float:right">
-                                                <br />
-                                                <input id="btnSubmit" type="submit" value="Guardar" style="float:right" class="btn btn-sm btn-warning" />
-                                            </div>
+                                         
+                                            <div class="col-md-12">
+                                                <div class="Button btn-group" style="float:right">
+                                                    <br />
+                                                    <input id="btnSubmit" type="submit" value="Guardar" class="btn btn-sm bg-olive" />
+                                                    @Html.ActionLink("Volver", "Index", "pedido_c",null, new { @class = "btn btn-sm bg-navy" })
+                                                </div>
+                                            </div class="col-md-12">
+
                                         </div>
                                     }
                                 </div>
@@ -105,7 +112,7 @@
 </section>
 <section>
 
-   @Html.Partial("~/Views/pedido_c/lineaPedido.cshtml",lineas)
+    @Html.Partial("~/Views/pedido_c/lineaPedido.cshtml", lineas)
 
 </section>
 
