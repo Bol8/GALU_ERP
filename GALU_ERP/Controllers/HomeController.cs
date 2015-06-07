@@ -6,12 +6,14 @@ using System.Web.Mvc;
 
 namespace GALU_ERP.Controllers
 {
+
+    [Authorize]
     public class HomeController : Controller
     {
         public ActionResult Index()
         {
-            ViewBag.Title="My Bootstrap Site";
-return View();
+            ViewBag.Title = "My Bootstrap Site";
+            return View();
         }
     }
 }

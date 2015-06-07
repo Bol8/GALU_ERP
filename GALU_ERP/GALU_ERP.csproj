@@ -179,6 +179,7 @@
     <Compile Include="Collections\cProducto.cs" />
     <Compile Include="Collections\cProveedores.cs" />
     <Compile Include="Context\ApplicationDataContext.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CalendarController.cs" />
     <Compile Include="Controllers\Clientes\clientesController.cs" />
     <Compile Include="Controllers\Contactos\contactosController.cs" />
@@ -188,6 +189,7 @@
     <Compile Include="Controllers\PedidosP\pedido_pController.cs" />
     <Compile Include="Controllers\Productos\articuloesController.cs" />
     <Compile Include="Controllers\Proveedores\proveedoresController.cs" />
+    <Compile Include="Controllers\Users\UserController.cs" />
     <Compile Include="Entidades\albaran.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -261,8 +263,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Account\Login.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Productos\ProductMod.cs" />
+    <Compile Include="Models\User\UserModel.cs" />
     <Compile Include="Models\ViewModel\ViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -1035,6 +1039,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\User\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
@@ -1445,6 +1450,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\linea_pedido_c\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Account\Login.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_LayoutBasic.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
