@@ -242,11 +242,12 @@
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-left">
-                                    <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                    @*<a href="#" class="btn btn-default btn-flat">Profile</a>*@
+                                    @Html.ActionLink("Perfil", "Edit", "User", new { id = identity.UserId }, new { @class = "btn btn-default btn-flat" })
                                 </div>
                                 <div class="pull-right">
                                     @*<a href="#" class="btn btn-default btn-flat">Sign out</a>*@
-                                    @Html.ActionLink("LogOut", "LogOut", "Account",null, new { @class = "btn btn-default btn-flat" });
+                                    @Html.ActionLink("LogOut", "LogOut", "Account",null, new { @class = "btn btn-default btn-flat" })
                                 </div>
                             </li>
                         </ul>

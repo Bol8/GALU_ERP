@@ -63,7 +63,10 @@
                 @RenderBody()
             </section><!-- /.content -->
         </div><!-- /.content-wrapper -->
-
+        <aside>
+            @Html.Partial("_ControlSidebar")
+        </aside>
+      
         <footer class="main-footer">
             <div class="pull-right hidden-xs">
                 <b>Version</b> 2.0
@@ -72,7 +75,7 @@
         </footer>
 
         <!-- Control Sidebar -->
-        @Html.Partial("_ControlSidebar")
+      
         <!-- /.control-sidebar -->
         <!-- Add the sidebar's background. This div must be placed
          immediately after the control sidebar -->

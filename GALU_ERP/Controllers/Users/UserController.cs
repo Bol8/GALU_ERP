@@ -4,11 +4,16 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using GALU_ERP.Models.User;
+using System.Net;
+using GALU_ERP.Entidades;
+using System.Threading.Tasks;
 
 namespace GALU_ERP.Controllers.Users
 {
     public class UserController : Controller
     {
+        private GaluEntities db = new GaluEntities();
+
         // GET: User
         public ActionResult Index()
         {
@@ -53,9 +58,21 @@ namespace GALU_ERP.Controllers.Users
         }
 
         // GET: User/Edit/5
-        public ActionResult Edit(int id)
+        public async Task<ActionResult> Edit(int id)
         {
-            return View();
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            usuario user = await db.usuarios.FindAsync(id);
+
+            if (user == null)
+            {
+                return HttpNotFound();
+            }
+
+
+            return View(user);
         }
 
         // POST: User/Edit/5
