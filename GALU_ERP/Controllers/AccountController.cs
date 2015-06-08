@@ -50,6 +50,8 @@ namespace GALU_ERP.Controllers
 
                 }
 
+                ModelState.AddModelError("", "Usuario o contraseña incorrectos");
+
             }
 
 
@@ -86,6 +88,17 @@ namespace GALU_ERP.Controllers
 
             return View(model);
         }
+
+
+
+      //  [HttpPost]
+        [AllowAnonymous]
+        public ActionResult LogOut()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Index", "Home", null);
+        }
+
 
     }
 }

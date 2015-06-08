@@ -30,7 +30,7 @@ namespace GALU_ERP.Models.User
         [Required]
         [StringLength(50)]
         [EmailAddress]
-        [Display(Name = "Correo electrónico")]
+        [Display(Name = "Mail")]
         public string email { get; set; }
 
         [Required]

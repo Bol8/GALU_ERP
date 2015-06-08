@@ -26,6 +26,10 @@ namespace GALU_ERP.Entidades
 
         public virtual role role { get; set; }
 
+        public usuario()
+        {
+
+        }
 
         public usuario(UserModel model)
         {

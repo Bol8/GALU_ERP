@@ -4,12 +4,39 @@ using System.Linq;
 using System.Web;
 using System.Web.Security;
 using GALU_ERP.Entidades;
+using System.Collections.Specialized;
 using GALU_ERP.Security;
+using System.Web.Caching;
 
 namespace GALU_ERP.Security
 {
     public class CustomMembershipProvider:MembershipProvider
     {
+
+        #region Properties
+
+        private int _cacheTimeoutInMinutes = 120;
+
+        #endregion
+
+        /// <summary>
+        /// Inicializa valores del web.config.
+        /// </summary>
+        /// <param name="name">Nombre del proveedor.</param>
+        /// <param name="config">Colección de pares nombre/valor que representan los atributos específicos en la configuración de este proveedor.</param>
+        public override void Initialize(string name, NameValueCollection config)
+        {
+            // Set Properties
+            int val;
+            if (!string.IsNullOrEmpty(config["cacheTimeoutInMinutes"]) && Int32.TryParse(config["cacheTimeoutInMinutes"], out val))
+            {
+                _cacheTimeoutInMinutes = val;
+            }
+
+            // Call base method
+            base.Initialize(name, config);
+        }
+
 
         public override string ApplicationName
         {
@@ -80,7 +107,33 @@ namespace GALU_ERP.Security
 
         public override MembershipUser GetUser(string username, bool userIsOnline)
         {
-            throw new NotImplementedException();
+            var cacheKey = string.Format("UserData_{0}", username);
+
+            if (HttpRuntime.Cache[cacheKey] != null)
+            {
+                return (CustomMembershipUser)HttpRuntime.Cache[cacheKey];
+            }
+            else
+            {
+                using (var db = new GaluEntities())
+                {
+                    var query = (from a in db.usuarios
+                                 where string.Compare(a.UserName, username, StringComparison.OrdinalIgnoreCase) == 0
+                                 select a).FirstOrDefault();
+
+                    if (query == null)
+                    {
+                        return null;
+                    }
+                    else
+                    {
+                        var membershipUser = new CustomMembershipUser(query);
+                        HttpRuntime.Cache.Insert(cacheKey, membershipUser, null, DateTime.Now.AddMinutes(_cacheTimeoutInMinutes), Cache.NoSlidingExpiration);
+                        return membershipUser;
+                    }
+                }
+            }
+            
         }
 
         public override MembershipUser GetUser(object providerUserKey, bool userIsOnline)
@@ -148,26 +201,34 @@ namespace GALU_ERP.Security
             throw new NotImplementedException();
         }
 
-        public static   bool ValidateUser(string username, string password)
+        public override  bool ValidateUser(string username, string password)
         {
 
             if (!string.IsNullOrEmpty(username) && !string.IsNullOrEmpty(password))
             {
-                using (var db = new GaluEntities())
+                try
                 {
-
-                    password = new Cryptography().encodeData(password);
-
-                    var user = (from a in db.usuarios
-                                 where a.UserName == username && a.Password == password
-                                 select a).FirstOrDefault();
-
-
-                    if (user != null)
+                    using (var db = new GaluEntities())
                     {
-                        if (user.Password.Equals(password)) return true;
-                    }
 
+                        //password = new Cryptography().encodeData(password);
+
+                        var user = (from a in db.usuarios
+                                    where a.UserName == username && a.Password == password
+                                    select a).FirstOrDefault();
+
+
+                        if (user != null)
+                        {
+                            if (user.Password.Trim().Equals(password)) return true;
+                            
+                        }
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    return false;
                 }
             }
 

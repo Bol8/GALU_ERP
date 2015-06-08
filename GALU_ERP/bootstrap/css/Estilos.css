@@ -45,6 +45,10 @@
     margin-top: 5px;
 }
 
+.validation-summary-errors {
+    color: #b94a48;
+}
+
 
 .input-validation-error {
     border: 1px solid #ff0000 !important;

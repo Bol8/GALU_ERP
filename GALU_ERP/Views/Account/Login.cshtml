@@ -14,7 +14,9 @@
                 @Html.AntiForgeryToken()
                 <h2>Indique sus datos de inicio de sesión.</h2>
                 <hr />
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                
+                //@Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                
                 <div class="form-group">
                     @Html.LabelFor(m => m.userName, new { @class = "col-md-3 control-label" })
                     <div class="col-md-6">
@@ -29,6 +31,9 @@
                         @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
                     </div>
                 </div>
+                
+                 @Html.ValidationSummary(true, "", new { @class = "col-md-9 alert alert-danger" })
+                
                 <div class="form-group">
                     <div class="col-md-offset-2 col-md-10">
                         <div class="checkbox">
