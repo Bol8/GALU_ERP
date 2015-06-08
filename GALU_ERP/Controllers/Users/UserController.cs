@@ -7,6 +7,8 @@ using GALU_ERP.Models.User;
 using System.Net;
 using GALU_ERP.Entidades;
 using System.Threading.Tasks;
+using System.Data.Entity;
+using System.Web.Security;
 
 namespace GALU_ERP.Controllers.Users
 {
@@ -75,20 +77,24 @@ namespace GALU_ERP.Controllers.Users
             return View(user);
         }
 
-        // POST: User/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> Edit ([Bind(Include="id,Nombre,apellidos,email,telefono,Rol,userName,Password,imagen")] usuario user )
         {
-            try
+            if (ModelState.IsValid)
             {
-                // TODO: Add update logic here
+                db.Entry(user).State = EntityState.Modified;
+                await db.SaveChangesAsync();
 
-                return RedirectToAction("Index");
+                FormsAuthentication.Initialize();
+                FormsAuthentication.SetAuthCookie(user.UserName, false);
+
+                return RedirectToAction("Index","Home");
             }
-            catch
-            {
-                return View();
-            }
+           // ViewBag.Estado = new SelectList(db.estados, "idESTADOS", "Nombre", cliente.Estado);
+           
+            
+            return View(user);
         }
 
         // GET: User/Delete/5

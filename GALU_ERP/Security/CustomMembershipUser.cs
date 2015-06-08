@@ -19,6 +19,7 @@ namespace GALU_ERP.Security
         public string userName { get; set; }
         public string email { get; set; }
         public string UserRoleName { get; set; }
+        public string imagen { get; set; }
 
         #endregion
 
@@ -45,6 +46,7 @@ namespace GALU_ERP.Security
             FirstName = user.Nombre;
             LastName = user.Apellidos;
             UserRoleName = user.role.Nombre;
+            imagen = user.Imagen;
 
         }
 

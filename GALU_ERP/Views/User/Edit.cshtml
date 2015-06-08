@@ -30,6 +30,7 @@
 
                                 @Html.ValidationSummary(true)
                                 @Html.HiddenFor(model => model.id)
+                                @Html.HiddenFor(model => model.Rol)
 
                                 <div class="col-md-7">
                                     <div class="form-group">
@@ -65,12 +66,12 @@
                                     </div>
 
                                     @*<div class="form-group">
-                @Html.LabelFor(model => model.Rol, "Rol", htmlAttributes: new { @class = "control-label col-md-2" })
-                <div class="col-md-10">
-                    @Html.DropDownList("Rol", String.Empty)
-                    @Html.ValidationMessageFor(model => model.Rol)
-                </div>
-            </div>*@k
+                                            @Html.LabelFor(model => model.Rol, "Rol", htmlAttributes: new { @class = "control-label col-md-2" })
+                                            <div class="col-md-10">
+                                                @Html.DropDownList("Rol", String.Empty)
+                                                @Html.ValidationMessageFor(model => model.Rol)
+                                            </div>
+                                        </div>*@
 
                                     <div class="form-group">
                                         @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -92,7 +93,7 @@
                                             <input class="foot_btn" type="file" name="Imagen" accept="image/*" />
                                         </div>
                                     </div>
-                                </div class="col-md-7">
+                                </div>
 
 
                                 <div class="form-group">
