@@ -9,6 +9,9 @@ using GALU_ERP.Entidades;
 using System.Threading.Tasks;
 using System.Data.Entity;
 using System.Web.Security;
+using System.Web.Optimization;
+using System.Web.Routing;
+using GALU_ERP.Security;
 
 namespace GALU_ERP.Controllers.Users
 {
@@ -86,8 +89,7 @@ namespace GALU_ERP.Controllers.Users
                 db.Entry(user).State = EntityState.Modified;
                 await db.SaveChangesAsync();
 
-                FormsAuthentication.Initialize();
-                FormsAuthentication.SetAuthCookie(user.UserName, false);
+               
 
                 return RedirectToAction("Index","Home");
             }
