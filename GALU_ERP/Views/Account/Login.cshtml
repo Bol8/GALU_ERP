@@ -17,14 +17,14 @@
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="form-group">
                     @Html.LabelFor(m => m.userName, new { @class = "col-md-3 control-label" })
-                    <div class="col-md-9">
+                    <div class="col-md-6">
                         @Html.TextBoxFor(m => m.userName, new { @class = "form-control" })
                         @Html.ValidationMessageFor(m => m.userName, "", new { @class = "text-danger" })
                     </div>
                 </div>
                 <div class="form-group">
                     @Html.LabelFor(m => m.Password, new { @class = "col-md-3 control-label" })
-                    <div class="col-md-9">
+                    <div class="col-md-6">
                         @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
                         @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
                     </div>
@@ -43,7 +43,7 @@
                     </div>
                 </div>
                 <p>
-                    @Html.ActionLink("Register as a new user", "Register")
+                    @Html.ActionLink("Registrar nuevo usuario", "Register","Account",null,null)
                 </p>
                // @Html.ValidationSummary(true, "", new { @class = "alert alert-danger alert-dismissable", style = "margin: 20px 20px 0px 20px;" })
                 @* Enable this once you have account confirmation enabled for password reset functionality

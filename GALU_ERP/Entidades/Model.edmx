@@ -146,8 +146,8 @@
           <Property Name="Linea" Type="int" Nullable="false" />
           <Property Name="Num_ped" Type="int" Nullable="false" />
           <Property Name="Cantidad" Type="int" Nullable="false" />
-          <Property Name="Total" Type="real" />
           <Property Name="idArticulo" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Total" Type="real" />
         </EntityType>
         <EntityType Name="linea_pedido_p">
           <Key>
@@ -204,6 +204,13 @@
           <Property Name="Mail" Type="nchar" MaxLength="45" />
           <Property Name="Imagen" Type="nvarchar" MaxLength="100" />
         </EntityType>
+        <EntityType Name="roles">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="nchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -221,6 +228,19 @@
           <Property Name="idTARIFA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nombre" Type="nvarchar" MaxLength="45" Nullable="false" />
           <Property Name="Porcent" Type="real" Nullable="false" />
+        </EntityType>
+        <EntityType Name="usuario">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="Apellidos" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="nchar" MaxLength="100" Nullable="false" />
+          <Property Name="Telefono" Type="nchar" MaxLength="12" />
+          <Property Name="Rol" Type="bigint" Nullable="false" />
+          <Property Name="UserName" Type="nchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nchar" MaxLength="20" Nullable="false" />
         </EntityType>
         <Association Name="articulo$FK_Estado_Art">
           <End Role="estados" Type="Self.estados" Multiplicity="1" />
@@ -243,6 +263,20 @@
             </Principal>
             <Dependent Role="cliente">
               <PropertyRef Name="Estado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_usuario_Roles">
+          <End Role="roles" Type="Self.roles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="usuario" Type="Self.usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="roles">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="usuario">
+              <PropertyRef Name="Rol" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -407,8 +441,10 @@
           <EntitySet Name="pedido_c" EntityType="Self.pedido_c" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="pedido_p" EntityType="Self.pedido_p" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="proveedor" EntityType="Self.proveedor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="roles" EntityType="Self.roles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tarifa" EntityType="Self.tarifa" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="usuario" EntityType="Self.usuario" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="articulo$FK_Estado_Art" Association="Self.articulo$FK_Estado_Art">
             <End Role="estados" EntitySet="estados" />
             <End Role="articulo" EntitySet="articulo" />
@@ -416,6 +452,10 @@
           <AssociationSet Name="cliente$FK_Estado_Cli" Association="Self.cliente$FK_Estado_Cli">
             <End Role="estados" EntitySet="estados" />
             <End Role="cliente" EntitySet="cliente" />
+          </AssociationSet>
+          <AssociationSet Name="FK_usuario_Roles" Association="Self.FK_usuario_Roles">
+            <End Role="roles" EntitySet="roles" />
+            <End Role="usuario" EntitySet="usuario" />
           </AssociationSet>
           <AssociationSet Name="linea_factura$FKN_factura" Association="Self.linea_factura$FKN_factura">
             <End Role="facturas" EntitySet="facturas" />
@@ -958,7 +998,49 @@
             <End Role="proveedor" EntitySet="proveedors" />
             <End Role="pedido_p" EntitySet="pedido_p" />
           </AssociationSet>
+          <EntitySet Name="roles" EntityType="GaluModel.role" />
+          <EntitySet Name="usuarios" EntityType="GaluModel.usuario" />
+          <AssociationSet Name="FK_usuario_Roles" Association="GaluModel.FK_usuario_Roles">
+            <End Role="role" EntitySet="roles" />
+            <End Role="usuario" EntitySet="usuarios" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="role">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="usuarios" Relationship="GaluModel.FK_usuario_Roles" FromRole="role" ToRole="usuario" />
+        </EntityType>
+        <EntityType Name="usuario">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Apellidos" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="Telefono" Type="String" MaxLength="12" FixedLength="true" Unicode="true" />
+          <Property Name="Rol" Type="Int64" Nullable="false" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="true" />
+          <NavigationProperty Name="role" Relationship="GaluModel.FK_usuario_Roles" FromRole="usuario" ToRole="role" />
+        </EntityType>
+        <Association Name="FK_usuario_Roles">
+          <End Type="GaluModel.role" Role="role" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="GaluModel.usuario" Role="usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="role">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="usuario">
+              <PropertyRef Name="Rol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1194,6 +1276,28 @@
                 <ScalarProperty Name="idTARIFA" ColumnName="idTARIFA" />
                 <ScalarProperty Name="Nombre" ColumnName="Nombre" />
                 <ScalarProperty Name="Porcent" ColumnName="Porcent" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="roles">
+            <EntityTypeMapping TypeName="GaluModel.role">
+              <MappingFragment StoreEntitySet="roles">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="usuarios">
+            <EntityTypeMapping TypeName="GaluModel.usuario">
+              <MappingFragment StoreEntitySet="usuario">
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="Rol" ColumnName="Rol" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

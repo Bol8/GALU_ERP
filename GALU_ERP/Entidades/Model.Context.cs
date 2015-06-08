@@ -43,5 +43,7 @@ namespace GALU_ERP.Entidades
         public virtual DbSet<proveedor> proveedors { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<tarifa> tarifas { get; set; }
+        public virtual DbSet<role> roles { get; set; }
+        public virtual DbSet<usuario> usuarios { get; set; }
     }
 }

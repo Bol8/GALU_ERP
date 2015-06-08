@@ -37,6 +37,9 @@
         <AssociationConnector Association="GaluModel.linea_pedido_c_FK_Num_ped_C" ManuallyRouted="false" />
         <AssociationConnector Association="GaluModel.linea_pedido_p_FK_Num_ped_P" ManuallyRouted="false" />
         <AssociationConnector Association="GaluModel.pedido_p_FK_Prov" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="GaluModel.role" Width="1.5" PointX="13.25" PointY="7.375" />
+        <EntityTypeShape EntityType="GaluModel.usuario" Width="1.5" PointX="15.875" PointY="6.875" />
+        <AssociationConnector Association="GaluModel.FK_usuario_Roles" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

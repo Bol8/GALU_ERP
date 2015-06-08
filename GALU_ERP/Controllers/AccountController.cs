@@ -5,6 +5,9 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
 using GALU_ERP.Models.Account;
+using GALU_ERP.Models.User;
+using GALU_ERP.Gestion;
+using GALU_ERP.Security;
 
 
 
@@ -52,5 +55,37 @@ namespace GALU_ERP.Controllers
 
             return View(model);
         }
+
+
+        // GET: /Account/Register
+        [AllowAnonymous]
+        public ActionResult Register()
+        {
+            return View("Register",null);
+        }
+
+
+
+
+        // POST: /Account/Register
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public ActionResult Register(UserModel model)
+        {
+
+            if (ModelState.IsValid)
+            {
+
+                if (gUsers.SaveUser(model))
+                {
+
+                    return RedirectToAction("Login","Account");
+                }
+            }
+
+            return View(model);
+        }
+
     }
 }
