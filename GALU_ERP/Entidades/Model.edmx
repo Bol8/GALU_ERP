@@ -241,6 +241,7 @@
           <Property Name="Rol" Type="bigint" Nullable="false" />
           <Property Name="UserName" Type="nchar" MaxLength="50" Nullable="false" />
           <Property Name="Password" Type="nchar" MaxLength="20" Nullable="false" />
+          <Property Name="Imagen" Type="nchar" MaxLength="100" />
         </EntityType>
         <Association Name="articulo$FK_Estado_Art">
           <End Role="estados" Type="Self.estados" Multiplicity="1" />
@@ -1026,6 +1027,7 @@
           <Property Name="UserName" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
           <Property Name="Password" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="true" />
           <NavigationProperty Name="role" Relationship="GaluModel.FK_usuario_Roles" FromRole="usuario" ToRole="role" />
+          <Property Name="Imagen" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
         </EntityType>
         <Association Name="FK_usuario_Roles">
           <End Type="GaluModel.role" Role="role" Multiplicity="1">
@@ -1290,6 +1292,7 @@
           <EntitySetMapping Name="usuarios">
             <EntityTypeMapping TypeName="GaluModel.usuario">
               <MappingFragment StoreEntitySet="usuario">
+                <ScalarProperty Name="Imagen" ColumnName="Imagen" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="UserName" ColumnName="UserName" />
                 <ScalarProperty Name="Rol" ColumnName="Rol" />

@@ -12,7 +12,7 @@ namespace GALU_ERP.Entidades
     using System;
     using System.Collections.Generic;
     using GALU_ERP.Models.User;
-
+    
     public partial class usuario
     {
         public long id { get; set; }
@@ -23,7 +23,8 @@ namespace GALU_ERP.Entidades
         public long Rol { get; set; }
         public string UserName { get; set; }
         public string Password { get; set; }
-
+        public string Imagen { get; set; }
+    
         public virtual role role { get; set; }
 
         public usuario()
@@ -40,11 +41,11 @@ namespace GALU_ERP.Entidades
             UserName = model.userName;
             Password = model.Password;
             Telefono = model.telefono;
+            Imagen = model.imagen;
             Rol = 1;
 
 
         }
-
 
 
     }

@@ -42,8 +42,8 @@ namespace GALU_ERP.Models.User
         [Required]
         [Display(Name = "Contraseña")]
         public string Password { get; set; }
-           
-       
+
+
 
 
         [Display(Name = "Teléfono")]
@@ -52,6 +52,9 @@ namespace GALU_ERP.Models.User
 
         [Display(Name = "Rol")]
         public string roles { get; set; }
+
+        [Display(Name = "Imagen")]
+        public string imagen { get; set; }
 
 
 

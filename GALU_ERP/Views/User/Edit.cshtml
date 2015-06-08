@@ -31,61 +31,68 @@
                                 @Html.ValidationSummary(true)
                                 @Html.HiddenFor(model => model.id)
 
-                                <div class="form-group">
-                                    @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "control-label col-md-2" })
-                                    <div class="col-md-6">
-                                        @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control" })
-                                        @Html.ValidationMessageFor(model => model.Nombre)
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    @Html.LabelFor(model => model.Apellidos, htmlAttributes: new { @class = "control-label col-md-2" })
-                                    <div class="col-md-6">
-                                        @Html.TextBoxFor(model => model.Apellidos, new { @class = "form-control" })
-                                        @Html.ValidationMessageFor(model => model.Apellidos)
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
-                                    <div class="col-md-6">
-                                        @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
-                                        @Html.ValidationMessageFor(model => model.Email)
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    @Html.LabelFor(model => model.Telefono, htmlAttributes: new { @class = "control-label col-md-2" })
-                                    <div class="col-md-3">
-                                        @Html.TextBoxFor(model => model.Telefono, new { @class = "form-control" })
-                                        @Html.ValidationMessageFor(model => model.Telefono)
-                                    </div>
-                                </div>
-
-                                @*<div class="form-group">
-                                        @Html.LabelFor(model => model.Rol, "Rol", htmlAttributes: new { @class = "control-label col-md-2" })
-                                        <div class="col-md-10">
-                                            @Html.DropDownList("Rol", String.Empty)
-                                            @Html.ValidationMessageFor(model => model.Rol)
+                                <div class="col-md-7">
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-8">
+                                            @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.Nombre)
                                         </div>
-                                    </div>*@
-
-                                <div class="form-group">
-                                    @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-2" })
-                                    <div class="col-md-3">
-                                        @Html.TextBoxFor(model => model.UserName, new { @class = "form-control" })
-                                        @Html.ValidationMessageFor(model => model.UserName)
                                     </div>
-                                </div>
 
-                                <div class="form-group">
-                                    @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
-                                    <div class="col-md-3">
-                                        @Html.TextBoxFor(model => model.Password, new { @class = "form-control" })
-                                        @Html.ValidationMessageFor(model => model.Password)
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Apellidos, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-8">
+                                            @Html.TextBoxFor(model => model.Apellidos, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.Apellidos)
+                                        </div>
                                     </div>
-                                </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-8">
+                                            @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.Email)
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Telefono, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-5">
+                                            @Html.TextBoxFor(model => model.Telefono, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.Telefono)
+                                        </div>
+                                    </div>
+
+                                    @*<div class="form-group">
+                @Html.LabelFor(model => model.Rol, "Rol", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("Rol", String.Empty)
+                    @Html.ValidationMessageFor(model => model.Rol)
+                </div>
+            </div>*@k
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-5">
+                                            @Html.TextBoxFor(model => model.UserName, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.UserName)
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-5">
+                                            @Html.TextBoxFor(model => model.Password, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.Password)
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-3">
+                                            <input class="foot_btn" type="file" name="Imagen" accept="image/*" />
+                                        </div>
+                                    </div>
+                                </div class="col-md-7">
 
 
                                 <div class="form-group">
