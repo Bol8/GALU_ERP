@@ -1,0 +1,87 @@
+﻿@model GALU_ERP.Entidades.pedido_c
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>pedido_c</h4>
+        <hr />
+        @Html.ValidationSummary(true)
+        <div class="form-group">
+            @Html.LabelFor(model => model.Fecha_A, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Fecha_A)
+                @Html.ValidationMessageFor(model => model.Fecha_A)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Total, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Total)
+                @Html.ValidationMessageFor(model => model.Total)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Destino, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Destino)
+                @Html.ValidationMessageFor(model => model.Destino)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Tipo, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Tipo)
+                @Html.ValidationMessageFor(model => model.Tipo)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Estado, "Estado", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("Estado", String.Empty)
+                @Html.ValidationMessageFor(model => model.Estado)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Forma_pago, "Forma_pago", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("Forma_pago", String.Empty)
+                @Html.ValidationMessageFor(model => model.Forma_pago)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.idCliente, "idCliente", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("idCliente", String.Empty)
+                @Html.ValidationMessageFor(model => model.idCliente)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-12">
+                <div class="Button btn-group" style="float:right">
+                    <input id="btnSubmit" type="submit" value="Guardar" class="btn btn-sm bg-olive" />
+                    @Html.ActionLink("Volver", "Index", "", new { @class = "btn btn-sm bg-navy" })
+                </div>
+
+            </div>
+        </div>
+    </div>
+}
+
+@*<div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>*@

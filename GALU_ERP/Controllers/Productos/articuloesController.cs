@@ -65,11 +65,22 @@ namespace GALU_ERP.Controllers.Productos
             if (ModelState.IsValid)
             {
                 db.articuloes.Add(articulo);
-                await db.SaveChangesAsync();
+                try
+                {
+                    await db.SaveChangesAsync();
+                }
+                catch (Exception)
+                {
+                    ViewBag.FailId = "Ese Código ya existe";
+                    ViewBag.Estado = new SelectList(db.estados, "idESTADOS", "Nombre", articulo.Estado);
+                    return View(articulo);
+                }
+               
                 return RedirectToAction("Index");
             }
 
             ViewBag.Estado = new SelectList(db.estados, "idESTADOS", "Nombre", articulo.Estado);
+
             return View(articulo);
         }
 
@@ -86,6 +97,7 @@ namespace GALU_ERP.Controllers.Productos
                 return HttpNotFound();
             }
             ViewBag.Estado = new SelectList(db.estados, "idESTADOS", "Nombre", articulo.Estado);
+
             return View(articulo);
         }
 
@@ -98,9 +110,19 @@ namespace GALU_ERP.Controllers.Productos
         {
             if (ModelState.IsValid)
             {
-                db.Entry(articulo).State = EntityState.Modified;
-                await db.SaveChangesAsync();
-                return RedirectToAction("Index");
+                try
+                {
+                    db.Entry(articulo).State = EntityState.Modified;
+                    await db.SaveChangesAsync();
+                    return RedirectToAction("Index");
+                }
+                catch
+                {
+                    ViewBag.FailId = "Ese Código ya existe";
+                    ViewBag.Estado = new SelectList(db.estados, "idESTADOS", "Nombre", articulo.Estado);
+                    return View(articulo);
+                }
+               
             }
             ViewBag.Estado = new SelectList(db.estados, "idESTADOS", "Nombre", articulo.Estado);
             return View(articulo);

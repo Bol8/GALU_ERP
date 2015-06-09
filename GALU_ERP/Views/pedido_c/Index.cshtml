@@ -1,0 +1,190 @@
+﻿@model IEnumerable<GALU_ERP.Entidades.pedido_c>
+
+<section class="content-header">
+    <h1>
+        Pedidos Clientes
+    </h1>
+    <ol class="breadcrumb">
+        <li><i class="fa fa-dashboard">&nbsp;</i>@Html.ActionLink("Dashboard", "Index", "Home", null, null)</li>
+        <li><a href="#">Pedidos Clientes</a></li>
+
+    </ol>
+</section>
+
+
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box box-success">
+                <div class="box-header">
+                    <h3 class="box-title">Crear Pedido</h3>
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                    <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+
+                                @using (Html.BeginForm("Create", "pedido_c"))
+                                {
+                                    @Html.AntiForgeryToken()
+
+                                    <p style="padding: 1px 2px 1px 2px;"> </p>
+
+                                    <div class="row">
+
+                                        <div class="col-md-4">
+                                            <small>Cliente:</small><br>
+                                            @Html.DropDownList("idCliente", new SelectList(ViewBag.idCliente, "Value", "Text"), new { @Class = "form-control input-sm" })
+                                            <br />
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <small>Destino:</small><br />
+                                            @Html.TextBox("Destino", String.Empty, new { @Class = "form-control input-sm" })
+                                            <br />
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <small>Estado:</small><br>
+                                            @Html.DropDownList("Estado", new SelectList(ViewBag.Estado, "Value", "Text"), new { @Class = "form-control input-sm" })
+                                            <br>
+                                        </div>
+
+
+                                    </div>
+
+                                    <div class="row">
+                                        <br />
+                                    </div>
+
+
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <small>Fecha Alta:</small><br>
+                                            @Html.TextBox("Fecha_A", DateTime.Now.ToShortDateString(), new { @Class = "form-control input-sm" })
+                                        </div>
+
+
+                                        <div class="col-md-4">
+                                            <small>Forma Pago:</small><br />
+                                            @Html.DropDownList("Forma_pago", new SelectList(ViewBag.Forma_pago, "Value", "Text"), new { @Class = "form-control input-sm" })
+                                        </div>
+
+                                        <div class="col-md-4">
+                                            <small>Tipo:</small><br>
+                                            @Html.TextBox("Tipo", "Cliente", new { @Class = "form-control input-sm" })
+                                        </div>
+                                       
+                                            <div class="col-md-12" style="text-align:right">
+                                                <div class="Button btn-group">
+                                                    <br />
+                                                    <input id="btnSubmit" type="submit" value="Guardar" class="btn btn-sm bg-olive" />
+                                                    @Html.ActionLink("Volver", "Index", "Home", null,new { @class = "btn btn-sm bg-navy" })
+                                                </div>
+                                            </div>
+                                    </div>
+
+                                    
+                                      
+                                }
+                            </div>
+
+                        </div>
+                    </div>
+                    <br />
+
+                </div><!-- /.box-body -->
+            </div><!-- /.box -->
+        </div><!-- /.col -->
+    </div><!-- /.row -->
+    <div class="row">
+        <div class="col-sm-12">
+            <table id="example1" class="table  table-striped dataTable" role="grid" aria-describedby="example1_info" style="width:100%">
+                <thead style="background-color:#54CC96">
+                    <tr role="row">
+                        <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 40px;">
+                            Linea
+                        </th>
+                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 90px;">
+                            Producto
+                        </th>
+                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 50px;">
+                            Cantidad
+                        </th>
+                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 84.0909091234207px;">
+                            Fecha_A
+                        </th>
+                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 60px;">
+                            Pago
+                        </th>
+                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 50px;">
+                            Tipo
+                        </th>
+                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 100px;">
+                            Lineas de Pedido
+                        </th>
+                    </tr>
+                </thead>
+
+
+                <tbody>
+                    @for (var i = 0; i < Model.Count(); i++)
+                    {
+
+                        var item = Model.ElementAt(i);
+                        var date = item.Fecha_A.ToShortDateString();
+
+                        <tr role="row" class="odd">
+                            <td>
+                                @Html.DisplayFor(modelItem => item.cliente.Razon_Social)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Destino)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.estado_ped.NombreE)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => date)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.forma_pago1.Tipo)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Tipo)
+                            </td>
+                            <td>
+                                <div class="btn-group-sm">
+                                    @Html.ActionLink(" ", "Index", "linea_pedido_c", new { id = item.Num_ped }, new { @Class = "btn btn-default btn-sm glyphicon glyphicon-plus", title = "Añadir Lineas" })
+                                    @Html.ActionLink(" ", "Details", new { id = item.Num_ped }, new { @Class = "btn btn-default btn-sm glyphicon glyphicon-eye-open", title = "Detalle" })
+                                    @Html.ActionLink(" ", "Edit", new { id = item.Num_ped }, new { @Class = "btn btn-default btn-sm glyphicon glyphicon-pencil", title = "Editar" })
+                                    @Html.ActionLink(" ", "Delete", new { id = item.Num_ped }, new { @Class = "btn btn-default btn-sm glyphicon glyphicon-trash", title = "Eliminar" })
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+
+                @*<tfoot style="background-color:#54CC96">
+                        <tr>
+                            <th rowspan="1" colspan="1">Código</th>
+                            <th rowspan="1" colspan="1">Nombre</th>
+                            <th rowspan="1" colspan="1">Peso</th>
+                            <th rowspan="1" colspan="1">Tipo</th>
+                            <th rowspan="1" colspan="1">Estado</th>
+                            <th rowspan="1" colspan="1">Precio</th>
+                            <th rowspan="1" colspan="1">Origen</th>
+                            <th rowspan="1" colspan="1">Gestión</th>
+
+                        </tr>
+                    </tfoot>*@
+            </table>
+
+        </div>
+
+
+
+
+
+    </div>
+</section>

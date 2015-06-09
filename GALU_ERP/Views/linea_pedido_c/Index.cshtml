@@ -1,0 +1,118 @@
+﻿@model GALU_ERP.Models.ViewModel.ViewModel
+
+
+@{
+    var pedido = Model.pedido;
+    var lineas = Model.lineasPedido;
+}
+
+<section class="content-header">
+    <h1>
+        Lineas de Pedido
+    </h1>
+    <ol class="breadcrumb">
+        <li><i class="fa fa-dashboard">&nbsp;</i>@Html.ActionLink("Dashboard", "Index", "Home", null, null)</li>
+        <li><a href="#">Pedidos Clientes</a></li>
+
+    </ol>
+</section>
+
+
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box box-success">
+                <div class="box-header">
+                    <h3 class="box-title">Crear lineas de Pedido</h3>
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                    <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <dl class="dl-horizontal">
+                                            <dt>
+                                                @Html.DisplayNameFor(model => pedido.cliente.Razon_Social):
+                                            </dt>
+                                            <dd>
+                                                @Html.DisplayFor(model => pedido.cliente.Razon_Social)
+                                            </dd>
+                                            <dt>
+                                                @Html.DisplayNameFor(model => pedido.Destino):
+                                            </dt>
+
+                                            <dd>
+                                                @Html.DisplayFor(model => pedido.Destino)
+                                            </dd>
+                                            <dt>
+                                                Estado:
+                                            </dt>
+
+                                            <dd>
+                                                @Html.DisplayFor(model => pedido.estado_ped.NombreE)
+                                            </dd>
+                                            <dt>
+                                                @Html.DisplayNameFor(model => pedido.Fecha_A):
+                                            </dt>
+
+                                            <dd>
+                                                @{
+                                                    var date = pedido.Fecha_A.ToShortDateString();
+                                                }
+                                                @Html.DisplayFor(model => date)
+                                            </dd>
+                                            <dt>
+                                                Pago:  @* @Html.DisplayNameFor(model => pedido.forma_pago1.Tipo)*@
+                                            </dt>
+
+                                            <dd>
+                                                @Html.DisplayFor(model => pedido.forma_pago1.Tipo)
+                                            </dd>
+                                        </dl>
+
+
+                                    </div>
+
+                                    @using (Html.BeginForm("Create", "linea_pedido_c", new { Num_ped = pedido.Num_ped }))
+                                    {
+                                        @Html.AntiForgeryToken()
+
+                                        <div class="col-md-6">
+                                            <div class="col-md-8">
+                                                <small>Producto:</small><br>
+                                                @Html.DropDownList("idArticulo", new SelectList(ViewBag.idArticulo, "Value", "Text"), new { @Class = "form-control input-sm" })
+                                                <br />
+                                            </div>
+                                            <div class="col-md-4">
+                                                <small>Cantidad:</small><br />
+                                                @Html.TextBox("Cantidad", String.Empty, new { @Class = "form-control input-sm" })
+                                            </div>
+                                         
+                                            <div class="col-md-12">
+                                                <div class="Button btn-group" style="float:right">
+                                                    <br />
+                                                    <input id="btnSubmit" type="submit" value="Guardar" class="btn btn-sm bg-olive" />
+                                                    @Html.ActionLink("Volver", "Index", "pedido_c",null, new { @class = "btn btn-sm bg-navy" })
+                                                </div>
+                                            </div class="col-md-12">
+
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br />
+                </div><!-- /.box-body -->
+            </div>
+        </div><!-- /.col -->
+    </div><!-- /.row -->
+
+</section>
+<section>
+
+    @Html.Partial("~/Views/pedido_c/lineaPedido.cshtml", lineas)
+
+</section>
+

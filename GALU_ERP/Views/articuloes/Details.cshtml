@@ -1,90 +1,112 @@
 ﻿@model GALU_ERP.Entidades.articulo
 
-@{
-    ViewBag.Title = "Details";
-}
+<section class="content-header">
+    <h1>
+        Detalles
+    </h1>
+    <ol class="breadcrumb">
+        <li><i class="fa fa-dashboard">&nbsp;</i>@Html.ActionLink("Dashboard", "Index", "Home", null, null)</li>
+        <li>@Html.ActionLink("Productos", "Index", "articuloes", null, null)</li>
+        <li><a href="#">Detalles</a></li>
+    </ol>
+</section>
+<section class="content">
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box box-success">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Detalle Producto</h3>
+                </div>
+                <div class="box-body">
 
-<h2>Details</h2>
+                    <div>
+                        <dl class="dl-horizontal">
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Nombre):
+                            </dt>
 
-<div>
-    <h4>articulo</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Nombre)
-        </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.Nombre)
+                            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Nombre)
-        </dd>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Peso):
+                            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Peso)
-        </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.Peso) gr.
+                            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Peso)
-        </dd>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Tipo):
+                            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Tipo)
-        </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.Tipo)
+                            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Tipo)
-        </dd>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Precio):
+                            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Precio)
-        </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.Precio) €
+                            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Precio)
-        </dd>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.IVA):
+                            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.IVA)
-        </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.IVA) %
+                            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.IVA)
-        </dd>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Descripcion):
+                            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Descripcion)
-        </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.Descripcion)
+                            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Descripcion)
-        </dd>
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Origen):
+                            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Origen)
-        </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.Origen)
+                            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Origen)
-        </dd>
+                            <dt>
+                               Estado:
+                            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Imagen)
-        </dt>
+                            <dd>
+                                @Html.DisplayFor(model => model.estado1.Nombre)
+                            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Imagen)
-        </dd>
+                        </dl>
+                    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.estado1.Nombre)
-        </dt>
+                    <br />
 
-        <dd>
-            @Html.DisplayFor(model => model.estado1.Nombre)
-        </dd>
+                    <div class="container-fluid">
+                        <div class="FooterDetails">
+                            <p>
+                                @Html.ActionLink("Editar", "Edit", new { id = Model.idArt }, new { @class = "btn btn-warning btn-sm" }) |
+                                @Html.ActionLink("Volver", "Index", "", new { @class = "btn btn-sm bg-navy" })
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.idArt }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+</section>
+
+
+
+
+
+
