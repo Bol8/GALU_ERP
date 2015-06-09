@@ -11,7 +11,9 @@ namespace GALU_ERP.Entidades
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
+
     public partial class articulo
     {
         public articulo()
@@ -19,18 +21,68 @@ namespace GALU_ERP.Entidades
             this.linea_pedido_c = new HashSet<linea_pedido_c>();
             this.linea_pedido_p = new HashSet<linea_pedido_p>();
         }
-    
+
+
+
+        [Required(ErrorMessage = "Campo obligatorio")]
+        [Display(Name = "Código")]
+        [StringLength(10, ErrorMessage = "Max. 10 caracteres")]
         public string idArt { get; set; }
+
+
+        [Required(ErrorMessage = "Campo obligatorio")]
+        [Display(Name = "Nombre")]
+        [StringLength(15, ErrorMessage = "Max. 15 caracteres")]
         public string Nombre { get; set; }
+
+
+        [Required(ErrorMessage = "Campo obligatorio")]
+        [Display(Name = "Peso")]
+        [Range(1, 9999, ErrorMessage = "Max. 4 dígitos")]
+        //[RegularExpression(@"^(d{4})$", ErrorMessage = "Solo dígitos")]
         public Nullable<float> Peso { get; set; }
+
+
+        [Required(ErrorMessage = "Campo obligatorio")]
+        [Display(Name = "Tipo")]
+        [StringLength(15, ErrorMessage = "Max. 15 caracteres")]
         public string Tipo { get; set; }
+
+
+        [Required(ErrorMessage = "Campo obligatorio")]
+        [Display(Name = "Estado")]
         public int Estado { get; set; }
+
+
+        [Required(ErrorMessage = "Campo obligatorio")]
+        [Display(Name = "Precio")]
+        [Range(1, 9999, ErrorMessage = "Max. 4 dígitos")]
         public float Precio { get; set; }
+
+
+        [Required(ErrorMessage = "Campo obligatorio")]
+        [Display(Name = "IVA")]
+        [Range(1, 99, ErrorMessage = "Max. 2 dígitos")]
         public float IVA { get; set; }
+
+
+        [Display(Name = "Descripción")]
+        [StringLength(200, ErrorMessage = "Max. 200 caracteres")]
         public string Descripcion { get; set; }
+
+
+        [Required(ErrorMessage = "Campo obligatorio")]
+        [Display(Name = "Origen")]
+        [StringLength(15, ErrorMessage = "Max. 15 caracteres")]
         public string Origen { get; set; }
+
+
+        [Display(Name = "Imagen")]
         public string Imagen { get; set; }
-    
+
+
+
+
         public virtual estado estado1 { get; set; }
         public virtual ICollection<linea_pedido_c> linea_pedido_c { get; set; }
         public virtual ICollection<linea_pedido_p> linea_pedido_p { get; set; }

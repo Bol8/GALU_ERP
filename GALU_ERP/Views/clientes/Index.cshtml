@@ -20,24 +20,27 @@
                 <div class="box-body">
                     <div id="example1_wrapper" class="dataTables_wrapper form-inline dt-bootstrap">
                         <div class="row">
-                            <div class="col-sm-6">
-                                @*<a href="#" class="btn btn-primary" role="button">Nuevo</a>*@
-                                @Html.ActionLink("Nuevo", "Create", "", new { @class = "btn btn-sm btn-warning" })
-                                @*<div class="dataTables_length" id="example1_length">
-                                        <label>
-                                            Muestra
-                                            <select name="example1_length" aria-controls="example1" class="form-control input-sm">
-                                                <option value="10">10</option>
-                                                <option value="25">25</option>
-                                                <option value="50">50</option>
-                                                <option value="100">100</option>
-                                            </select> primeros
-                                        </label>
-                                    </div>*@
-                            </div>
-                            <div class="col-sm-6">
-                                <div id="example1_filter" class="dataTables_filter">
-                                    <label style="float:right">Buscar:<input type="search" class="form-control input-sm" placeholder="" aria-controls="example1"></label>
+                            <div class="col-md-12">
+                                <div class="col-sm-6">
+                                    @*<a href="#" class="btn btn-primary" role="button">Nuevo</a>*@
+                                    <br />
+                                    @Html.ActionLink("Nuevo", "Create", "", new { @class = "btn btn-sm btn-warning" })
+                                    @*<div class="dataTables_length" id="example1_length">
+                                            <label>
+                                                Muestra
+                                                <select name="example1_length" aria-controls="example1" class="form-control input-sm">
+                                                    <option value="10">10</option>
+                                                    <option value="25">25</option>
+                                                    <option value="50">50</option>
+                                                    <option value="100">100</option>
+                                                </select> primeros
+                                            </label>
+                                        </div>*@
+                                </div>
+                                <div class="col-sm-6">
+                                    <div id="example1_filter" class="dataTables_filter">
+                                        <label style="float:right">Buscar:<input type="search" class="form-control input-sm" placeholder="" aria-controls="example1"></label>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -62,9 +65,9 @@
                                             <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 100px;">
                                                 Tipo
                                             </th>
-                                            <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 80px;">
-                                                Estado
-                                            </th>
+                                            @*<th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 80px;">
+                                                    Estado
+                                                </th>*@
                                             <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 84.0909091234207px;">
                                                 Telefono
                                             </th>
@@ -87,7 +90,7 @@
                                                     @Html.DisplayFor(modelItem => item.Razon_Social)
                                                 </td>
                                                 <td>
-                                                    @Html.DisplayFor(modelItem => item.Domicilio) 
+                                                    @Html.DisplayFor(modelItem => item.Domicilio)
                                                 </td>
                                                 <td>
                                                     @Html.DisplayFor(modelItem => item.Poblacion)
@@ -95,9 +98,9 @@
                                                 <td>
                                                     @Html.DisplayFor(modelItem => item.Tipo)
                                                 </td>
-                                                <td>
-                                                    @Html.DisplayFor(modelItem => item.estado1.Nombre)
-                                                </td>
+                                                @*<td>
+                                                        @Html.DisplayFor(modelItem => item.estado1.Nombre)
+                                                    </td>*@
                                                 <td>
                                                     @Html.DisplayFor(modelItem => item.Telefono)
                                                 </td>
@@ -115,18 +118,18 @@
                                         }
                                     </tbody>
                                     @*<tfoot>
-                                        <tr>
-                                            <th rowspan="1" colspan="1">Razón Social</th>
-                                            <th rowspan="1" colspan="1">Domicilio</th>
-                                            <th rowspan="1" colspan="1">Población</th>
-                                            <th rowspan="1" colspan="1">Tipo</th>
-                                            <th rowspan="1" colspan="1">Estado</th>
-                                            <th rowspan="1" colspan="1">Telefono</th>
-                                            <th rowspan="1" colspan="1">Mail</th>
-                                            <th rowspan="1" colspan="1">Gestión</th>
+                                            <tr>
+                                                <th rowspan="1" colspan="1">Razón Social</th>
+                                                <th rowspan="1" colspan="1">Domicilio</th>
+                                                <th rowspan="1" colspan="1">Población</th>
+                                                <th rowspan="1" colspan="1">Tipo</th>
+                                                <th rowspan="1" colspan="1">Estado</th>
+                                                <th rowspan="1" colspan="1">Telefono</th>
+                                                <th rowspan="1" colspan="1">Mail</th>
+                                                <th rowspan="1" colspan="1">Gestión</th>
 
-                                        </tr>
-                                    </tfoot>*@
+                                            </tr>
+                                        </tfoot>*@
                                 </table>
 
                             </div>
