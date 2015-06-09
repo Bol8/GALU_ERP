@@ -11,14 +11,54 @@ namespace GALU_ERP.Entidades
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+    using Validations;
+
     public partial class contacto
     {
+
+
+        [Required(ErrorMessage = "Campo obligatorio")]
+        [Display(Name = "Código")]
         public int idCONTACTO { get; set; }
+
+
+
+        [Required(ErrorMessage = "Campo obligatorio")]
+        [Display(Name = "Nombre")]
+        [StringLength(15, ErrorMessage = "Max. 15 caracteres")]
         public string Nombre { get; set; }
+
+
+
+
+
+        [Required(ErrorMessage = "Campo obligatorio")]
+        [Display(Name = "Origen")]
+        [StringLength(15, ErrorMessage = "Max. 15 caracteres")]
         public string Origen { get; set; }
+
+
+
+
+        [Display(Name = "Producto")]
+        [StringLength(15, ErrorMessage = "Max. 15 caracteres")]
         public string Producto { get; set; }
+
+
+
+
+        [Required(ErrorMessage = "Campo obligatorio")]
+        [Display(Name = "Teléfono")]
+        [StringLength(9, ErrorMessage = "Max. 9 dígitos")]
+        [Phone(ErrorMessage = "Número incorrecto")]
         public string Telefono { get; set; }
+
+
+
+        [Display(Name = "Mail")]
+        // [DataType(DataType.EmailAddress)]
+        [EmailAddress(ErrorMessage = "Mail incorrecto")]
         public string Mail { get; set; }
     }
 }

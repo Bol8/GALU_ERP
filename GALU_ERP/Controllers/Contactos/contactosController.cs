@@ -79,7 +79,7 @@ namespace GALU_ERP.Controllers.Contactos
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Edit([Bind(Include = "idCONTACTO,Nombre,Origen,Producto")] contacto contacto)
+        public async Task<ActionResult> Edit([Bind(Include = "idCONTACTO,Nombre,Origen,Producto,Telefono,Mail")] contacto contacto)
         {
             if (ModelState.IsValid)
             {

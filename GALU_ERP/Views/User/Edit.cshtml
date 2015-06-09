@@ -6,7 +6,6 @@
     </h1>
     <ol class="breadcrumb">
         <li><i class="fa fa-dashboard">&nbsp;</i>@Html.ActionLink("Dashboard", "Index", "Home", null, null)</li>
-        <li>@Html.ActionLink("Productos", "Index", "articuloes", null, null)</li>
         <li><a href="#">Editar</a></li>
     </ol>
 </section>
@@ -32,7 +31,7 @@
                                 @Html.HiddenFor(model => model.id)
                                 @Html.HiddenFor(model => model.Rol)
 
-                                <div class="col-md-7">
+                                <div class="col-md-6">
                                     <div class="form-group">
                                         @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "control-label col-md-2" })
                                         <div class="col-md-8">
@@ -88,27 +87,34 @@
                                             @Html.ValidationMessageFor(model => model.Password)
                                         </div>
                                     </div>
+                                   
+                                </div>
+
+                                <div class="col-md-6">
+                                    <img src="~/dist/img/@Model.Imagen" />
                                     <div class="form-group">
                                         <div class="col-md-3">
                                             <input class="foot_btn" type="file" name="Imagen" accept="image/*" />
                                         </div>
                                     </div>
+
                                 </div>
-
-
                                 <div class="form-group">
+                                    <div class="col-md-12">
+                                        <div class="Button btn-group" style="float:right">
+                                            <input id="btnSubmit" type="submit" value="Guardar" class="btn btn-sm bg-olive" />
+                                            @Html.ActionLink("Volver", "Index", "", new { @class = "btn btn-sm bg-navy" })
+                                        </div>
+
+                                    </div>
+                                </div>
+                                @*<div class="form-group">
                                     <div class="col-md-12">
                                         <label style="color:red">@ViewBag.FailId</label>
                                         @*<input class="foot_btn" type="file" name="Imagen" accept="image/*" />
-                                            @Html.ValidationMessageFor(model => model.Imagen)*@
+                                            @Html.ValidationMessageFor(model => model.Imagen)
                                     </div>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <div class="col-md-12">
-                                    <input id="btnSubmit" type="submit" value="Guardar" style="float:right" class="btn btn-sm bg-olive margin" />
-                                </div>
+                                </div>*@
                             </div>
 
                         </div>
@@ -116,11 +122,7 @@
 
                     }
 
-                    <div class="container-fluid">
-                        <div class="col-md-4">
-                            @Html.ActionLink("Volver", "Index", "", new { @class = "btn btn-sm bg-navy" })
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </div>
@@ -128,3 +130,8 @@
 
 
 </section>
+
+
+<script type="text/javascript">
+
+</script>
