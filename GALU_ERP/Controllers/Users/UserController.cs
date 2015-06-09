@@ -89,7 +89,7 @@ namespace GALU_ERP.Controllers.Users
                 db.Entry(user).State = EntityState.Modified;
                 await db.SaveChangesAsync();
 
-               
+                
 
                 return RedirectToAction("Index","Home");
             }

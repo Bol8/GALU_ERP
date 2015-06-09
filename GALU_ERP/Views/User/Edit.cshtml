@@ -91,10 +91,10 @@
                                 </div>
 
                                 <div class="col-md-6">
-                                    <img src="~/dist/img/@Model.Imagen" />
+                                    <img class="img" src="~/dist/img/@Model.Imagen"  style="max-width:150px;max-height:200px"/>
                                     <div class="form-group">
                                         <div class="col-md-3">
-                                            <input class="foot_btn" type="file" name="Imagen" accept="image/*" />
+                                            <input class="foot_btn" type="file" name="Imagen" accept="image/*" onchange="readUrl(this)" />
                                         </div>
                                     </div>
 
@@ -119,19 +119,32 @@
 
                         </div>
 
-
                     }
-
-
                 </div>
             </div>
         </div>
     </div>
 
+    <script>
+
+    function readUrl(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('.img')
+                    .attr('src', e.target.result)
+                    .width(150)
+                    .height(200);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    </script>
+
+
 
 </section>
 
-
-<script type="text/javascript">
-
-</script>

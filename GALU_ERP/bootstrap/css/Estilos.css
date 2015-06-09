@@ -8,10 +8,10 @@
 }
 
 .img {
-    /*min-width:225px;
-      min-height:210px;*/
-    background: url('../Imagenes/NUEV0 MEJILLON.jpg') no-repeat top left;
-    display: block;
+    max-width:150px;
+    max-height:200px;
+    /*background: url('../Imagenes/NUEV0 MEJILLON.jpg') no-repeat top left;
+    display: block;*/
 }
 
 .Tform{
