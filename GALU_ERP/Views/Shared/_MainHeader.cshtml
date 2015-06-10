@@ -219,14 +219,14 @@
 
                             <img src="~/dist/img/@identity.imagen.Trim()" class="user-image" alt="User Image" />
 
-                            <span class="hidden-xs">@identity.FirstName,@identity.LastName</span>
+                            <span class="hidden-xs">@identity.FirstName @identity.LastName</span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- User image -->
                             <li class="user-header">
                                 <img src="~/dist/img/@identity.imagen.Trim()" class="img-circle" alt="User Image" />
                                 <p>
-                                    Alexander Pierce - Web Developer
+                                    @identity.FirstName @identity.LastName
                                     <small>Member since Nov. 2012</small>
                                 </p>
                             </li>

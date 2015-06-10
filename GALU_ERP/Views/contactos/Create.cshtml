@@ -29,7 +29,7 @@
                                     @Html.LabelFor(model => model.Nombre, htmlAttributes: new { @class = "control-label" }):
                                     @Html.ValidationMessageFor(model => model.Nombre, null, new { @class = "required" })
                                     <br />
-                                    @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control", })
+                                    @Html.TextBoxFor(model => model.Nombre, new { @class = "form-control input-sm", })
                                 </div>
                             </div>
 
@@ -39,7 +39,7 @@
                                     @Html.ValidationMessageFor(model => model.Origen, null, new { @class = "required" })
                                     <br />
                                     @*@Html.EditorFor(model => model.Nombre)*@
-                                    @Html.TextBoxFor(model => model.Origen, new { @class = "form-control", })
+                                    @Html.TextBoxFor(model => model.Origen, new { @class = "form-control input-sm", })
                                 </div>
                             </div>
 
@@ -48,7 +48,7 @@
                                     @Html.LabelFor(model => model.Producto, htmlAttributes: new { @class = "control-label" }):
                                     @Html.ValidationMessageFor(model => model.Producto, null, new { @class = "required" })
                                     <br />
-                                    @Html.TextBoxFor(model => model.Producto, null, new { @class = "form-control" })
+                                    @Html.TextBoxFor(model => model.Producto, null, new { @class = "form-control input-sm" })
                                 </div>
                             </div>
 
@@ -60,7 +60,7 @@
                                     @Html.LabelFor(model => model.Telefono, htmlAttributes: new { @class = "control-label" }):
                                     @Html.ValidationMessageFor(model => model.Telefono, null, new { @class = "required" })
                                     <br />
-                                    @Html.TextBoxFor(model => model.Telefono, new { @class = "form-control", })
+                                    @Html.TextBoxFor(model => model.Telefono, new { @class = "form-control input-sm", })
                                 </div>
                             </div>
 
@@ -70,7 +70,7 @@
                                     @Html.ValidationMessageFor(model => model.Mail, null, new { @class = "required" })
                                     <br />
                                     @*@Html.EditorFor(model => model.Nombre)*@
-                                    @Html.TextBoxFor(model => model.Mail, new { @class = "form-control", })
+                                    @Html.TextBoxFor(model => model.Mail, new { @class = "form-control input-sm", })
                                 </div>
                             </div>
                         </div>

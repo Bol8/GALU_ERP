@@ -85,7 +85,9 @@
                                                 <br />
                                             </div>
                                             <div class="col-md-4">
-                                                <small>Cantidad:</small><br />
+                                                @Html.LabelFor(model => lineas.ElementAt(0).Cantidad, htmlAttributes: new { @class = "control-label" }):
+                                                @Html.ValidationMessageFor(model => lineas.ElementAt(0).Cantidad, null, new { @class = "required" })
+                                                @*<small>Cantidad:</small><br />*@
                                                 @Html.TextBox("Cantidad", String.Empty, new { @Class = "form-control input-sm" })
                                             </div>
                                          
