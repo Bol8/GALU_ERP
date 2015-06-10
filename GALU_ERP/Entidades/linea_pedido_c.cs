@@ -11,14 +11,42 @@ namespace GALU_ERP.Entidades
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class linea_pedido_c
     {
+
+        [Required(ErrorMessage = "Campo obligatorio")]
+        [Display(Name = "Linea")]
         public int Linea { get; set; }
+
+
+        [Required(ErrorMessage = "Campo obligatorio")]
+        [Display(Name = "Num.Pedido")]
         public int Num_ped { get; set; }
+
+
+
+        [Required(ErrorMessage = "Campo obligatorio")]
+        [Display(Name = "Cantidad")]
+        [Range(1, 9999, ErrorMessage = "Max. 4 dígitos")]
         public int Cantidad { get; set; }
+
+
+
+
         public Nullable<float> Total { get; set; }
+
+
+
+
+        [Required(ErrorMessage = "Campo obligatorio")]
+        [Display(Name = "Cod. Artículo")]
         public string idArticulo { get; set; }
+
+
+
+
     
         public virtual articulo articulo { get; set; }
         public virtual pedido_c pedido_c { get; set; }

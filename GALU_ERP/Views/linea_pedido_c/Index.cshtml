@@ -85,19 +85,20 @@
                                                 <br />
                                             </div>
                                             <div class="col-md-4">
-                                                @Html.LabelFor(model => lineas.ElementAt(0).Cantidad, htmlAttributes: new { @class = "control-label" }):
+                                                @*<small>@Html.LabelFor(model => lineas.ElementAt(0).Cantidad, htmlAttributes: new { @class = "control-label" }):</small>*@
+
+                                                <small>Cantidad:</small><br />
                                                 @Html.ValidationMessageFor(model => lineas.ElementAt(0).Cantidad, null, new { @class = "required" })
-                                                @*<small>Cantidad:</small><br />*@
                                                 @Html.TextBox("Cantidad", String.Empty, new { @Class = "form-control input-sm" })
                                             </div>
-                                         
+
                                             <div class="col-md-12">
                                                 <div class="Button btn-group" style="float:right">
                                                     <br />
                                                     <input id="btnSubmit" type="submit" value="Guardar" class="btn btn-sm bg-olive" />
-                                                    @Html.ActionLink("Volver", "Index", "pedido_c",null, new { @class = "btn btn-sm bg-navy" })
+                                                    @Html.ActionLink("Volver", "Index", "pedido_c", null, new { @class = "btn btn-sm bg-navy" })
                                                 </div>
-                                            </div class="col-md-12">
+                                            </div>
 
                                         </div>
                                     }

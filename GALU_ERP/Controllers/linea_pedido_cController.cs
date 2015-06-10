@@ -38,11 +38,22 @@ namespace GALU_ERP.Controllers
             //}
 
 
+            ViewModel vm = await getViewModel(id);
+            var st = getNameArticle();
+
+
+
+            ViewBag.idArticulo = new SelectList(st, "idArt", "Nombre");
+            ViewBag.Num_ped = new SelectList(db.pedido_c, "Num_ped", "Destino");
+
+           // var linea_pedido_c = db.linea_pedido_c.Include(l => l.articulo).Include(l => l.pedido_c);
+
+            return View(vm);
+        }
+
+        private async Task<ViewModel> getViewModel(int id)
+        {
             pedido_c pedido_c = await db.pedido_c.FindAsync(id);
-            if (pedido_c == null)
-            {
-                return HttpNotFound();
-            }
 
 
             ViewModel vm = new ViewModel();
@@ -50,21 +61,20 @@ namespace GALU_ERP.Controllers
             vm.pedido = pedido_c;
             vm.lineasPedido = db.linea_pedido_c.Include(l => l.articulo).Include(l => l.pedido_c).Where(l => l.Num_ped == pedido_c.Num_ped);
 
+            return vm;
+        }
+
+        private dynamic getNameArticle()
+        {
             var st = db.articuloes.ToList().Select(
-                s => new
-                {
-                    idArt= s.idArt,
-                    Nombre = s.Nombre + "   "+s.Peso+"gr."
-                   
-                });
+               s => new
+               {
+                   idArt = s.idArt,
+                   Nombre = s.Nombre + "   " + s.Peso + "gr."
 
+               });
 
-            ViewBag.idArticulo = new SelectList(st, "idArt","Nombre");
-            ViewBag.Num_ped = new SelectList(db.pedido_c, "Num_ped", "Destino");
-
-           // var linea_pedido_c = db.linea_pedido_c.Include(l => l.articulo).Include(l => l.pedido_c);
-
-            return View(vm);
+            return st;
         }
 
         // GET: linea_pedido_c/Details/5
@@ -123,12 +133,18 @@ namespace GALU_ERP.Controllers
             }
 
 
+            ViewModel vm = await getViewModel(linea_pedido_c.Num_ped);
 
-            ViewBag.idArticulo = new SelectList(db.articuloes, "idArt", "Nombre", linea_pedido_c.idArticulo);
-            ViewBag.Num_ped = new SelectList(db.pedido_c, "Num_ped", "Destino", linea_pedido_c.Num_ped);
+            var st = getNameArticle();
 
 
-            return View(linea_pedido_c);
+
+            ViewBag.idArticulo = new SelectList(st, "idArt", "Nombre");
+            ViewBag.Num_ped = new SelectList(db.pedido_c, "Num_ped", "Destino");
+
+          
+
+            return RedirectToAction("Index",vm);
         }
 
         // GET: linea_pedido_c/Edit/5
