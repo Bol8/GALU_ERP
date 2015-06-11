@@ -134,6 +134,7 @@ namespace GALU_ERP.Controllers
 
 
             ViewModel vm = await getViewModel(linea_pedido_c.Num_ped);
+            
 
             var st = getNameArticle();
 
@@ -142,9 +143,9 @@ namespace GALU_ERP.Controllers
             ViewBag.idArticulo = new SelectList(st, "idArt", "Nombre");
             ViewBag.Num_ped = new SelectList(db.pedido_c, "Num_ped", "Destino");
 
-          
 
-            return RedirectToAction("Index",vm);
+
+            return View("Index", vm);
         }
 
         // GET: linea_pedido_c/Edit/5

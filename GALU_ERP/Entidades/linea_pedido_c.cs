@@ -29,7 +29,7 @@ namespace GALU_ERP.Entidades
 
         [Required(ErrorMessage = "Campo obligatorio")]
         [Display(Name = "Cantidad")]
-        [Range(1, 9999, ErrorMessage = "Max. 4 dígitos")]
+        [Range(1, 9999, ErrorMessage = "No admite")]
         public int Cantidad { get; set; }
 
 

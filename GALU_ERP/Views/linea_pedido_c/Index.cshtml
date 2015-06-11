@@ -84,12 +84,16 @@
                                                 @Html.DropDownList("idArticulo", new SelectList(ViewBag.idArticulo, "Value", "Text"), new { @Class = "form-control input-sm" })
                                                 <br />
                                             </div>
+
                                             <div class="col-md-4">
                                                 @*<small>@Html.LabelFor(model => lineas.ElementAt(0).Cantidad, htmlAttributes: new { @class = "control-label" }):</small>*@
 
                                                 <small>Cantidad:</small><br />
-                                                @Html.ValidationMessageFor(model => lineas.ElementAt(0).Cantidad, null, new { @class = "required" })
+                                             
                                                 @Html.TextBox("Cantidad", String.Empty, new { @Class = "form-control input-sm" })
+                                                @*@Html.TextBoxFor(model => lineas.ElementAt(0).Cantidad,new { @class = "form-control input-sm", })*@
+                                                @Html.ValidationMessageFor(model => lineas.ElementAt(0).Cantidad, null, new { @class = "required" })
+                                               
                                             </div>
 
                                             <div class="col-md-12">
