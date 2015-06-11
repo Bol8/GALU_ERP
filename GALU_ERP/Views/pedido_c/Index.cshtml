@@ -61,7 +61,7 @@
                                     <div class="row">
                                         <div class="col-md-4">
                                             <small>Fecha Alta:</small><br>
-                                            @Html.TextBox("Fecha_A", DateTime.Now.ToShortDateString(), new { @Class = "form-control input-sm" })
+                                            @Html.TextBox("Fecha_A", DateTime.Now.ToShortDateString(), new { @Class = "form-control input-sm", @readonly = true })
                                         </div>
 
 
@@ -72,7 +72,7 @@
 
                                         <div class="col-md-4">
                                             <small>Tipo:</small><br>
-                                            @Html.TextBox("Tipo", "Cliente", new { @Class = "form-control input-sm", disabled="true" })
+                                            @Html.TextBox("Tipo", "Cliente", new { @Class = "form-control input-sm", @readonly = true })
                                         </div>
                                        
                                             <div class="col-md-12" style="text-align:right">
@@ -103,16 +103,16 @@
                 <thead style="background-color:#54CC96">
                     <tr role="row">
                         <th class="sorting_asc" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 40px;">
-                            Linea
+                            Cliente
                         </th>
                         <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 90px;">
-                            Producto
+                            Destino
                         </th>
                         <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 50px;">
-                            Cantidad
+                            Estado
                         </th>
                         <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 84.0909091234207px;">
-                            Fecha_A
+                            Alta
                         </th>
                         <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1" style="width: 60px;">
                             Pago

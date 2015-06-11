@@ -69,6 +69,13 @@
                                             <dd>
                                                 @Html.DisplayFor(model => pedido.forma_pago1.Tipo)
                                             </dd>
+                                            <dt>
+                                                Total:  @* @Html.DisplayNameFor(model => pedido.forma_pago1.Tipo)*@
+                                            </dt>
+
+                                            <dd>
+                                                @Html.DisplayFor(model => pedido.Total) €
+                                            </dd>
                                         </dl>
 
 

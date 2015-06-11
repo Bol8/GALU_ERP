@@ -29,12 +29,18 @@
                 </tr>
             </thead>
 
+            @{
+                var total = 0.0;
+            }
+
 
             <tbody>
                 @for (var i = 0; i < Model.Count(); i++)
                 {
 
                     var item = Model.ElementAt(i);
+                     total += (float)item.Total;
+
                     //var date = item.Fecha_A.ToShortDateString();
 
                     <tr role="row" class="odd">
@@ -48,7 +54,7 @@
                             @Html.DisplayFor(modelItem => item.articulo.Peso) gr.
                         </td>
                         <td>
-                            @Html.DisplayFor(modelItem => item.articulo.Precio)
+                            @Html.DisplayFor(modelItem => item.articulo.Precio) €
                         </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.Cantidad)
@@ -66,19 +72,21 @@
                 }
             </tbody>
 
-            <tfoot style="background-color:#333549; color:white" >
-                    <tr>
-                        <th rowspan="1" colspan="1"></th>
-                        <th rowspan="1" colspan="1"></th>
-                        <th rowspan="1" colspan="1"></th>
-                        <th rowspan="1" colspan="1"></th>
-                        <th rowspan="1" colspan="1"></th>
-                        <th rowspan="1" colspan="2">250</th>
-                       
+            <tfoot style="background-color:#333549; color:white">
+                <tr>
+                    <th rowspan="1" colspan="1"></th>
+                    <th rowspan="1" colspan="1"></th>
+                    <th rowspan="1" colspan="1"></th>
+                    <th rowspan="1" colspan="1"></th>
+                    <th rowspan="1" colspan="1"></th>
+                    <th rowspan="1" colspan="2">@total €</th>
 
-                    </tr>
-                </tfoot>
+
+                </tr>
+            </tfoot>
         </table>
+
+
 
     </div>
 </section>

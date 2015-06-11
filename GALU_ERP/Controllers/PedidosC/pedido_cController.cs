@@ -58,6 +58,7 @@ namespace GALU_ERP.Controllers.PedidosC
         {
             if (ModelState.IsValid)
             {
+                pedido_c.Total = 0;
                 db.pedido_c.Add(pedido_c);
                 await db.SaveChangesAsync();
                 return RedirectToAction("Index");
